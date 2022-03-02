@@ -1,5 +1,7 @@
 import React from 'react';
+import Products from './Products.js'
 import bg from '../assets/images/blank.png'
+
 
 const Home = () => {
   return (
@@ -8,13 +10,14 @@ const Home = () => {
           <img 
             src={bg} height="550" 
             className="card-img" alt="..." />
-          <div className="card-img-overlay">
+          <div className="card-img-overlay d-flex flex-column justify-content-center">
             <div className="container">
               <h5 className="card-title display-3 fw-bolder mb-0">New Arrivals</h5>
-              <p className="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+              <p className="card-text lead fs-2">FREE DELIVERY | FIND OUT MORE</p>
             </div>  
           </div>
         </div>
+        <Products />
     </div>
   )
 }
