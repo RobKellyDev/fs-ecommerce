@@ -13,11 +13,23 @@ const Products = () => {
   useEffect(() => {
     const getProducts = async () => {
       setLoading(true);
-      const response = await fetch(`${URL}/products`);
-      if (compMounted) {
+  
+      if (compMounted && data.length > 0) {
+        let response = await fetch(`${URL}/products`);
         setData(await response.clone().json());
         setFilter(await response.json());
         setLoading(false);
+        console.log('what is data ',data);
+        localStorage.setItem('products', JSON.stringify(data));
+      }
+      else {
+        let response = await localStorage.getItem('products');
+        setData(await JSON.parse(response));
+        setFilter(await JSON.parse(response));
+        setLoading(false);
+        console.log('what is local storage data ',data);
+
+
       }
       return () => {
         compMounted = false;

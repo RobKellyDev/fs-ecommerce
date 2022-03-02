@@ -8,9 +8,11 @@ const Product = () => {
   const [ loading, setLoading ] = useState(false);
 
   useEffect(() => {
+
     const getProduct = async () => {
       setLoading(true);
       const response = await fetch(`https://fakestoreapi.com/products/${id}`);
+      console.log('what is response ',response);
       setProduct(await response.json());
       setLoading(false);
     }
@@ -38,10 +40,15 @@ const Product = () => {
         <div className="col-md-6">
           <h4 className="text-uppercase text-black-50">{product.category}</h4>
           <h1 className="display-5">{product.title}</h1>
-          <p className="lead">
+          <p className="lead fw-bolder">
             Rating {product.rating && product.rating.rate} &nbsp;
             <i className="fa fa-star"></i>
           </p>
+          <h3 className="display-6 fw-bold my-4">
+            £ {product.price}
+          </h3>
+          <p className="lead">{product.description}</p>
+          <button className="btn btn-dark">Add to Cart</button>
         </div>
       </>
     )
