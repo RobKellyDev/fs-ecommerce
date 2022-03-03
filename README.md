@@ -1,25 +1,49 @@
-# FS-Ecomm
+# FS-Ecomm 
+
+<p>React, Redux, Bootstrap</p>
+
+<kbd>ongoing</kbd>
+
+<h2 align="center">Client</h2>
+
+<img src="client/src/assets/home.png" />
+
+<br />
+
+
+<img src="client/src/assets/details.png" />
+
+<br />
+
+
+
 
 <h2 align="center">Server</h2>
 
 <br />
 
-Here'll go REST API end points.
 
-1859
+API end points.  (users, products, auth, cart)
+
 
 ```text
 ╭─────────────────────┬──────────────────────────────────────────────────────╮
 │ METHOD              ┆ DESCRIPTION                                          │
 ╞═════════════════════╪══════════════════════════════════════════════════════╡
-│ GET                 ┆ /users (find all users)                              │
+│ GET                 ┆ /products (find all products)                        │
 ├╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌┤
-│ POST                ┆ /users (creates a user)                              │
+│ POST                ┆ /products (creates a products)                       │
 ├╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌┤
-│ GET                 ┆ /users/:id (finds user details)                      │
+│ GET                 ┆ /products/:id (finds products details)               │
 ├╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌┤
-│ DELETE              ┆ /users/:id (deletes a user)                          │
+│ DELETE              ┆ /products/:id (deletes a product)                    │
 ├╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌┤
-│ PATH                ┆ /users:id (updates a user)                           │          
+│ PATH                ┆ /products:id (updates a product)                     │          
 ╰─────────────────────┴──────────────────────────────────────────────────────╯
 ```
+
+
+
+<br /><br />
+
+Model? /mongo/firestore
