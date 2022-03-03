@@ -2,30 +2,44 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 
 const Cart = () => {
+
+  const state = useSelector((state) => state.cartReducer);
+  console.log('what is state ',state);
+
   return (
-    <div className="md-6">
+    <div className="container">
       <div className="row">
-        <div className="col-md-4">
-          <img src={product.image} alt={product.title} height={200} width={180} />
-        </div>
-        <div className="col-md-4">
-          <h3>{product.title}</h3>
+        
+
+{ state.map(itm => 
+
+        
+
+        <div key={itm.id} className="col-md-12">
+
+          <div className="col-md-4 offset-md-8">
+            <img src={itm.image} alt={itm.title} height={200} width={180} />
+          </div>
+          <h3>{itm.title}</h3>
           <p className="lead fw-bold">
-            {product.qty} X £ {product.price} = £ {product.qty * product.price}
+            {itm.qty} X £ {itm.price} = £ {itm.qty * itm.price}
           </p>
 
           <button 
-            onClick={() => handleButton(product)}
+            //onClick={() => handleButton(state.product)}
             className="btn btn-outline-dark me-4">
             <i className="fa fa-minus"></i>
           </button>
 
           <button 
-            onClick={() => handleButton(product)}
+            //onClick={() => handleButton(product)}
             className="btn btn-outline-dark me-4">
             <i className="fa fa-plus"></i>
           </button>
         </div>
+
+)}
+
       </div>
       Cart
     </div>

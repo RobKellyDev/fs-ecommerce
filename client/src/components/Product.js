@@ -5,6 +5,9 @@ import { Link } from 'react-router-dom'
 import Skeleton from "react-loading-skeleton";
 import { useParams } from "react-router";
 
+const URL = process.env.REACT_APP_API;
+console.log('is url ',URL)
+
 const Product = () => {
   const { id } = useParams();
   const [product, setProduct] = useState([]);
@@ -25,7 +28,7 @@ const Product = () => {
     };
 
     getProduct();
-  }, []);
+  }, [id]);
 
   const Loading = () => {
     return (

@@ -1,6 +1,6 @@
 import React from 'react';
 import Products from './Products.js'
-import bg from '../assets/images/blank.png'
+
 
 
 const Home = () => {
@@ -8,7 +8,10 @@ const Home = () => {
     <div className="hero">
       <div className="card bg-dark text-white border-0">
           <img 
-            src={bg} height="550" 
+            
+            alt="New Arrivals"
+            style={{backgroundColor: "black", color:"black", zIndex: -1}}
+            src={""} height="550" 
             className="card-img" alt="..." />
           <div className="card-img-overlay d-flex flex-column justify-content-center">
             <div className="container">

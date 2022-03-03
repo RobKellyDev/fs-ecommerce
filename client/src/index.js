@@ -9,7 +9,7 @@ import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import '../node_modules/font-awesome/css/font-awesome.min.css';
 import { BrowserRouter } from 'react-router-dom'
 
-console.log('store ',store);
+console.log('store ',store.getState());
 
 ReactDOM.render(
   <BrowserRouter>
