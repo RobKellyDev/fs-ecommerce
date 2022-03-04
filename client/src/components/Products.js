@@ -1,38 +1,46 @@
 import React, { useState, useEffect } from "react";
 import Skeleton from "react-loading-skeleton";
-import { Link } from 'react-router-dom';
+import { Link } from "react-router-dom";
 
 const URL = "https://fakestoreapi.com";
 
 const Products = () => {
+  //debugger;
+
   const [data, setData] = useState([]);
   const [filter, setFilter] = useState(data);
-  const [loading, setLoading] = useState(false);
-  let compMounted = true;
+  let [loading, setLoading] = useState(false);
+
+  const handleProductsAPI = async () => {
+    let response = await fetch(`${URL}/products`);
+    if (response) return response;
+  };
 
   useEffect(() => {
     const getProducts = async () => {
       setLoading(true);
-  
-      if (compMounted && data.length > 0) {
-        let response = await fetch(`${URL}/products`);
-        setData(await response.clone().json());
-        setFilter(await response.json());
-        setLoading(false);
-        console.log('what is data ',data);
-        localStorage.setItem('products', JSON.stringify(data));
+      if (
+        JSON.parse(localStorage.getItem("products")) === null ||
+        typeof JSON.parse(localStorage.getItem("products")) === "object"
+      ) {
+        localStorage.clear();
+        let response = await handleProductsAPI();
+        if (response) {
+          //console.log("is response ", response);
+          setData(await response.clone().json());
+          setFilter(await response.json());
+          localStorage.setItem("products", JSON.stringify(data));
+          return setLoading(false);
+        }
+      } else {
+        let response = JSON.parse(localStorage.getItem("products"));
+        setData(await response);
+        setFilter(await response);
+        return setLoading(false);
       }
-      else {
-        let response = await localStorage.getItem('products');
-        setData(await JSON.parse(response));
-        setFilter(await JSON.parse(response));
-        setLoading(false);
-        console.log('what is local storage data ',data);
 
-
-      }
       return () => {
-        compMounted = false;
+        return data;
       };
     };
 
@@ -117,7 +125,10 @@ const Products = () => {
                     {product.title.substring(0, 12)}...
                   </h5>
                   <p className="card-text lead fw-bold">£{product.price}</p>
-                  <Link to={`/products/${product.id}`} className="btn btn-outline-dark">
+                  <Link
+                    to={`/products/${product.id}`}
+                    className="btn btn-outline-dark"
+                  >
                     Buy Now
                   </Link>
                 </div>
