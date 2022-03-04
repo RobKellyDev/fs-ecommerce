@@ -4,6 +4,10 @@
 
 <kbd>ongoing</kbd>
 
+
+
+<br />
+
 <h2 align="center">Client</h2>
 
 <img src="client/src/assets/home.png" />
@@ -42,8 +46,31 @@ API end points.  (users, products, auth, cart)
 ╰─────────────────────┴──────────────────────────────────────────────────────╯
 ```
 
-
-
 <br /><br />
 
-Model? /mongo/firestore
+
+
+
+
+
+```data
+
+ Fear none todo 😲
+
+ Fetching data off fake json api service but to put together a firestore rest api/ or monogdb (& generate docs)
+ Authentication/authorisation: own and third party apps like google service
+ Route guards/ user accounts: forgotten passw, login,register,reset
+ Leaving fun stuff for later: gsap animations/svgs
+ Css w css modules/ theme (blk,wht,red?) - main stuff w/bootstrap
+ Looking good so far - will deploy to netlify or firebase hosting
+ Devops workflow
+ Shopping cart integration: strapi? haha enough already!
+ Google tag manager & analytics,
+ PWA integration/service worker/lighthouse report, accessibility/screen reader
+ ...
+ ...
+ 
+```
+
+
+
