@@ -5,7 +5,6 @@ import { Link } from "react-router-dom";
 const URL = "https://fakestoreapi.com";
 
 const Products = () => {
-  //debugger;
 
   const [data, setData] = useState([]);
   const [filter, setFilter] = useState(data);
@@ -13,7 +12,7 @@ const Products = () => {
 
   const handleProductsAPI = async () => {
     let response = await fetch(`${URL}/products`);
-    if (response) return response;
+    return response;
   };
 
   useEffect(() => {
