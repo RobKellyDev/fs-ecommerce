@@ -1,9 +1,17 @@
+[![Netlify Status](https://api.netlify.com/api/v1/badges/af46f4ac-ee63-43e0-8de4-23ff4e6baee7/deploy-status)](https://app.netlify.com/sites/vibrant-murdock-db0efb/deploys)
+
+<br />
+
 # FS-Ecomm 
 
 <p>React, Redux, Bootstrap</p>
 
-<kbd>ongoing</kbd>
+<kbd>ON•GOING</kbd>
 
+<br />
+<h2>Live link [feature branch]:</h2> 
+
+[Fixed height -lazy-loading images...](https://vibrant-murdock-db0efb.netlify.app/)
 
 
 <br />
