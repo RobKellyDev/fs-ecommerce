@@ -155,10 +155,18 @@ const Products = () => {
         <div className="col col-12 mb-5">
           <header className="col-12 mt-5">
 
-          <nav aria-label="breadcrumb">
+          <nav role="navigation" aria-label="breadcrumb">
             <ol className="breadcrumb">
-              <li className="breadcrumb-item"><Link className="breadcrumb-item active" to="/">Home</Link></li>
-              <li className="breadcrumb-item"><Link className="breadcrumb-item" to="/products">Products</Link></li>
+              <li className="breadcrumb-item">
+                <Link 
+                  aria-current="page"
+                  className="active"
+                  to="/">Home</Link></li>
+              <li className="breadcrumb-item">
+                <Link
+                  aria-current="page" 
+                  className=""
+                  to="/products">Products</Link></li>
             </ol>
           </nav>
 

@@ -1,13 +1,80 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400&display=swap");
+
+:root {
+  --color-blue: #2196f3;
+  --color-white: #fff;
+  --color-red: #ff5722;
+  --color-redish: #7a7573;;
+  --color-black: #2b2b2b;
+  --color-gray: #666;
+  --color-gray-lg: #ebebeb;
+
+  --fontone: "Open Sans", sans-serif;
+  --breadcrumb-active-color: var(--color-gray);
+  --breadcrumb-bg: var(--color-black);
+  --breadcrumb-padding: 10px 20px;
+  --breadcrumb-border: #e5e5e5;
+
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  vertical-align: baseline;
 }
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  color: var(--color-gray);
+  line-height: 1.5;
+  font-family: var(--fontone);
+}
+
+
+
+
+
+header nav {
+  padding: var(--breadcrumb-padding);
+  margin: 0;
+  transition: all 0s linear 0ms;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: flex-start;
+}
+
+
+.breadcrumb .breadcrumb-item {
+  text-decoration: none !important;
+  border-bottom: none !important;
+}
+
+.breadcrumb-item.active {
+  color: inherit !important;
+  text-decoration: underline;
+  font-feature-settings: inherit;
+
+}
+
+.breadcrumb-item a.active {
+  color: var(--color-black) !important;
+  text-decoration: underline;
+}
+
+.breadcrumb-item a {
+  color: var(--bs-gray-600);
+}
+
+
+
+
+
