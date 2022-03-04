@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Skeleton from "react-loading-skeleton";
+import "lazysizes"
 import { Link } from "react-router-dom";
 
 const URL = "https://fakestoreapi.com";
@@ -116,17 +117,30 @@ const Products = () => {
         {data &&
           filter.map((product) => {
             return (
-              <div key={product.id} className="col-md-3 mb-4">
+              <div key={product.id} className="col-12 col-sm-6 col-md-5 col-lg-4 mb-4">
                 <div
-                  className="card h-100 text-center p-4"
-                  style={{ width: "18rem" }}
+                  className="card w-100 text-center p-4"
+                  
                 >
-                  <img
-                    src={product.image}
-                    className="card-img-top"
+                  <img style={{
+
+                    aspectRatio: "auto", 
+                    objectFit: "scale-down", 
+                    width: "100%", 
+                    height: "340px",
+                    padding: "1.25rem 0.5rem",
+                    
+                   
+                  }}
+                    data-src={product.image}
+                    data-sizes={"auto"}
+                    data-srcset={product.image}
+
+                   
+                    className={"card-img-top lazyload"}
                     alt={product.title}
-                    height="300"
-                    width="175"
+                    height="340"
+                    width="600"
                   />
 
                   <div className="card-body">
