@@ -8,21 +8,31 @@ import { useParams } from "react-router";
 const Product = () => {
   const { id } = useParams();
   const [product, setProduct] = useState([]);
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(true);
+
+  let componentMounted = true;
 
   const dispatch = useDispatch();
   const addProduct = (product) => dispatch(addItemCart(product));
 
   useEffect(() => {
     const getProduct = async () => {
-      setLoading(true);
       const response = await fetch(`https://fakestoreapi.com/products/${id}`);
       setProduct(await response.json());
       setLoading(false);
     };
 
-    getProduct();
-  }, [id]);
+    let responseProduct =  getProduct();
+
+    return () => {
+      componentMounted = false
+      return {
+        responseProduct,
+        componentMounted
+      }
+    }
+
+  }, []);
 
   // Loading comp
   const Loading = () => (
@@ -45,7 +55,7 @@ const Product = () => {
   const ShowProduct = () => (
     <>
       <div className="col-md-6">
-        <img height={400} width={400} src={product.image} alt={product.title} />
+        <img height={"auto"} width={400} src={product.image} alt={product.title} />
       </div>
       <div className="col-md-6">
         <h4 className="text-uppercase text-black-50">{product.category}</h4>
