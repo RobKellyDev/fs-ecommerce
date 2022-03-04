@@ -59,11 +59,14 @@ API end points.  (users, products, auth, cart)
 
  Fetching data off fake json api service but to put together a firestore rest api/ or monogdb (& generate docs)
  Authentication/authorisation: own and third party apps like google service
+ Route guards/ user accounts: forgotten passw, login,register,reset
  Leaving fun stuff for later: gsap animations/svgs
- Css w css modules/ theme - main stuff w/bootstrap
+ Css w css modules/ theme (blk,wht,red?) - main stuff w/bootstrap
  Looking good so far - will deploy to netlify or firebase hosting
  Devops workflow
  Shopping cart integration: strapi? haha enough already!
+ Google tag manager & analytics,
+ PWA integration/service worker/lighthouse report, accessibility/screen reader
  ...
  ...
  
