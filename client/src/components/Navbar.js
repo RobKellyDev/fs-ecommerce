@@ -9,9 +9,7 @@ import arrivals from '../assets/images/arrivals23.jpg';
 const Navbar = () => {
 
   const state = useSelector(state => state.cartReducer)
-
   return (
-    <div>
       <nav className="navbar navbar-expand-lg navbar-light bg-white py-1 shadow-sm">
         <div className="container">
           <Link className="navbar-brand fw-bold fs-6" to="/">
@@ -62,7 +60,6 @@ const Navbar = () => {
           </div>
         </div>
       </nav>
-    </div>
   );
 };
 
