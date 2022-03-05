@@ -85,3 +85,8 @@ header > nav {
   outline: none !important;
   box-shadow: none !important;
 }
+
+
+.hero > img {
+  display: none !important;
+}

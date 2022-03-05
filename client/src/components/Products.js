@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react";
 import Skeleton from "react-loading-skeleton";
 import "lazysizes";
 import { NavLink, Link } from "react-router-dom";
+import SmallHero from "../components/SmallHero";
+import heroCycling from "../assets/images/hero-cycling.png";
 
 const URL = "https://fakestoreapi.com";
 
@@ -9,8 +11,6 @@ const Products = () => {
   const [data, setData] = useState([]);
   const [filter, setFilter] = useState(data);
   let [loading, setLoading] = useState(true);
-
-  let componentMounted = true;
 
   const handleProductsAPI = async () => {
     let response = await fetch(`${URL}/products`);
@@ -30,7 +30,7 @@ const Products = () => {
       if (isLocalStorageEmpty() === true) {
         let response = await handleProductsAPI();
 
-        if (componentMounted && response) {
+        if (response) {
           setData(await response.clone().json());
           let items = await response.clone().json();
           setFilter(await response.json());
@@ -47,13 +47,7 @@ const Products = () => {
 
     let responseProducts = getProducts();
 
-    return () => {
-      componentMounted = false;
-      return {
-        responseProducts,
-        componentMounted,
-      };
-    };
+    return () => responseProducts
   }, []);
 
   const Loading = () => {
@@ -117,10 +111,7 @@ const Products = () => {
         {data &&
           filter.map((product) => {
             return (
-              <div
-                key={product.id}
-                className="col-12 col-sm-6 col-lg-4 mb-4"
-              >
+              <div key={product.id} className="col-12 col-sm-6 col-lg-4 mb-4">
                 <div className="card w-100 text-center p-4">
                   <img
                     style={{
@@ -160,41 +151,44 @@ const Products = () => {
   };
 
   return (
-    <div className="container">
-      <div className="row">
-        <div className="col mb-5">
-          <header className="col-12 mt-3">
-            <nav role="navigation" aria-label="breadcrumb">
-              <ol className="breadcrumb">
-                <li 
-                  className="breadcrumb-item text-uppercase">
-                  <NavLink
-                    className="" 
-                    to="/">
-                    Home
-                  </NavLink>
-                </li>
-                <li 
-                  className="breadcrumb-item text-uppercase">
-                  <NavLink 
-                    aria-current="page"
-                    className="" to="/products">
-                    Products
-                  </NavLink>
-                </li>
-              </ol>
-            </nav>
+    <div className="all-products">
+      <SmallHero
+        banner={heroCycling}
+        height={268}
+        className={"card-img"}
+        alt={"Products"}
+      />
 
-            <h1 className="display-12 fw-bolder text-center">
-              Latest Products
-            </h1>
-            <hr />
-          </header>
+      <div className="container">
+        <div className="row">
+          <div className="col mb-5">
+            <header className="col-12 mt-3">
+              <nav role="navigation" aria-label="breadcrumb">
+                <ol className="breadcrumb">
+                  <li className="breadcrumb-item text-uppercase">
+                    <NavLink className="" to="/">
+                      Home
+                    </NavLink>
+                  </li>
+                  <li className="breadcrumb-item text-uppercase">
+                    <NavLink aria-current="page" className="" to="/products">
+                      Products
+                    </NavLink>
+                  </li>
+                </ol>
+              </nav>
+
+              <h1 className="display-12 fw-bolder text-center">
+                Latest Products
+              </h1>
+              <hr />
+            </header>
+          </div>
         </div>
-      </div>
 
-      <div className="row justify-content-center">
-        {loading ? <Loading /> : <ShowProducts />}
+        <div className="row justify-content-center">
+          {loading ? <Loading /> : <ShowProducts />}
+        </div>
       </div>
     </div>
   );

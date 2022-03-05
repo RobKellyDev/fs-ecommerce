@@ -83,9 +83,11 @@ const Product = () => {
   );
 
   return (
+    
     <div className="container py-5">
       <div className="row py-5">{loading ? <Loading /> : <ShowProduct />}</div>
     </div>
+    
   );
 };
 
