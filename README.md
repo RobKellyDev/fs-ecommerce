@@ -11,7 +11,7 @@
 <br />
 <h2>Live link [feature branch]:</h2> 
 
-[Fixed height -lazy-loading images...](https://vibrant-murdock-db0efb.netlify.app/)
+[Fixed height -lazy-loading images...](https://relaxed-cori-7418ac.netlify.app/)
 
 
 <br />
