@@ -1,0 +1,10 @@
+[build]
+
+publish = "build"
+
+command = "npm run build"
+
+
+
+[[plugins]]
+package = "@netlify/plugin-lighthouse" # Installs Lighthouse Build plugin
