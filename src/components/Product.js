@@ -10,8 +10,6 @@ const Product = () => {
   const [product, setProduct] = useState([]);
   const [loading, setLoading] = useState(true);
 
-  let componentMounted = true;
-
   const dispatch = useDispatch();
   const addProduct = (product) => dispatch(addItemCart(product));
 
@@ -24,15 +22,9 @@ const Product = () => {
 
     let responseProduct =  getProduct();
 
-    return () => {
-      componentMounted = false
-      return {
-        responseProduct,
-        componentMounted
-      }
-    }
+    return () => responseProduct
 
-  }, []);
+  }, [id]);
 
   // Loading comp
   const Loading = () => (
