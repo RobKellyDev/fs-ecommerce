@@ -20,7 +20,7 @@ jobs:
     - name: Lint the Commit Messages
       uses: wagoid/commitlint-github-action@v1
       env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        GITHUB_TOKEN: ${{ secrets.FS_ECOMM_SECRET }}
 
     - name: Use Node.js ${{ matrix.node-version }}
       uses: actions/setup-node@v1
