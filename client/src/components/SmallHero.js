@@ -1,20 +1,14 @@
-import React from 'react';
-
+import React from "react";
 
 const SmallHero = (image) => (
-
-    <div className="col-12">
-      <img 
-        style={{width: "100%", objectFit: "cover"}}
-        src={image.banner} 
-        width="2048" height={image.height}
-        alt={image.alt}
-        className={image.className}
-
-      />
-    </div>  
-
-  
-)
+  <img
+    style={{width:"100%", height:"268px", objectFit:"cover", display:"flex"}}
+    src={image.banner}
+    width="2048"
+    height={image.height}
+    alt={image.alt}
+    className={`img-fluid ${image.className}`}
+  />
+);
 
 export default SmallHero;

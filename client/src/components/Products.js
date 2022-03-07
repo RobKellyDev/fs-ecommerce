@@ -47,7 +47,7 @@ const Products = () => {
 
     let responseProducts = getProducts();
 
-    return () => responseProducts
+    return () => responseProducts;
   }, []);
 
   const Loading = () => {
@@ -74,35 +74,35 @@ const Products = () => {
 
   const ShowProducts = () => {
     return (
-      <>
+      <div className="row">
         <div className="col-12 d-flex flex-column flex-sm-row justify-content-between btn-group buttons mb-5">
           <button
-            className="btn btn-outline-dark mb-3 mb-sm-0"
+            className="btn btn-outline-dark mb-3 mb-sm-0 px-2"
             onClick={() => setFilter(data)}
           >
             All
           </button>
           <button
             onClick={() => filterProduct("men's clothing")}
-            className="btn btn-outline-dark mb-3 mb-sm-0"
+            className="btn btn-outline-dark mb-3 mb-sm-0 px-2"
           >
             Men's Clothing
           </button>
           <button
             onClick={() => filterProduct("women's clothing")}
-            className="btn btn-outline-dark mb-3 mb-sm-0"
+            className="btn btn-outline-dark mb-3 mb-sm-0 px-2"
           >
             Women's Clothing
           </button>
           <button
             onClick={() => filterProduct("jewelery")}
-            className="btn btn-outline-dark mb-3 mb-sm-0"
+            className="btn btn-outline-dark mb-3 mb-sm-0 px-2"
           >
             Jewellery
           </button>
           <button
             onClick={() => filterProduct("electronics")}
-            className="btn btn-outline-dark mb-3 mb-sm-0"
+            className="btn btn-outline-dark mb-3 mb-sm-0 px-2"
           >
             Electronics
           </button>
@@ -112,7 +112,7 @@ const Products = () => {
           filter.map((product) => {
             return (
               <div key={product.id} className="col-12 col-sm-6 col-lg-4 mb-4">
-                <div className="card w-100 text-center p-4">
+                <div className="d-flex flex-column card w-100 text-center p-2">
                   <img
                     style={{
                       aspectRatio: "auto",
@@ -130,23 +130,27 @@ const Products = () => {
                     width="600"
                   />
 
-                  <div className="card-body">
+                  <div className="card-body px-4">
                     <h5 className="card-title mb-0">
                       {product.title.substring(0, 12)}...
                     </h5>
-                    <p className="card-text lead fw-bold">£{product.price}</p>
-                    <Link
-                      to={`/products/${product.id}`}
-                      className="btn btn-outline-dark"
-                    >
-                      Buy Now
-                    </Link>
+                    <p className="card-text p-3 fs-3 text-danger lead fw-bold">£{product.price}</p>
+
+                    <div class="d-grid col-12 mx-auto">
+                      <Link
+                        to={`/products/${product.id}`}
+                        className="btn btn-outline-dark"
+                      >
+                        Buy Now
+                      </Link>
+                    </div>
+                    
                   </div>
                 </div>
               </div>
             );
           })}
-      </>
+      </div>
     );
   };
 
@@ -155,14 +159,14 @@ const Products = () => {
       <SmallHero
         banner={heroCycling}
         height={268}
-        className={"card-img"}
+        className={"small-hero"}
         alt={"Products"}
       />
-
+     
       <div className="container">
-        <div className="row">
-          <div className="col mb-5">
-            <header className="col-12 mt-3">
+        <div className="all-products-breadcrumbs">
+          <div className="row">
+            <header className="col-12 mb-5 mt-3">
               <nav role="navigation" aria-label="breadcrumb">
                 <ol className="breadcrumb">
                   <li className="breadcrumb-item text-uppercase">
@@ -178,17 +182,20 @@ const Products = () => {
                 </ol>
               </nav>
 
-              <h1 className="display-12 fw-bolder text-center">
+              <h2 className="display-12 display-4 mt-5 text-center">
                 Latest Products
-              </h1>
+              </h2>
               <hr />
             </header>
           </div>
         </div>
 
-        <div className="row justify-content-center">
-          {loading ? <Loading /> : <ShowProducts />}
+      {
+         loading ? <Loading /> : 
+        <div className="show-all-products">
+          <ShowProducts />
         </div>
+}
       </div>
     </div>
   );
