@@ -1,4 +1,4 @@
-[![Netlify Status](https://api.netlify.com/api/v1/badges/4f50271a-13b7-4e5b-9980-e324f415bd17/deploy-status)](https://app.netlify.com/sites/angry-snyder-c934b4/deploys)
+[![Netlify Status](https://api.netlify.com/api/v1/badges/181aa001-5db0-4310-9eaf-65513218cf6b/deploy-status)](https://app.netlify.com/sites/friendly-wescoff-0a9a79/deploys)
 
 <br />
 
@@ -11,7 +11,7 @@
 <br />
 <h2>Live link [feature branch]:</h2> 
 
-[Fixed height -lazy-loading images...](https://angry-snyder-c934b4.netlify.app)
+[Live link - feature branch](https://friendly-wescoff-0a9a79.netlify.app)
 
 
 <br />
