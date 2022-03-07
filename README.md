@@ -11,7 +11,7 @@
 <br />
 <h2>Live link [feature branch]:</h2> 
 
-[Live link](https://friendly-wescoff-0a9a79.netlify.app)
+[Live link - feature branch](https://friendly-wescoff-0a9a79.netlify.app)
 
 
 <br />
