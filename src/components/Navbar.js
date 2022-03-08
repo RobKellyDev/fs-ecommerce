@@ -1,8 +1,8 @@
 import React from "react";
 import { Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
-import shopHouse from '../assets/images/shophouse6.jpg';
-import bag from '../assets/images/bag-color.png';
+import shopHouse from '../assets/images/shophouse22.png';
+import bag from '../assets/images/bag-color29.png';
 import arrivals from '../assets/images/arrivals23.jpg';
 
 
@@ -53,7 +53,8 @@ const Navbar = () => {
                 <i className="fa fa-user-plus me-1"></i> Register
               </Link>
               <Link to="/cart" style={{border: "none",lineHeight: "26px", verticalAlign: "top"}} className="btn btn-outline-dark ms-2">
-              <img src={bag} alt="cart" style={{width: "100%", height: "auto", maxWidth: "21px"}} /> Cart ({state.length})
+              <img src={bag} alt="cart" style={{width: "100%",height: "auto",maxWidth: "21px"}} 
+              /> Cart ({state.length})
               
               </Link>
             </div>

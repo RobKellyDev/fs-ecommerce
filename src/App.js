@@ -3,6 +3,7 @@ import Home from "./components/Home";
 import Products from "./components/Products";
 import Product from "./components/Product";
 import Cart from "./components/Cart";
+import Login from "./components/Login";
 //router
 import { Routes, Route } from "react-router-dom";
 import { BrowserRouter } from "react-router-dom";
@@ -17,6 +18,7 @@ const App = () => (
       <Route exact path="/products" element={<Products />} />
       <Route exact path="/products/:id" element={<Product />} />
       <Route exact path="/cart" element={<Cart />} />
+      <Route exact path="/login" element={<Login />} />
     </Routes>
   </BrowserRouter>
 );

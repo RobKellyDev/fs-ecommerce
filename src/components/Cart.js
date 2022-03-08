@@ -41,7 +41,16 @@ const Cart = () => {
 )}
 
       </div>
-      Cart
+
+      <div className="cart">
+      <div className="container mt-5">
+        <div className="col py-5">
+            <h1 className="text-center">Cart</h1>
+          </div>
+        </div>
+    </div>
+
+      
     </div>
   )
 }

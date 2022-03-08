@@ -4,3 +4,28 @@
 }
 
 
+
+.products {
+  padding: 0px;
+  position: relative;
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  height: auto;
+}
+
+
+.show-all-products .card, show-all-products .card-title {
+   opacity: 1;
+  transform: rotate(-360deg) translate3d(0px, 0px, 0px);
+  backface-visibility: hidden;
+  perspective: 1000px;
+  transform-style: preserve-3d;
+  transition: all 0.75s ease-in 50ms;
+}
+
+.show-all-products .card::before
+ {
+   opacity: 0;
+  position: relative;
+}
