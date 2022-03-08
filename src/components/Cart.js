@@ -6,6 +6,8 @@ const Cart = () => {
   const state = useSelector((state) => state.cartReducer);
   console.log('what is state ',state);
 
+  
+
   return (
     <div className="container">
       <div className="row">
@@ -48,6 +50,7 @@ const Cart = () => {
             <h1 className="text-center">Cart</h1>
           </div>
         </div>
+       
     </div>
 
       

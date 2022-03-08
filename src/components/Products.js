@@ -155,7 +155,7 @@ const Products = () => {
   };
 
   return (
-    <div className="all-products">
+    <div className="all-products text-center w-100">
       <SmallHero
         banner={heroCycling}
         height={268}
@@ -166,7 +166,7 @@ const Products = () => {
       <div className="container">
         <div className="all-products-breadcrumbs">
           <div className="row">
-            <header className="col-12 mb-5 mt-3">
+            <header className="col-12 mb-5 mt-3 px-4">
               <nav role="navigation" aria-label="breadcrumb">
                 <ol className="breadcrumb">
                   <li className="breadcrumb-item text-uppercase">

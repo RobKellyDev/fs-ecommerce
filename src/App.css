@@ -29,3 +29,42 @@
    opacity: 0;
   position: relative;
 }
+
+
+
+.navbar {
+  display: flex;
+  flex-direction: column;
+  width: 100vw;
+}
+
+.navbar-nav .nav-item {
+  display: inline-block;
+  min-width: 90px;
+}
+
+
+
+.hero-big-dietro {
+  background: url(./assets/images/fall.jpg) 50% no-repeat fixed;
+    background-color: #000;
+    background-size: 1200px;
+    z-index: 2;
+    color: white;
+    height: 100vh;;
+    width: 100%;
+    margin: 0 auto;
+    padding-top: 0;
+    overflow: hidden;
+    transition: all .35s linear 50ms;
+}
+
+.hero-card {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  flex-wrap: wrap;
+  height: 100vh;
+  transition: all .35s linear 50ms;
+  justify-content: center;
+}

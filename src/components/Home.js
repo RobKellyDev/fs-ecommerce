@@ -1,135 +1,248 @@
 import React from "react";
-import sport11 from "../assets/images/ufclog.jpeg";
-import sport2 from "../assets/images/bikelo.jpeg";
-import sport6 from "../assets/images/foot2.jpeg";
-import bigHero from "../assets/images/bighero33.png";
+import coverGirl from "../assets/images/videos/covergirl.png";
+import walkingGirl from "../assets/images/videos/walking-girl.mp4";
+import { Link } from "react-router-dom";
 
 const Home = () => {
   return (
-    <div className="hero d-flex w-100 flex-column h-100">
-      <div className="card bg-image h-100 w-100 text-white border-0 shadow-2-strong">
-        <img src={bigHero} alt={"Hero home page"} />
+    <>
+
+      <div className="offcanvas-wrap">
+
+        {/* hero */}
+        <section className="cover overflow-hidden inverted bg-black">
+          <div className="d-flex flex-column h-35 container py-10">
+            <div className="row justify-content-center my-auto">
+
+              <div className="col-md-8 text-center position-absolute top-50">
+                <span className="eyebrow text-danger opacity-50">New Collection</span>
+                <h1 className="display-2 lh-sm fw-bold">Spring Jacket.</h1>
+                <Link to="" className="btn btn-outline-white rounded-pill opacity-50">
+                  ByBye Collection
+                </Link>
+              </div>
+
+            </div>
+            <div className="row text-center">
+              <div className="col">
+                <small className="fs-text-secondary eyebrow text-secondary opacity-100 px-2 lh">
+                  Limited Time Only -&nbsp;<span style={{padding: "0 5px", color:"darkred", opacity: 1}}>Jacket Only</span> -&nbsp; For Sale Now £197
+                </small>
+              </div>
+            </div>
+          </div>
+          <div
+            className="background background-overlay"
+            data-aos="zoom-out"
+            data-aos-delay="200"
+          >
+            <video
+              controls
+              poster={coverGirl}
+              width="400"
+              height="320"
+              autoPlay={true}
+              muted={true}
+              loop={true}
+              style={{width: "100%", height:"100%"}}
+            >
+              <source src={walkingGirl} />
+            </video>
+          </div>
+        </section>
+        {/* product carousel */}
+        <section className="overflow-hidden pt-3 pt-xl-4">
+          <div className="container">
+            <div className="carousel carousel-visible">
+              <div data-carousel='{"nav": false,"mouseDrag": true, "gutter": 32, "loop": true, "responsive": {"0": {"items": 1}, "768": {"items": 2}, "992": {"items": 2}, "1200": {"items": 3}}}'>
+                <div>
+                  <div className="product">
+                    <figure className="product-image">
+                      <Link to="#">
+                        <img
+                          src="../assets/images/products/product-1.jpg"
+                          alt="Product 1"
+                        />
+                        <img
+                          src="../assets/images/products/product-1-2.jpg"
+                          alt="Product 2"
+                        />
+                      </Link>
+                    </figure>
+                    <Link className="product-title" to="#">
+                      Watch
+                    </Link>
+                    <span className="product-price">$100 </span>
+                  </div>{" "}
+                </div>
+                <div>
+                  <div className="product">
+                    <figure className="product-image">
+                      <Link to="">
+                        <img
+                          src="../assets/images/products/product-2.jpg"
+                          alt="Product 2"
+                        />
+                        <img
+                          src="../assets/images/products/product-2-2.jpg"
+                          alt="Product 2-2"
+                        />
+                      </Link>
+                    </figure>
+                    <Link className="product-title" to="">
+                      Black Karlo Backpack
+                    </Link>
+                    <span className="product-price">$88 </span>
+                  </div>{" "}
+                </div>
+                <div>
+                  <div className="product">
+                    <figure className="product-image">
+                      <Link to="">
+                        <img
+                          src="../assets/images/products/product-3.jpg"
+                          alt=" Product 3"
+                        />
+                        <img
+                          src="../assets/images/products/product-3-2.jpg"
+                          alt="Product 3-2"
+                        />
+                      </Link>
+                    </figure>
+                    <Link className="product-title" to="">
+                      Black Closca Helmet
+                    </Link>
+                    <span className="product-price">$132 </span>
+                  </div>{" "}
+                </div>
+                <div>
+                  <div className="product">
+                    <figure className="product-image">
+                      <Link to="">
+                        <img
+                          src="../assets/images/products/product-4.jpg"
+                          alt="Product 4"
+                        />
+                        <img
+                          src="../assets/images/products/product-4-2.jpg"
+                          alt="Product 4-2"
+                        />
+                      </Link>
+                    </figure>
+                    <Link className="product-title" to="">
+                      Speaker
+                    </Link>
+                    <span className="product-price">$100 </span>
+                  </div>{" "}
+                </div>
+                <div>
+                  <div className="product">
+                    <figure className="product-image">
+                      <Link to="">
+                        <img
+                          src="../assets/images/products/product-5.jpg"
+                          alt="Product 2"
+                        />
+                        <img
+                          src="../assets/images/products/product-5-2.jpg"
+                          alt="Product 5-2"
+                        />
+                      </Link>
+                    </figure>
+                    <Link className="product-title" to="#">
+                      Gravel Black Sigg Water Bottle
+                    </Link>
+                    <span className="product-price">
+                      $23 <s className="text-muted">$34</s>
+                    </span>
+                  </div>{" "}
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        {/* Categories */}
+        <section className="py-15 py-xl-20">
+          <div className="container">
+            <div className="row mb-5">
+              <div className="col text-center">
+                <h2 className="fw-bold mb-0">Categories</h2>
+              </div>
+            </div>
+            <div className="row g-3 g-xl-4" data-masonry>
+              <div className="col-md-6" data-aos="fade-up">
+                <Link to="" className="card equal-md-1-1 card-hover-gradient">
+                  <div className="card-wrap">
+                    <div className="card-footer my-auto">
+                      <div className="text-center text-shadow">
+                        <h3 className="mb-0 fw-bold text-white">Pullovers</h3>
+                      </div>
+                    </div>
+                  </div>
+                  <figure
+                    className="background"
+                    style={{
+                      backgroundImage: "../assets/images/offers/arrivals3.png",
+                    }}
+                  ></figure>
+                </Link>
+              </div>
+              <div className="col-md-6" data-aos="fade-up">
+                <Link to="" className="card equal-md-16-9 card-hover-gradient">
+                  <div className="card-wrap">
+                    <div className="card-footer my-auto">
+                      <div className="text-center text-shadow">
+                        <h3 className="mb-0 fw-bold text-white">Trainers</h3>
+                      </div>
+                    </div>
+                  </div>
+                  <figure
+                    className="background"
+                    style={{
+                      backgroundImage: "../assets/images/shop-2.jpg",
+                    }}
+                  ></figure>
+                </Link>
+              </div>
+              <div className="col-md-6" data-aos="fade-up">
+                <Link to="" className="card equal-md-1-1 card-hover-gradient">
+                  <div className="card-wrap">
+                    <div className="card-footer my-auto">
+                      <div className="text-center text-shadow">
+                        <h3 className="mb-0 fw-bold text-white">Jeans</h3>
+                      </div>
+                    </div>
+                  </div>
+                  <figure
+                    className="background"
+                    style={{ backgroundImage: "../assets/images/shop-3.jpg" }}
+                  ></figure>
+                </Link>
+              </div>
+              <div className="col-md-6" data-aos="fade-up">
+                <Link to="" className="card equal-md-16-9 card-hover-gradient">
+                  <div className="card-wrap">
+                    <div className="card-footer my-auto">
+                      <div className="text-center text-shadow">
+                        <h3 className="mb-0 fw-bold text-white">Accessories</h3>
+                      </div>
+                    </div>
+                  </div>
+                  <figure
+                    className="background"
+                    style={{ backgroundImage: "../assets/images/shop-4.jpg" }}
+                  ></figure>
+                </Link>
+              </div>
+            </div>
+          </div>
+        </section>
 
         
-          <div className="card-img-overlay d-flex flex-column justify-content-center">
-            <div className="container">
-              <h5 className="card-title display-1 fw-bolder mb-1">
-                New Arrivals
-              </h5>
-              <p className="card-text lead fs-2">
-                FREE DELIVERY
-                <span className="d-none d-sm-inline">
-                &nbsp;| FIND OUT MORE
-                </span>
-              </p>
-            </div>
-          </div>
        
+
       </div>
-
-      <div className="home-features">
-        <div className="mx-auto px-0 py-5" id="custom-cards">
-          <div className="container-xl">
-            <h2 className="mt-5 pb-2 display-5 border-bottom text-center">
-              Featured
-            </h2>
-
-            <div className="row row-cols-1 row-cols-lg-3 align-items-stretch px-0 mb-5">
-              <div className="col-12 sm-6 col-md-4">
-                <div className="card w-100 card-cover h-60 mt-5 overflow-hidden text-white bg-dark rounded-5 shadow-lg">
-                  <img className="bb-1" src={sport11} alt={"sport 11"} />
-                  <div className="d-flex flex-column h-50 p-5 pb-3 text-white text-shadow-1">
-                    <h2 className="pt-0 mt-0 mb-4 lh-3 fw-bold">
-                      Londale
-                      <br />
-                      Boxing Gear
-                    </h2>
-
-                    <ul className="d-flex list-unstyled mt-auto">
-                      <li className="me-auto">
-                        <img
-                          src={sport11}
-                          alt="Bootstrap"
-                          width="32"
-                          height="32"
-                          className="rounded-circle border border-white"
-                        />
-                      </li>
-                      <li className="d-flex align-items-center me-3">
-                        <small>Barcelona</small>
-                      </li>
-                      <li className="d-flex align-items-center">
-                        <small>3d</small>
-                      </li>
-                    </ul>
-                  </div>
-                </div>
-              </div>
-
-              <div className="col-12 sm-6 col-md-4">
-                <div className="card card-cover h-60 mt-5 overflow-hidden text-white bg-dark rounded-5 shadow-lg">
-                  <img src={sport6} alt={"sport 6"} />
-                  <div className="d-flex flex-column h-50 p-5 pb-3 text-white text-shadow-1">
-                    <h2 className="pt-0 mt-0 mb-4 lh-3 fw-bold">
-                      Football
-                      <br />
-                      Nike League
-                    </h2>
-                    <ul className="d-flex list-unstyled mt-auto">
-                      <li className="me-auto">
-                        <img
-                          src={sport6}
-                          alt="Bootstrap"
-                          width="32"
-                          height="32"
-                          className="rounded-circle border border-white"
-                        />
-                      </li>
-                      <li className="d-flex align-items-center me-3">
-                        <small>London</small>
-                      </li>
-                      <li className="d-flex align-items-center">
-                        <small>4d</small>
-                      </li>
-                    </ul>
-                  </div>
-                </div>
-              </div>
-
-              <div className="col-12 sm-6 col-md-4">
-                <div className="card card-cover h-60 mt-5 overflow-hidden text-white bg-dark rounded-5 shadow-lg">
-                  <img src={sport2} alt={"sport 3"} />
-                  <div className="d-flex flex-column h-50 p-5 pb-3 text-shadow-1">
-                    <h2 className="pt-0 mt-0 mb-4 lh-3 fw-bold">
-                      Marin
-                      <br /> Super Six Evo
-                    </h2>
-
-                    <ul className="d-flex list-unstyled mt-auto">
-                      <li className="me-auto">
-                        <img
-                          src={sport2}
-                          alt="Bootstrap"
-                          width="32"
-                          height="32"
-                          className="rounded-circle border border-white"
-                        />
-                      </li>
-                      <li className="d-flex align-items-center me-3">
-                        <small>Paris</small>
-                      </li>
-                      <li className="d-flex align-items-center">
-                        <small>5d</small>
-                      </li>
-                    </ul>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+    </>
   );
 };
 

@@ -10,7 +10,7 @@ const Navbar = () => {
 
   const state = useSelector(state => state.cartReducer)
   return (
-      <nav className="navbar navbar-expand-lg navbar-light bg-white py-1 shadow-sm">
+      <nav className="d-flex justify-content-between navbar navbar-expand-lg navbar-light bg-white py-1 shadow-sm">
         <div className="container">
           <Link className="navbar-brand fw-bold fs-6" to="/">
             <img src={shopHouse} style={{maxWidth:"50px", width: "100%", height: "auto"}} alt="shopHouse" />
