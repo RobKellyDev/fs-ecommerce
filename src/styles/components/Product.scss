@@ -1,0 +1,12 @@
+.product-details {
+    display: flex;
+    button.add-product {
+        min-width: 186px;
+        overflow: hidden;
+        > div {
+            animation-duration: .5s !important;
+          
+        }
+    }
+
+}
