@@ -3,6 +3,7 @@ import Skeleton from "react-loading-skeleton";
 import "lazysizes";
 import { NavLink, Link } from "react-router-dom";
 import SmallHero from "../../components/SmallHero";
+import '../../styles/components/Products.scss';
 import heroCycling from "../../assets/images/hero-cycling.png";
 
 const URL = "https://fakestoreapi.com";

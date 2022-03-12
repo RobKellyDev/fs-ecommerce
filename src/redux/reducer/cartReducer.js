@@ -1,50 +1,102 @@
-let cart = [];
+const initialState = {
+  cartItems: [],
+  currentItem: {},
+  cartTotalItems: 0,
+  cartTotalPrice: 0,
+};
 
-const cartReducer = (state = cart, action) => {
-  const product = action.payload;
+const cartReducer = (state = initialState, action) => {
+
   switch (action.type) {
-    case "ADD_ITEM":
-      const existedAdded = state.find((itm) => itm.id === product.id);
-      if (existedAdded) {
-        // increase qty
-        return state.map((itm) =>
-          itm.id === product.id
-            ? {
-                ...itm,
-                qty: itm.qty + 1,
-              }
-            : itm
-        );
-      } else {
-        return [
+
+    case 'CART_ADD':
+      let itemExist = undefined;
+      const item = action.payload;
+      itemExist = state.cartItems.find(
+        itm => itm.id === item.id,
+      );
+
+      if (itemExist) {
+        return {
           ...state,
-          {
-            ...product,
-            qty: 1,
-          },
-        ];
+          cartItems: [...state.cartItems],
+        };
+      }
+      //need qty prop
+      item.qty = 1;
+      return {
+        ...state,
+        cartItems: state.cartItems.concat(item),
+        currentItem: item,
+      };
+
+    case 'CART_UPDATE':
+      state.cartItems.find(itm => {
+        if (itm.id === action.payload.id) {
+          itm.qty += itm.qty >= 0 ? action.payload.qty : 0;
+          if (itm.qty < 0) {
+            itm.qty = 0;
+            return {
+              ...state,
+              cartItems: state.cartItems.concat(itm),
+            };
+          } else
+            return {
+              ...state,
+              cartItems: state.cartItems.concat(itm),
+            };
+        }
+        return {
+          ...state,
+        };
+      });
+
+    case 'CART_TOTAL_ITEMS':
+      console.log('total items ', action.payload);
+      return {
+        ...state,
+        cartTotalItems: action.payload,
+      };
+
+    case 'CART_CLEAR':
+      return initialState;
+
+    case 'CART_DELETE':
+      let store = [];
+      let delItem = action.payload;
+
+      delItem = state.cartItems.find(
+        itm => itm.id === delItem.id,
+      );
+      let remainingItems = state.cartItems.filter(
+        itm => itm.id !== delItem.id,
+      );
+      delItem[0].qty -= 1;
+
+      if (delItem[0].qty === 0) {
+        //remove
+        store = store.concat(remainingItems);
+      } else if (delItem[0].qty > 0) {
+        store = [...remainingItems, ...delItem];
       }
 
-    case "DELETE_ITEM":
-      const existedDel = state.find((itm) => itm.id === product.id);
-      if (existedDel.qty === 1) {
-        return state.filter((itm) => itm.id !== existedDel.id);
-      } else {
-        return state.map((itm) =>
-          itm.id === product.id
-            ? {
-                ...itm,
-                qty: itm.qty - 1,
-              }
-            : itm
-        );
-      }
+      return {
+        ...state,
+        cartItems: store,
+      };
 
-    case "UPDATE_ITEM":
-      return;
+    case 'CART_TOTAL_PRICE':
+      console.log('total price ', action.payload);
+      let total = Math.round(action.payload).toFixed(2);
+      return {
+        ...state,
+        cartTotalPrice: total,
+      };
 
     default:
-      return state;
+      return {
+        ...state,
+      };
   }
 };
 

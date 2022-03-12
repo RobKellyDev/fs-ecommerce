@@ -16,7 +16,7 @@ const Cart = () => {
   console.log('what is state ', state);
 
 
-  let totalPrice = state.cartTotalPrice;
+  //let totalPrice = state.cartTotalPrice;
   let totalItems = state.cartTotalItems;
   let items = state.cartItems;
   
@@ -25,15 +25,15 @@ const Cart = () => {
   const handleItemUpdate = (item,op) => dispatch(updateItemCart(item,op));
  
 
-  // useEffect(() => {
-  //   dispatch(getCartTotal(items));
-  //   dispatch(totalCartItems(items));
+  useEffect(() => {
+    //dispatch(getCartTotal(items));
+    dispatch(totalCartItems(items));
 
-  //   return (() => {
-  //     return [dispatch,items]
-  //   })
+    return (() => {
+      return [dispatch,items]
+    })
 
-  // },[dispatch,items]);
+  },[dispatch,items]);
 
   
   console.log('cart items ==> ', items)
@@ -64,10 +64,15 @@ const Cart = () => {
                     </div>
                     <h3>{itm.title}</h3>
                     <p className="lead fw-bold">
-                      {itm.qty} X £ {itm.price} = £{' '}
+                    [QTY]: {itm.qty} X [PRICE] £{itm.price} = <span>[Total price]: </span> £{' '}
                       {itm.qty * itm.price}
-                    </p><span>Qty: {itm.qty}</span>  
-                    <span>Rate: {itm.rating.rate}</span> <span>Count: {itm.rating.count}</span>
+                    </p>
+                    <p>
+                   
+                    
+                    Rate:
+                    <span> {itm.rating.rate}</span>
+                    </p>
 
                     <button
                       onClick={() => handleItemUpdate(itm,-1)}
@@ -83,7 +88,7 @@ const Cart = () => {
                       <i className="fa fa-plus"></i>
                     </button>
 
-                    <span>Total price: </span>
+                    
                   </div>
                 ))}
               </div>

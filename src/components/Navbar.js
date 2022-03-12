@@ -8,7 +8,14 @@ import arrivals from '../assets/images/arrivals23.jpg';
 
 const Navbar = () => {
 
-  const state = useSelector(state => state.cartReducer)
+  const state = useSelector(state => state.cartReducer);
+  let cartItems = state.cartItems;
+  let totalCartItems = cartItems.length;
+
+  console.log('state ', state)
+
+
+
   return (
       <nav className="d-flex justify-content-between navbar navbar-expand-lg navbar-light bg-white py-1 shadow-sm">
         <div className="container">
@@ -35,7 +42,7 @@ const Navbar = () => {
               </li>
               <li className="nav-item px-2">
                 <Link className="nav-link" to="/products">
-                  All Products
+                  Shop
                 </Link>
               </li>
           
@@ -54,7 +61,7 @@ const Navbar = () => {
               </Link>
               <Link to="/cart" style={{border: "none",lineHeight: "26px", verticalAlign: "top"}} className="btn btn-outline-dark ms-2">
               <img src={bag} alt="cart" style={{width: "100%",height: "auto",maxWidth: "21px"}} 
-              /> Cart ({state.length})
+              /> Cart ({totalCartItems})
               
               </Link>
             </div>

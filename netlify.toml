@@ -11,10 +11,10 @@ package = "@netlify/plugin-lighthouse" # Installs Lighthouse Build plugin
 
 
 [plugins.inputs.thresholds]
-    performance = 0.7
-    accessibility = 0.7
-    best-practices = 0.7
-    seo = 0.7
+    performance = 0.5
+    accessibility = 0.5
+    best-practices = 0.5
+    seo = 0.3
     pwa = 0.3   # avoid failed report
 
   # optional, deploy the lighthouse report to a path under your site
