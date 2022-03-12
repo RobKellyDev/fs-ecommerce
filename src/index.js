@@ -6,17 +6,16 @@ import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import store from './redux/store';
 //styles
-import './index.css';
-import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
-import '../node_modules/font-awesome/css/font-awesome.min.css';
-
+import './styles/index.css'
 
 console.log('store ',store.getState());
 
 ReactDOM.render(
+  <React.StrictMode>
   <Provider store={store}>
     <App />
-  </Provider>,
+  </Provider>
+  </React.StrictMode>,
   document.getElementById('root')
 );
 
