@@ -10,10 +10,7 @@ const cartReducer = (state = initialState, action) => {
     case 'CART_ADD':
       let itemExist = undefined;
       const item = action.payload;
-      itemExist = state.cartItems.find(
-        itm => itm.id === item.id,
-      );
-
+      itemExist = state.cartItems.find(itm => itm.id === item.id);
       if (itemExist) {
         return {
           ...state,
@@ -29,18 +26,18 @@ const cartReducer = (state = initialState, action) => {
       };
 
     case 'CART_UPDATE':
-      //debugger;
       let id = action.payload.id;
       let qty = action.payload.qty;
+
       let updatedCartItems = state.cartItems.map(itm => {
         if (itm.id === id && itm.qty > 0) {
           itm.qty += qty;
           return itm;
         } else if (itm.qty === 0) {
           if (qty === -1) return itm;
-          itm.qty += qty;
-          return itm;
+          return (itm.qty += qty);
         }
+        return itm;
       });
 
       return {
@@ -62,12 +59,8 @@ const cartReducer = (state = initialState, action) => {
       let store = [];
       let delItem = action.payload;
 
-      delItem = state.cartItems.find(
-        itm => itm.id === delItem.id,
-      );
-      let remainingItems = state.cartItems.filter(
-        itm => itm.id !== delItem.id,
-      );
+      delItem = state.cartItems.find(itm => itm.id === delItem.id);
+      let remainingItems = state.cartItems.filter(itm => itm.id !== delItem.id);
 
       if (delItem.qty <= 1) {
         store = store.concat(remainingItems);
