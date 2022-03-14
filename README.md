@@ -8,6 +8,8 @@
 
 <kbd>ON•GOING</kbd>
 
+Fake json api no good. 😧  - need my own node rest api
+
 <br />
 <h2>Live link [feature branch]:</h2> 
 
