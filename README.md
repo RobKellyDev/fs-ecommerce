@@ -13,6 +13,9 @@
 
 [Live link - feature branch](https://friendly-wescoff-0a9a79.netlify.app)
 
+<br />
+
+<img src="src/assets/lighthouse-report.png" />
 
 <br />
 

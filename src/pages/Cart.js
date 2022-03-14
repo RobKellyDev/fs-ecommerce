@@ -32,22 +32,35 @@ const Cart = () => {
     </div>
   );
 
-  const showQtyWarning = itm => <p className="text-danger">Please update item quantity to continue</p>;
+  const showQtyWarning = itm => (
+    <p className="text-danger">
+      Cart Empty. Please update item quantity to continue
+    </p>
+  );
 
   const showCartItems = itm => (
     <div className="px-4 my-5 bg-light rounded-3" key={itm.id}>
       <div className="container py-4">
-        <button onClick={() => handleClose(itm)} className="btn-close float-end" />
+        <button
+          onClick={() => handleClose(itm)}
+          className="btn-close float-end"
+        />
 
         <div className="row justify-content-center">
           <div className="col-md-4">
             <img src={itm.image} alt={itm.title} height={200} width={180} />
             <section className="d-flex justify-content-start">
-              <button onClick={() => handleItemUpdate(itm, -1)} className="btn btn-sm btn-outline-dark me-4">
+              <button
+                onClick={() => handleItemUpdate(itm, -1)}
+                className="btn btn-sm btn-outline-dark me-4"
+              >
                 <i className="fa fa-minus" />
               </button>
 
-              <button onClick={() => handleItemUpdate(itm, +1)} className="btn btn-sm btn-outline-dark me-4">
+              <button
+                onClick={() => handleItemUpdate(itm, +1)}
+                className="btn btn-sm btn-outline-dark me-4"
+              >
                 <i className="fa fa-plus" />
               </button>
             </section>
@@ -61,7 +74,9 @@ const Cart = () => {
               Price: £<label>{itm.price}</label>
             </p>
 
-            <p className="item-information lead fw-light">Total: £{itm.qty * itm.price}</p>
+            <p className="item-information lead fw-light">
+              Total: £{itm.qty * itm.price}
+            </p>
 
             <p className="item-information lead fw-light">
               Rate:
@@ -81,7 +96,6 @@ const Cart = () => {
           <div className="cart my-5">
             <div className="col-12">
               <h1 className="text-center">Cart</h1>
-              <span>Multiple items +/- ops need fixing</span>
               {items.length === 0 && cartIsEmpty()}
               {items.length !== 0 && items.map(showCartItems)}
             </div>

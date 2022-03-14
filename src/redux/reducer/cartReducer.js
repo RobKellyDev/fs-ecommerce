@@ -30,14 +30,12 @@ const cartReducer = (state = initialState, action) => {
       let qty = action.payload.qty;
 
       let updatedCartItems = state.cartItems.map(itm => {
-        if (itm.id === id && itm.qty > 0) {
-          itm.qty += qty;
-          return itm;
-        } else if (itm.qty === 0) {
-          if (qty === -1) return itm;
-          return (itm.qty += qty);
-        }
-        return itm;
+        if (itm.qty === 0 && qty < 0) return itm;
+        if (itm.qty === 0 && qty > 0) return { ...itm, qty: (itm.qty += qty) };
+
+        return itm.id === id && itm.qty > 0
+          ? { ...itm, qty: (itm.qty += qty) }
+          : { ...itm };
       });
 
       return {
