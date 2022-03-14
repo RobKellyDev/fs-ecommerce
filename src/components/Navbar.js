@@ -62,8 +62,12 @@ const Navbar = () => {
           </ul>
 
           <div className="buttons">
-            <Link to="/login" style={{ border: 'none' }} className="btn btn-outline-dark">
-              <i className="fa fa-sign-in me-1"></i> Login
+            <Link
+              to="/signin"
+              style={{ border: 'none' }}
+              className="btn btn-outline-dark"
+            >
+              <i className="fa fa-sign-in me-1"></i> Signin
             </Link>
             <Link
               to="/register"
