@@ -1,13 +1,23 @@
 .product-details {
-    display: flex;
-    button.add-product {
-        min-width: 186px;
-        overflow: hidden;
-        > div {
-            animation-duration: .5s !important;
-            animation-delay: 150ms !important;
-          
-        }
-    }
+  display: flex;
 
+  button.add-product {
+    min-width: 186px;
+    overflow: hidden;
+
+    > div {
+      animation-duration: 0.5s !important;
+      animation-delay: 150ms !important;
+    }
+  }
+
+  .goto.btn.btn-dark, .goto.btn.btn-dark.disabled {
+    height: 42px;
+  }
+
+  .goto.btn.btn-dark.disabled {
+    background-color: #bebebe;
+    border-color: #a0a0a0;
+    cursor: pointer;
+  }
 }

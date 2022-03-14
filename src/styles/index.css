@@ -54,7 +54,7 @@ header > nav {
 }
 
 .breadcrumb {
-  line-height: 18px;
+  line-height: 17px;
   font-variant: all-small-caps;
   font-size: 0.65rem;
   vertical-align: baseline;
@@ -69,6 +69,7 @@ header > nav {
   padding: var(--breadcrumb-padding);
   cursor: default;
   border-radius: 2px;
+  margin-left: 5px;
   text-decoration: none;
 }
 
@@ -79,8 +80,7 @@ header > nav {
 
 .breadcrumb-item + .breadcrumb-item::before {
   content: var(--breadcrumb-divider, '>') !important;
-  padding: 0px;
-  margin-left: 7px;
+  padding: 0;
   line-height: 18px;
   vertical-align: baseline;
 }

@@ -13,10 +13,13 @@
     }
 
     .card-body {
-        background-color: #f8f9fa;
+        background-color: #fefefe96;
         > div a {
             transition: all linear .4s 75ms;
             line-height: 28px;
+        }
+        p {
+            color: #f44336;
         }
     }
 }
