@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from 'react';
-import Skeleton from 'react-loading-skeleton';
 import 'lazysizes';
 import { Link, NavLink } from 'react-router-dom';
 import SmallHero from '../../components/SmallHero';
 import '../../styles/components/Products.scss';
 import heroCycling from '../../assets/images/hero-cycling.png';
+import Skeleton from 'react-loading-skeleton';
+import 'react-loading-skeleton/dist/skeleton.css';
 
 const URL = 'https://fakestoreapi.com';
 
@@ -43,23 +44,19 @@ const Products = () => {
     return () => responseProducts;
   }, []);
 
-  const Loading = () => {
-    return (
-      <div className="row">
-        <div className="col-12">
-          <div className="col-3">
-            <Skeleton height={350} />
-          </div>
-          <div className="col-3">
-            <Skeleton height={350} />
-          </div>
-          <div className="col-3">
-            <Skeleton height={350} />
-          </div>
-        </div>
+  const Loading = () => (
+    <div className="row">
+      <div className="col-12 col-sm-6 col-lg-4 mb-4" style={{ lineHeight: 2 }}>
+        <Skeleton height={570} width={410} />
       </div>
-    );
-  };
+      <div className="col-12 col-sm-6 col-lg-4 mb-4" style={{ lineHeight: 2 }}>
+        <Skeleton height={570} width={410} />
+      </div>
+      <div className="col-12 col-sm-6 col-lg-4 mb-4" style={{ lineHeight: 2 }}>
+        <Skeleton height={570} width={410} />
+      </div>
+    </div>
+  );
 
   const filterProduct = cat =>
     setFilter(data.filter(itm => itm.category === cat));
@@ -184,10 +181,7 @@ const Products = () => {
         </div>
 
         {loading ? (
-          <div>
-            hello
-            <Loading />
-          </div>
+          <Loading />
         ) : (
           <div className="show-all-products">
             <ShowProducts />
