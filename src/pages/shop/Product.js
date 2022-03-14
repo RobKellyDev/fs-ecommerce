@@ -1,15 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import {
-  addItemCart,
-  delItemCart,
-  totalCartItems,
-} from '../../redux/action';
+import { addItemCart, delItemCart, totalCartItems } from '../../redux/action';
 import { Link, useParams } from 'react-router-dom';
 import '../../styles/components/Product.scss';
 import { FadeInDiv } from '../../components/animations/FadeInDiv';
 import { SlideInUpDiv } from '../../components/animations/SlideInUpDiv';
 import Skeleton from 'react-loading-skeleton';
+import 'react-loading-skeleton/dist/skeleton.css';
 
 const Product = () => {
   const { id } = useParams();
@@ -41,9 +38,7 @@ const Product = () => {
 
   useEffect(() => {
     const getProduct = async () => {
-      const response = await fetch(
-        `https://fakestoreapi.com/products/${id}`,
-      );
+      const response = await fetch(`https://fakestoreapi.com/products/${id}`);
       setProduct(await response.json());
       setLoading(false);
     };
@@ -56,10 +51,10 @@ const Product = () => {
   // Loading comp
   const Loading = () => (
     <>
-      <div className='col-md-6'>
+      <div className="col-md-6">
         <Skeleton height={400} />
       </div>
-      <div className='col-md-6' style={{ lineHeight: 2 }}>
+      <div className="col-md-6" style={{ lineHeight: 2 }}>
         <Skeleton height={300} width={50} />
         <Skeleton height={75} />
         <Skeleton height={25} width={150} />
@@ -72,8 +67,8 @@ const Product = () => {
 
   // ShowProduct comp
   const ShowProduct = () => (
-    <div className='product-details'>
-      <div className='col-md-6'>
+    <div className="product-details">
+      <div className="col-md-6">
         <img
           height={'auto'}
           width={400}
@@ -81,24 +76,19 @@ const Product = () => {
           alt={product.title}
         />
       </div>
-      <div className='col-md-6'>
-        <h4 className='text-uppercase text-black-50'>
-          {product.category}
-        </h4>
-        <h1 className='display-5'>{product.title}</h1>
-        <p className='lead fw-bolder'>
-          Rating {product.rating && product.rating.rate}{' '}
-          &nbsp;
-          <i className='fa fa-star'></i>
+      <div className="col-md-6">
+        <h4 className="text-uppercase text-black-50">{product.category}</h4>
+        <h1 className="display-5">{product.title}</h1>
+        <p className="lead fw-bolder">
+          Rating {product.rating && product.rating.rate} &nbsp;
+          <i className="fa fa-star"></i>
         </p>
-        <h3 className='display-6 fw-bold my-4'>
-          £ {product.price}
-        </h3>
-        <p className='lead'>{product.description}</p>
+        <h3 className="display-6 fw-bold my-4">£ {product.price}</h3>
+        <p className="lead">{product.description}</p>
 
         <button
           onClick={() => addProduct(product)}
-          className='add-product btn btn-outline-dark px-4 py-2'
+          className="add-product btn btn-outline-dark px-4 py-2"
         >
           <SlideInUpDiv>{cartBtn}</SlideInUpDiv>
         </button>
@@ -112,7 +102,7 @@ const Product = () => {
               color: 'white',
               textDecoration: 'none',
             }}
-            to='/cart'
+            to="/cart"
           >
             Go to Cart
           </Link>
@@ -123,8 +113,8 @@ const Product = () => {
 
   return (
     <FadeInDiv>
-      <div className='container py-5'>
-        <div className='row py-5'>
+      <div className="container py-5">
+        <div className="row py-5">
           {loading ? <Loading /> : <ShowProduct />}
         </div>
       </div>
