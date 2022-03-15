@@ -1,26 +1,42 @@
 .show-all-products {
-    .card {
-        overflow: hidden;
-        img {
-            transition: all 0.5s ease-out 75ms;
-            &:hover {
-                z-index: -1;
-                transform: scale(1.25, 1.1) scale3d(1.15, 1.15, 1.15);
-                cursor: pointer;
-                
-            }
-        }
+  .card {
+    overflow: hidden;
+    img {
+      transition: all 0.5s ease-out 75ms;
+      &:hover {
+        z-index: -1;
+        transform: scale(1.25, 1.1) scale3d(1.15, 1.15, 1.15);
+        cursor: pointer;
+      }
     }
+  }
 
-    .card-body {
-        background-color: #fefefe96;
-        > div a {
-            transition: all linear .4s 75ms;
-            line-height: 28px;
-        }
-        p {
-            color: #f44336;
-        }
+  .card-body {
+    background-color: #fefefe96;
+    > div a {
+      transition: all linear 0.4s 75ms;
+      line-height: 28px;
     }
+    .cart-title {
+    }
+    p {
+      color: #f44336;
+    }
+  }
 }
 
+.products-buy-now {
+  height: 42px;
+  a {
+    font-size: 1.1rem;
+    letter-spacing:.5px;
+  }
+}
+
+.products-filters {
+  button {
+    height: 42px;
+    font-size: 1.25rem;
+    letter-spacing:.5px;
+  }
+}

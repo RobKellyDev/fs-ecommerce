@@ -1,31 +1,40 @@
 @import '../../node_modules/bootstrap/dist/css/bootstrap.min.css';
 @import '../../node_modules/font-awesome/css/font-awesome.min.css';
-
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400&display=swap');
 
 :root {
+  
+  /* colors */
   --color-blue: #2196f3;
   --color-white: #fff;
   --color-red: #dc3545;
   --color-redish: #7a7573;
   --color-black: #111111;
-  --color-gray: rgb(80, 80, 80);
+  --color-gray: #343434;
   --color-gray-lg: #ebebeb;
-
-  --fontone: 'Open Sans', sans-serif;
+  --color-grey: #00000080;
   --breadcrumb-active-color: var(--color-white);
   --breadcrumb-reg-color: var(--bs-gray-600);
   --breadcrumb-bg: var(--color-black);
-  --breadcrumb-padding: 1px 3px;
   --breadcrumb-border-color: var(--color-gray);
+
+  /* font */
+  --fontone: 'Montserrat', sans-serif;
+
+ /*breadcrumb */
+  --breadcrumb-padding: 1px 3px;
+
 }
 
+
+/* global */
 *,
 *:before,
 *:after {
-  outline: 0 !important;
-  box-sizing: border-box !important;
-  vertical-align: baseline;
+  outline: 0;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
 html,
@@ -34,56 +43,11 @@ body {
   padding: 0 !important;
   background-color: transparent !important;
   color: var(--color-gray);
-  line-height: 1.5;
   font-family: var(--fontone);
+  line-height: 1.5;
+  font-size: 0.84rem;
 }
 
-header > nav {
-  padding: var(--breadcrumb-padding);
-  margin: 0;
-  transition: all 0.3s linear 0ms;
-  align-items: baseline;
-  flex-direction: column;
-  background-color: transparent !important;
-  text-align: left;
-  width: 100%;
-  padding-left: 0;
-  padding-right: 0;
-  display: flex;
-  justify-content: center;
-}
-
-.breadcrumb {
-  line-height: 17px;
-  font-variant: all-small-caps;
-  font-size: 0.65rem;
-  vertical-align: baseline;
-  height: 22px;
-}
-
-.breadcrumb-item a.active {
-  background-color: var(--breadcrumb-bg);
-  display: inline-block;
-  color: var(--breadcrumb-active-color);
-  border: 1px solid var(--breadcrumb-border-color);
-  padding: var(--breadcrumb-padding);
-  cursor: default;
-  border-radius: 2px;
-  margin-left: 5px;
-  text-decoration: none;
-}
-
-.breadcrumb-item a {
-  color: var(--breadcrumb-reg-color);
-  cursor: pointer;
-}
-
-.breadcrumb-item + .breadcrumb-item::before {
-  content: var(--breadcrumb-divider, '>') !important;
-  padding: 0;
-  line-height: 18px;
-  vertical-align: baseline;
-}
 
 .btn-outline-dark:focus {
   outline: none !important;
@@ -100,7 +64,7 @@ header > nav {
 }
 
 .products {
-  padding: 0px;
+  padding: 0;
   position: relative;
   width: 100%;
   display: flex;
@@ -109,7 +73,7 @@ header > nav {
 }
 
 .show-all-products .card,
-show-all-products .card-title {
+.show-all-products .card-title {
   opacity: 1;
   transform: rotate(-360deg) translate3d(0px, 0px, 0px);
   backface-visibility: hidden;
@@ -135,9 +99,7 @@ show-all-products .card-title {
 }
 
 .hero-big-dietro {
-  background: url(../assets/images/fall.jpg) 50% no-repeat
-    fixed;
-  background-color: #000;
+  background: #000 url(../assets/images/fall.jpg) no-repeat fixed 50% 50%;
   background-size: 1200px;
   z-index: 2;
   color: white;
@@ -157,4 +119,8 @@ show-all-products .card-title {
   height: 100vh;
   transition: all 0.35s linear 50ms;
   justify-content: center;
+}
+
+* {
+  outline: none !important;
 }

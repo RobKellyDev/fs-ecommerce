@@ -1,9 +1,12 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
+// images
 import shopHouse from '../assets/images/shophouse22.png';
 import bag from '../assets/images/bag-color29.png';
-import arrivals from '../assets/images/arrivals23.jpg';
+import shop from '../assets/images/shopnav.png';
+// styles
+import '../styles/components/Navbar.scss';
 
 const Navbar = () => {
   const state = useSelector(state => state.cartReducer);
@@ -11,7 +14,7 @@ const Navbar = () => {
 
   return (
     <nav className="d-flex justify-content-between navbar navbar-expand-lg navbar-light bg-white py-1 shadow-sm">
-      <div className="container">
+      <div className="container px-4">
         <Link className="navbar-brand fw-bold fs-6" to="/">
           <img
             src={shopHouse}
@@ -35,41 +38,24 @@ const Navbar = () => {
           <span className="navbar-toggler-icon"></span>
         </button>
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul className="navbar-nav mx-auto mb-2 mb-lg-0">
-            <li className="nav-item px-2">
-              <Link className="nav-link active" aria-current="page" to="/">
-                Home
+          <ul className="navbar-nav mx-auto mb-0">
+            <li id="home-shop" className="nav-item">
+              <Link className="home-shop nav-link" to="/products">
+                <img width={45} height={'auto'} src={shop} alt="arrivals" />
               </Link>
-            </li>
-            <li className="nav-item px-2">
-              <Link className="nav-link" to="/products">
-                Shop
-              </Link>
-            </li>
-
-            <li className="nav-item px-2">
-              <img
-                src={arrivals}
-                style={{
-                  width: '100%',
-                  height: 'auto',
-                  maxWidth: '37px',
-                  mixBlendMode: 'darken',
-                }}
-                alt="arrivals"
-              />
             </li>
           </ul>
 
           <div className="buttons">
             <Link
+              aria-selected="false"
               to="/signin"
-              style={{ border: 'none' }}
               className="btn btn-outline-dark"
             >
               <i className="fa fa-sign-in me-1"></i> Signin
             </Link>
             <Link
+              aria-selected="false"
               to="/register"
               style={{ border: 'none', display: 'none' }}
               className="btn btn-outline-dark ms-2"
@@ -77,12 +63,8 @@ const Navbar = () => {
               <i className="fa fa-user-plus me-1"></i> Register
             </Link>
             <Link
+              aria-selected="false"
               to="/cart"
-              style={{
-                border: 'none',
-                lineHeight: '26px',
-                verticalAlign: 'top',
-              }}
               className="btn btn-outline-dark ms-2"
             >
               <img
