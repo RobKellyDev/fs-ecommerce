@@ -1,9 +1,16 @@
-import React, { useEffect, useState } from 'react';
-import 'lazysizes';
+import React, { useEffect, useState, useCallback } from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import SmallHero from '../../components/SmallHero';
+// styles
 import '../../styles/components/Products.scss';
+import '../../styles/components/Header.scss';
+import { FadeInDiv } from '../../components/animations/FadeInDiv';
+
+// images
 import heroCycling from '../../assets/images/hero-cycling.png';
+//lazysizes
+import 'lazysizes';
+// skeleton
 import Skeleton from 'react-loading-skeleton';
 import 'react-loading-skeleton/dist/skeleton.css';
 
@@ -14,7 +21,35 @@ const Products = () => {
   const [filter, setFilter] = useState(data);
   let [loading, setLoading] = useState(true);
 
-  const handleProductsAPI = async () => await fetch(`${URL}/products`);
+  const getProducts = useCallback(async () => {
+    const options = {
+      method: 'GET',
+      mode: 'cors',
+      cache: 'no-cache',
+      headers: {
+        Accept: 'Application/json',
+      },
+    };
+    const handleProductsAPI = async () =>
+      await fetch(`${URL}/products`, options);
+    let items = await JSON.parse(localStorage.getItem('products'));
+    if (isLocalStorageEmpty()) {
+      let response = await handleProductsAPI();
+      let items = await response.json();
+      setData(items);
+      setFilter(items);
+      localStorage.setItem('products', JSON.stringify(items));
+      return setLoading(false);
+    }
+    setData(items);
+    setFilter(items);
+    return setLoading(false);
+  }, []);
+
+  useEffect(() => {
+    let responseProducts = getProducts();
+    return () => responseProducts;
+  }, [getProducts]);
 
   const isLocalStorageEmpty = () => {
     return JSON.parse(localStorage.getItem('products')) == null ||
@@ -23,26 +58,6 @@ const Products = () => {
       ? true
       : false;
   };
-
-  useEffect(() => {
-    const getProducts = async () => {
-      if (isLocalStorageEmpty()) {
-        let response = await handleProductsAPI();
-        let items = await response.json();
-        setData(items);
-        setFilter(items);
-        localStorage.setItem('products', JSON.stringify(items));
-        return setLoading(false);
-      } else if (!isLocalStorageEmpty()) {
-        let items = await JSON.parse(localStorage.getItem('products'));
-        setData(items);
-        setFilter(items);
-        return setLoading(false);
-      }
-    };
-    let responseProducts = getProducts();
-    return () => responseProducts;
-  }, []);
 
   const Loading = () => (
     <div className="row">
@@ -64,7 +79,7 @@ const Products = () => {
   const ShowProducts = () => {
     return (
       <div className="row">
-        <div className="col-12 d-flex flex-column flex-sm-row justify-content-between btn-group buttons mb-5">
+        <div className="col-12 d-flex flex-column flex-sm-row justify-content-between btn-group buttons mb-5 px-4 products-filters">
           <button
             className="btn btn-outline-dark mb-3 mb-sm-0 px-2"
             onClick={() => setFilter(data)}
@@ -100,43 +115,48 @@ const Products = () => {
         {data &&
           filter.map(product => {
             return (
-              <div key={product.id} className="col-12 col-sm-6 col-lg-4 mb-4">
-                <div className="d-flex flex-column card w-100 text-center p-2">
-                  <img
-                    style={{
-                      aspectRatio: 'auto',
-                      objectFit: 'scale-down',
-                      width: '100%',
-                      height: '340px',
-                      padding: '1.25rem 0.5rem',
-                    }}
-                    data-src={product.image}
-                    data-sizes={'auto'}
-                    data-srcset={product.image}
-                    className={'card-img-top lazyload'}
-                    alt={product.title}
-                    height="340"
-                    width="600"
-                  />
+              <div
+                key={product.id}
+                className="col-12 col-sm-12 col-lg-6 col-xl-4 mb-4 px-4"
+              >
+                <FadeInDiv>
+                  <div className="d-flex flex-column card w-100 text-center">
+                    <img
+                      style={{
+                        aspectRatio: 'auto',
+                        objectFit: 'scale-down',
+                        width: '100%',
+                        height: '340px',
+                        padding: '1.25rem 0.5rem',
+                      }}
+                      data-src={product.image}
+                      data-sizes={'auto'}
+                      data-srcset={product.image}
+                      className={'card-img-top lazyload'}
+                      alt={product.title}
+                      height="340"
+                      width="600"
+                    />
 
-                  <div className="card-body mt-4 px-4">
-                    <h5 className="card-title mb-0">
-                      {product.title.substring(0, 12)}...
-                    </h5>
-                    <p className="card-text p-3 fs-3 text-danger lead fw-bold">
-                      £{product.price}
-                    </p>
+                    <div className="card-body mt-4 px-4">
+                      <h4 className="card-title mb-0">
+                        {product.title.substring(0, 12)}...
+                      </h4>
+                      <p className="card-text p-3 fs-3 text-danger lead fw-bold">
+                        £{product.price}
+                      </p>
 
-                    <div className="d-grid col-12 mx-auto">
-                      <Link
-                        to={`/products/${product.id}`}
-                        className="btn btn-outline-dark"
-                      >
-                        Buy Now
-                      </Link>
+                      <div className="d-grid col-12 mx-auto products-buy-now">
+                        <Link
+                          to={`/products/${product.id}`}
+                          className="btn btn-outline-dark"
+                        >
+                          Buy Now
+                        </Link>
+                      </div>
                     </div>
                   </div>
-                </div>
+                </FadeInDiv>
               </div>
             );
           })}
@@ -172,9 +192,9 @@ const Products = () => {
                 </ol>
               </nav>
 
-              <h2 className="display-2 display-5 mt-5 text-center">
+              <h1 className="display-2 display-5 mt-5 text-center">
                 Latest Products
-              </h2>
+              </h1>
               <hr />
             </header>
           </div>

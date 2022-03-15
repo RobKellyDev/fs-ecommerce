@@ -1,6 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+// styles
 import { FadeInDiv } from '../components/animations/FadeInDiv';
+// asset
 import Video from '../components/Video';
 
 const Home = () => {
@@ -10,15 +12,13 @@ const Home = () => {
       className="position-relative"
     >
       <div className="text-center position-absolute top-50 start-50 translate-middle">
-        <span className="eyebrow text-white opacity-50">
+        <span className="eyebrow fs-4 text-white opacity-50">
           New Collection
         </span>
-        <h1 className="display-1 text-white lh-sm fw-bold">
-          Spring Jacket.
-        </h1>
+        <h1 className="display-1 text-white lh-sm fw-bold">Spring Jacket.</h1>
         <Link
           to=""
-          className="btn btn-outline-white text-white opacity-50"
+          className="btn btn-outline-white text-white fs-5 opacity-50"
         >
           ByBye Collection
         </Link>
@@ -31,13 +31,15 @@ const Home = () => {
   return (
     <FadeInDiv>
       <div className="d-flex w-100 justify-content-center bg-black">
-        <small className="text-white eyebrow opacity-50 d-none d-sm-block">
+        <small
+          style={{ borderTop: '1px solid #909090' }}
+          className="eyebrow text-white opacity-75 d-none d-sm-block"
+        >
           Limited Time Only -&nbsp;
           <span
             style={{
               padding: '0 5px',
-              color: 'red',
-              opacity: 1,
+              color: '#ff5722',
             }}
           >
             Jacket Only
