@@ -1,0 +1,16 @@
+.cart-is-empty {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  height: auto;
+  align-items: center;
+  svg {
+    width: 100%;
+    max-width: 30px;
+    height: auto;
+  }
+  h3,h4 {
+    margin: 0;
+    vertical-align: middle;
+  }
+}

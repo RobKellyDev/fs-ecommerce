@@ -1,0 +1,50 @@
+/* header */
+
+header > nav {
+  padding: var(--breadcrumb-padding);
+  margin: 0;
+  transition: all 0.3s linear 0ms;
+  align-items: baseline;
+  flex-direction: column;
+  background-color: transparent !important;
+  text-align: left;
+  width: 100%;
+  padding-left: 0;
+  padding-right: 0;
+  display: flex;
+  justify-content: center;
+}
+
+.breadcrumb {
+  line-height: 22px;
+  font-variant: all-small-caps;
+  font-size: 0.95rem;
+  vertical-align: baseline;
+  height: 26px;
+}
+
+.breadcrumb-item a.active {
+  background-color: var(--breadcrumb-bg);
+  display: inline-block;
+  color: var(--breadcrumb-active-color);
+  border: 1px solid var(--breadcrumb-border-color);
+  padding: var(--breadcrumb-padding);
+  cursor: default;
+  border-radius: 2px;
+  margin-left: 5px;
+  text-decoration: none;
+}
+
+.breadcrumb-item a {
+  color: var(--breadcrumb-reg-color);
+  cursor: pointer;
+  vertical-align: middle;
+  line-height: 22px;
+}
+
+.breadcrumb-item + .breadcrumb-item::before {
+  content: '>' !important;
+  padding: 0;
+  line-height: 22px;
+  vertical-align: baseline;
+}
