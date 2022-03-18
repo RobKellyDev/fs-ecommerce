@@ -27,8 +27,8 @@ const Products = () => {
       mode: 'cors',
       cache: 'no-cache',
       headers: {
-        Accept: 'Application/json',
-      },
+        Accept: 'Application/json'
+      }
     };
     const handleProductsAPI = async () =>
       await fetch(`${URL}/products`, options);
@@ -73,8 +73,8 @@ const Products = () => {
     </div>
   );
 
-  const filterProduct = cat =>
-    setFilter(data.filter(itm => itm.category === cat));
+  const filterProduct = (cat) =>
+    setFilter(data.filter((itm) => itm.category === cat));
 
   const ShowProducts = () => {
     return (
@@ -82,43 +82,37 @@ const Products = () => {
         <div className="col-12 d-flex flex-column flex-sm-row justify-content-between btn-group buttons mb-5 px-4 products-filters">
           <button
             className="btn btn-outline-dark mb-3 mb-sm-0 px-2"
-            onClick={() => setFilter(data)}
-          >
+            onClick={() => setFilter(data)}>
             All
           </button>
           <button
             onClick={() => filterProduct("men's clothing")}
-            className="btn btn-outline-dark mb-3 mb-sm-0 px-2"
-          >
+            className="btn btn-outline-dark mb-3 mb-sm-0 px-2">
             Men's Clothing
           </button>
           <button
             onClick={() => filterProduct("women's clothing")}
-            className="btn btn-outline-dark mb-3 mb-sm-0 px-2"
-          >
+            className="btn btn-outline-dark mb-3 mb-sm-0 px-2">
             Women's Clothing
           </button>
           <button
             onClick={() => filterProduct('jewelery')}
-            className="btn btn-outline-dark mb-3 mb-sm-0 px-2"
-          >
+            className="btn btn-outline-dark mb-3 mb-sm-0 px-2">
             Jewellery
           </button>
           <button
             onClick={() => filterProduct('electronics')}
-            className="btn btn-outline-dark mb-3 mb-sm-0 px-2"
-          >
+            className="btn btn-outline-dark mb-3 mb-sm-0 px-2">
             Electronics
           </button>
         </div>
 
         {data &&
-          filter.map(product => {
+          filter.map((product) => {
             return (
               <div
                 key={product.id}
-                className="col-12 col-sm-12 col-lg-6 col-xl-4 mb-4 px-4"
-              >
+                className="col-12 col-sm-12 col-lg-6 col-xl-4 mb-4 px-4">
                 <FadeInDiv>
                   <div className="d-flex flex-column card w-100 text-center">
                     <img
@@ -127,7 +121,7 @@ const Products = () => {
                         objectFit: 'scale-down',
                         width: '100%',
                         height: '340px',
-                        padding: '1.25rem 0.5rem',
+                        padding: '1.25rem 0.5rem'
                       }}
                       data-src={product.image}
                       data-sizes={'auto'}
@@ -149,8 +143,7 @@ const Products = () => {
                       <div className="d-grid col-12 mx-auto products-buy-now">
                         <Link
                           to={`/products/${product.id}`}
-                          className="btn btn-outline-dark"
-                        >
+                          className="btn btn-outline-dark">
                           Buy Now
                         </Link>
                       </div>

@@ -3,7 +3,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400&display=swap');
 
 :root {
-  
   /* colors */
   --color-blue: #2196f3;
   --color-white: #fff;
@@ -21,11 +20,9 @@
   /* font */
   --fontone: 'Montserrat', sans-serif;
 
- /*breadcrumb */
+  /*breadcrumb */
   --breadcrumb-padding: 1px 3px;
-
 }
-
 
 /* global */
 *,
@@ -39,15 +36,16 @@
 
 html,
 body {
+  width: 100%;
+  height: 100vh;
   margin: 0 !important;
   padding: 0 !important;
   background-color: transparent !important;
   color: var(--color-gray);
   font-family: var(--fontone);
   line-height: 1.5;
-  font-size: 0.84rem;
+  font-size: 0.8rem;
 }
-
 
 .btn-outline-dark:focus {
   outline: none !important;

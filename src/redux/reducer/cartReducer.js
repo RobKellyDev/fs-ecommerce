@@ -2,7 +2,7 @@ const initialState = {
   cartItems: [],
   currentItem: {},
   cartTotalItems: 0,
-  cartTotalPrice: 0,
+  cartTotalPrice: 0
 };
 
 const cartReducer = (state = initialState, action) => {
@@ -10,11 +10,11 @@ const cartReducer = (state = initialState, action) => {
     case 'CART_ADD':
       let itemExist = undefined;
       const item = action.payload;
-      itemExist = state.cartItems.find(itm => itm.id === item.id);
+      itemExist = state.cartItems.find((itm) => itm.id === item.id);
       if (itemExist) {
         return {
           ...state,
-          cartItems: [...state.cartItems],
+          cartItems: [...state.cartItems]
         };
       }
       //need qty prop
@@ -22,14 +22,14 @@ const cartReducer = (state = initialState, action) => {
       return {
         ...state,
         cartItems: state.cartItems.concat(item),
-        currentItem: item,
+        currentItem: item
       };
 
     case 'CART_UPDATE':
       let id = action.payload.id;
       let qty = action.payload.qty;
 
-      let updatedCartItems = state.cartItems.map(itm => {
+      let updatedCartItems = state.cartItems.map((itm) => {
         if (itm.qty === 0 && qty < 0) return itm;
         if (itm.qty === 0 && qty > 0) return { ...itm, qty: (itm.qty += qty) };
 
@@ -40,13 +40,13 @@ const cartReducer = (state = initialState, action) => {
 
       return {
         ...state,
-        cartItems: updatedCartItems,
+        cartItems: updatedCartItems
       };
 
     case 'CART_TOTAL_ITEMS':
       return {
         ...state,
-        cartTotalItems: action.payload,
+        cartTotalItems: action.payload
       };
 
     case 'CART_CLEAR':
@@ -57,8 +57,10 @@ const cartReducer = (state = initialState, action) => {
       let store = [];
       let delItem = action.payload;
 
-      delItem = state.cartItems.find(itm => itm.id === delItem.id);
-      let remainingItems = state.cartItems.filter(itm => itm.id !== delItem.id);
+      delItem = state.cartItems.find((itm) => itm.id === delItem.id);
+      let remainingItems = state.cartItems.filter(
+        (itm) => itm.id !== delItem.id
+      );
 
       if (delItem.qty <= 1) {
         store = store.concat(remainingItems);
@@ -70,19 +72,19 @@ const cartReducer = (state = initialState, action) => {
 
       return {
         ...state,
-        cartItems: store,
+        cartItems: store
       };
 
     case 'CART_TOTAL_PRICE':
       let total = Math.round(action.payload).toFixed(2);
       return {
         ...state,
-        cartTotalPrice: total,
+        cartTotalPrice: total
       };
 
     default:
       return {
-        ...state,
+        ...state
       };
   }
 };

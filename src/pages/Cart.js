@@ -6,7 +6,7 @@ import { FadeInDiv } from '../components/animations/FadeInDiv';
 import '../styles/components/Cart.scss';
 
 const Cart = () => {
-  const state = useSelector(state => state.cartReducer);
+  const state = useSelector((state) => state.cartReducer);
   const dispatch = useDispatch();
 
   let items = state.cartItems;
@@ -20,7 +20,7 @@ const Cart = () => {
     };
   }, [dispatch, items]);
 
-  const handleClose = item => {
+  const handleClose = (item) => {
     dispatch(delItemCart(item));
   };
 
@@ -29,19 +29,22 @@ const Cart = () => {
       <div className="cart-is-empty">
         <h4>Your Cart is Empty</h4>
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
-          <path d="M16 6v2h2l2 12H0L2 8h2V6a6 6 0 1 1 12 0zm-2 0a4 4 0 1 0-8 0v2h8V6zM4 10v2h2v-2H4zm10 0v2h2v-2h-2z" />
+          <path
+            d={`M16 6v2h2l2 12H0L2 8h2V6a6 6 0 1 1 12 0zm-2 0a4
+          4 0 1 0-8 0v2h8V6zM4 10v2h2v-2H4zm10 0v2h2v-2h-2z`}
+          />
         </svg>
       </div>
     </div>
   );
 
-  const showQtyWarning = itm => (
+  const showQtyWarning = (itm) => (
     <p className="text-danger">
       Cart Empty. Please update item quantity to continue
     </p>
   );
 
-  const showCartItems = itm => (
+  const showCartItems = (itm) => (
     <div className="px-4 my-5 bg-light rounded-3" key={itm.id}>
       <div className="container py-4">
         <button
@@ -55,15 +58,13 @@ const Cart = () => {
             <section className="d-flex justify-content-start">
               <button
                 onClick={() => handleItemUpdate(itm, -1)}
-                className="btn btn-sm btn-outline-dark me-4"
-              >
+                className="btn btn-sm btn-outline-dark me-4">
                 <i className="fa fa-minus" />
               </button>
 
               <button
                 onClick={() => handleItemUpdate(itm, +1)}
-                className="btn btn-sm btn-outline-dark me-4"
-              >
+                className="btn btn-sm btn-outline-dark me-4">
                 <i className="fa fa-plus" />
               </button>
             </section>
@@ -71,7 +72,10 @@ const Cart = () => {
 
           <div className="col-md-4">
             <h3>{itm.title}</h3>
-            <p className="item-information lead fw-light">Qty:{itm.qty}</p>
+            <p className="item-information lead fw-light">
+              Qty:
+              {itm.qty}
+            </p>
 
             <p className="item-information lead fw-light">
               Price: £<label>{itm.price}</label>
