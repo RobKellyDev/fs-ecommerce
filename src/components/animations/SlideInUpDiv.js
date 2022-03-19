@@ -1,5 +1,5 @@
-import styled, { keyframes } from "styled-components";
-import { slideInUp } from "react-animations";
+import styled, { keyframes } from 'styled-components';
+import { slideInUp } from 'react-animations';
 
 const slideInUpAnimation = keyframes`${slideInUp}`;
 

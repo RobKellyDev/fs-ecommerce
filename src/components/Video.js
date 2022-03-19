@@ -13,9 +13,8 @@ const Video = () => (
       width: '100%',
       height: '100%',
       overflow: 'hidden',
-      objectFit: 'cover',
-    }}
-  >
+      objectFit: 'cover'
+    }}>
     <source src={walkingGirl} />
   </video>
 );

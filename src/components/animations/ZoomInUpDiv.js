@@ -1,5 +1,5 @@
-import styled, { keyframes } from "styled-components";
-import { zoomInUp } from "react-animations";
+import styled, { keyframes } from 'styled-components';
+import { zoomInUp } from 'react-animations';
 
 const zoomInUpAnimation = keyframes`${zoomInUp}`;
 

@@ -122,3 +122,7 @@ body {
 * {
   outline: none !important;
 }
+
+nav + small {
+  transition: all .4s linear 250ms;
+}

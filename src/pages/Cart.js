@@ -63,8 +63,8 @@ const Cart = () => {
                 className="cart-image"
                 src={itm.image}
                 alt={itm.title}
-                height={200}
-                width={180}
+                height={'auto'}
+                width={210}
               />
             </Link>
           </div>

@@ -53,8 +53,8 @@ const Product = () => {
   // Loading comp
   const Loading = () => (
     <div className={'col-md-12'}>
-      <div style={{ marginTop: '3rem', display: 'flex' }}>
-        <div className="col-md-6">
+      <div style={{ marginTop: '8rem', display: 'flex' }}>
+        <div className="col-md-5">
           <Skeleton height={400} />
         </div>
         <div className="col-md-5 offset-md-1">
@@ -99,9 +99,9 @@ const Product = () => {
             <div className="product-details">
               <div className="col-12 col-xl-6 d-flex flex-column my-5 align-items-center justify-content-center show-product">
                 <img
-                  className={'img-fluid text-center p-5'}
+                  className={'img-fluid text-center'}
                   height={'auto'}
-                  width={400}
+                  width={300}
                   src={product.image}
                   alt={product.title}
                 />

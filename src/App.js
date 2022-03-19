@@ -4,7 +4,7 @@ import Shop from './pages/shop/';
 import Product from './pages/shop/Product';
 import Cart from './pages/Cart';
 import Signin from './pages/Signin';
-//router
+// router
 import { Routes, Route, BrowserRouter } from 'react-router-dom';
 
 const App = () => (
