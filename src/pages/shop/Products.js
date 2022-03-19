@@ -25,7 +25,6 @@ const Products = () => {
     const options = {
       method: 'GET',
       mode: 'cors',
-      cache: 'no-cache',
       headers: {
         Accept: 'Application/json'
       }
