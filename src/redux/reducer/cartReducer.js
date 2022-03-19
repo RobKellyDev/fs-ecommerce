@@ -1,3 +1,5 @@
+import { actionTypes } from '../action-types';
+
 const initialState = {
   cartItems: [],
   currentItem: {},
@@ -5,12 +7,11 @@ const initialState = {
   cartTotalPrice: 0
 };
 
-const cartReducer = (state = initialState, action) => {
-  switch (action.type) {
-    case 'CART_ADD':
+const cartReducer = (state = initialState, { type, payload }) => {
+  switch (type) {
+    case actionTypes.CART_ADD:
       let itemExist = undefined;
-      const item = action.payload;
-      itemExist = state.cartItems.find((itm) => itm.id === item.id);
+      itemExist = state.cartItems.find((itm) => itm.id === payload.id);
       if (itemExist) {
         return {
           ...state,
@@ -18,16 +19,16 @@ const cartReducer = (state = initialState, action) => {
         };
       }
       //need qty prop
-      item.qty = 1;
+      payload.qty = 1;
       return {
         ...state,
-        cartItems: state.cartItems.concat(item),
-        currentItem: item
+        cartItems: state.cartItems.concat(payload),
+        currentItem: payload
       };
 
-    case 'CART_UPDATE':
-      let id = action.payload.id;
-      let qty = action.payload.qty;
+    case actionTypes.CART_UPDATE:
+      let id = payload.id;
+      let qty = payload.qty;
 
       let updatedCartItems = state.cartItems.map((itm) => {
         if (itm.qty === 0 && qty < 0) return itm;
@@ -43,19 +44,18 @@ const cartReducer = (state = initialState, action) => {
         cartItems: updatedCartItems
       };
 
-    case 'CART_TOTAL_ITEMS':
+    case actionTypes.CART_TOTAL_ITEMS:
       return {
         ...state,
-        cartTotalItems: action.payload
+        cartTotalItems: payload
       };
 
-    case 'CART_CLEAR':
+    case actionTypes.CART_CLEAR:
       return initialState;
 
-    case 'CART_DELETE':
-      //debugger;
+    case actionTypes.CART_DELETE:
       let store = [];
-      let delItem = action.payload;
+      let delItem = payload;
 
       delItem = state.cartItems.find((itm) => itm.id === delItem.id);
       let remainingItems = state.cartItems.filter(
@@ -75,8 +75,9 @@ const cartReducer = (state = initialState, action) => {
         cartItems: store
       };
 
-    case 'CART_TOTAL_PRICE':
-      let total = Math.round(action.payload).toFixed(2);
+    case actionTypes.CART_TOTAL_PRICE:
+      let total = Math.round(payload).toFixed(2);
+      console.log('total is ', total);
       return {
         ...state,
         cartTotalPrice: total

@@ -17,18 +17,18 @@ Fake json api no good. 😧  - need my own node rest api
 
 <br />
 
-<img src="src/assets/lighthouse-report.png" />
+<img src="src/assets/lighthouse-report.png" alt='lighthouse-report' />
 
 <br />
 
 <h2 align="center">Client</h2>
 
-<img src="src/assets/home.png" />
+<img src="src/assets/home.png" alt='home' />
 
 <br />
 
 
-<img src="src/assets/details.png" />
+<img src="src/assets/details.png" alt='page details' />
 
 <br />
 

@@ -1,6 +1,12 @@
 import React, { useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { delItemCart, totalCartItems, updateItemCart } from '../redux/action';
+import {
+  delItemCart,
+  totalCartItems,
+  getCartTotal,
+  updateItemCart
+} from '../redux/actions';
 // styles
 import { FadeInDiv } from '../components/animations/FadeInDiv';
 import '../styles/components/Cart.scss';
@@ -8,21 +14,19 @@ import '../styles/components/Cart.scss';
 const Cart = () => {
   const state = useSelector((state) => state.cartReducer);
   const dispatch = useDispatch();
-
   let items = state.cartItems;
 
   const handleItemUpdate = (item, op) => dispatch(updateItemCart(item, op));
 
   useEffect(() => {
     dispatch(totalCartItems(items));
+    dispatch(getCartTotal(items));
     return () => {
       return [dispatch, items];
     };
   }, [dispatch, items]);
 
-  const handleClose = (item) => {
-    dispatch(delItemCart(item));
-  };
+  const handleClose = (item) => dispatch(delItemCart(item));
 
   const cartIsEmpty = () => (
     <div className="px-2 my-5 bg-light py-4 rounded-3">
@@ -45,33 +49,27 @@ const Cart = () => {
   );
 
   const showCartItems = (itm) => (
-    <div className="px-4 my-5 bg-light rounded-3" key={itm.id}>
-      <div className="container py-4">
+    <div className="cart-product px-4 my-5 rounded-3" key={itm.id}>
+      <div className="container p-0 py-md-5">
         <button
           onClick={() => handleClose(itm)}
-          className="btn-close float-end"
+          className="cart-close btn-close float-end"
         />
 
-        <div className="row justify-content-center">
-          <div className="col-md-4">
-            <img src={itm.image} alt={itm.title} height={200} width={180} />
-            <section className="d-flex justify-content-start">
-              <button
-                onClick={() => handleItemUpdate(itm, -1)}
-                className="btn btn-sm btn-outline-dark me-4">
-                <i className="fa fa-minus" />
-              </button>
-
-              <button
-                onClick={() => handleItemUpdate(itm, +1)}
-                className="btn btn-sm btn-outline-dark me-4">
-                <i className="fa fa-plus" />
-              </button>
-            </section>
+        <div className="row">
+          <div className="col-12 col-md-4 bg-light p-3">
+            <Link to={`/products/${itm.id}`}>
+              <img
+                className="cart-image"
+                src={itm.image}
+                alt={itm.title}
+                height={200}
+                width={180}
+              />
+            </Link>
           </div>
-
-          <div className="col-md-4">
-            <h3>{itm.title}</h3>
+          <div className="cart-title col-6 col-md-5 h-100 d-flex flex-column justify-content-space-between py-3">
+            <h3 className="mt-3 mb-5">{itm.title}</h3>
             <p className="item-information lead fw-light">
               Qty:
               {itm.qty}
@@ -80,15 +78,25 @@ const Cart = () => {
             <p className="item-information lead fw-light">
               Price: £<label>{itm.price}</label>
             </p>
+          </div>
 
-            <p className="item-information lead fw-light">
+          <div className="cart-total col-6 col-md-3 d-flex h-100 flex-column justify-content-center">
+            <p className="item-total lead fw-normal">
               Total: £{itm.qty * itm.price}
             </p>
+            <section className="d-flex justify-content-center my-2">
+              <button
+                onClick={() => handleItemUpdate(itm, -1)}
+                className="cart-qty btn btn-sm btn-outline-dark me-2">
+                <i className="fa fa-minus" />
+              </button>
 
-            <p className="item-information lead fw-light">
-              Rate:
-              {itm.rating.rate}
-            </p>
+              <button
+                onClick={() => handleItemUpdate(itm, +1)}
+                className="cart-qty btn btn-sm btn-outline-dark me-2">
+                <i className="fa fa-plus" />
+              </button>
+            </section>
           </div>
         </div>
         {items.length === 1 && itm.qty === 0 ? showQtyWarning(itm) : false}
@@ -103,6 +111,8 @@ const Cart = () => {
           <div className="cart my-5">
             <div className="col-12">
               <h1 className="text-center">Cart</h1>
+            </div>
+            <div className="col-12">
               {items.length === 0 && cartIsEmpty()}
               {items.length !== 0 && items.map(showCartItems)}
             </div>

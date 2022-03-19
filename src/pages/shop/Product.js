@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { addItemCart, delItemCart, totalCartItems } from '../../redux/action';
+import { addItemCart, delItemCart, totalCartItems } from '../../redux/actions';
 import { Link, useParams } from 'react-router-dom';
 // styles
 import '../../styles/components/Product.scss';
@@ -137,6 +137,8 @@ const Product = () => {
                   `}>
                       <Link
                         style={{
+                          display: 'flex',
+                          justifyContent: 'center',
                           color: 'white',
                           textDecoration: 'none'
                         }}

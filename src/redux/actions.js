@@ -1,9 +1,9 @@
-// CART actions
+import { actionTypes } from './action-types';
 
 // Add item to cart
 export const addItemCart = (item) => {
   return {
-    type: 'CART_ADD',
+    type: actionTypes.CART_ADD,
     payload: item
   };
 };
@@ -11,7 +11,7 @@ export const addItemCart = (item) => {
 // Delete Item from cart
 export const delItemCart = (item) => {
   return {
-    type: 'CART_DELETE',
+    type: actionTypes.CART_DELETE,
     payload: item
   };
 };
@@ -22,14 +22,14 @@ export const updateItemCart = (item, qty = 1) => {
   itemUpdate.id = item.id;
   itemUpdate.qty = qty;
   return {
-    type: 'CART_UPDATE',
+    type: actionTypes.CART_UPDATE,
     payload: itemUpdate
   };
 };
 
 export const clearCart = () => {
   return {
-    type: 'CART_CLEAR'
+    type: actionTypes.CART_CLEAR
   };
 };
 
@@ -43,7 +43,7 @@ export const getCartTotal = (items) => {
   }
 
   return {
-    type: 'CART_TOTAL_PRICE',
+    type: actionTypes.CART_TOTAL_PRICE,
     payload: sum
   };
 };
@@ -56,7 +56,7 @@ export const totalCartItems = (items) => {
     );
 
   return {
-    type: 'CART_TOTAL_ITEMS',
+    type: actionTypes.CART_TOTAL_ITEMS,
     payload: count
   };
 };

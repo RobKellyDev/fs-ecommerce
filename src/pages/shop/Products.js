@@ -31,7 +31,8 @@ const Products = () => {
       }
     };
     const handleProductsAPI = async () =>
-      await fetch(`${URL}/products`, options);
+      await fetch(`${URL}/products`, options).catch((err) => console.log(err));
+
     let items = await JSON.parse(localStorage.getItem('products'));
     if (isLocalStorageEmpty()) {
       let response = await handleProductsAPI();
@@ -120,7 +121,7 @@ const Products = () => {
                         aspectRatio: 'auto',
                         objectFit: 'scale-down',
                         width: '100%',
-                        height: '340px',
+                        height: '300px',
                         padding: '1.25rem 0.5rem'
                       }}
                       data-src={product.image}

@@ -53,20 +53,12 @@
     padding: 0 1.5rem;
     margin: 3rem 0;
     box-sizing: border-box;
-    img {
-      width: 100%;
-      max-width: 400px;
-      margin: 0 auto;
-      height: auto;
-      max-width: 340px;
-      padding: 2rem;
-    }
+    
   }
 }
 
 .show-product-description {
   @media only screen and (max-width: 1199px) {
-    width: 100%;
     text-align: center;
     h1 {
       margin: 1rem 0 1rem;
