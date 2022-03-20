@@ -1,32 +1,32 @@
-import React, { useEffect } from 'react';
-import { Link } from 'react-router-dom';
-import { useDispatch, useSelector } from 'react-redux';
+import React, { useEffect } from 'react'
+import { Link } from 'react-router-dom'
+import { useDispatch, useSelector } from 'react-redux'
 import {
   delItemCart,
   totalCartItems,
   getCartTotal,
-  updateItemCart
-} from '../redux/actions';
+  updateItemCart,
+} from '../redux/actions'
 // styles
-import { FadeInDiv } from '../components/animations/FadeInDiv';
-import '../styles/components/Cart.scss';
+import { FadeInDiv } from '../components/animations/FadeInDiv'
+import '../styles/components/Cart.scss'
 
 const Cart = () => {
-  const state = useSelector((state) => state.cartReducer);
-  const dispatch = useDispatch();
-  let items = state.cartItems;
+  const state = useSelector((state) => state.cartReducer)
+  const dispatch = useDispatch()
+  let items = state.cartItems
 
-  const handleItemUpdate = (item, op) => dispatch(updateItemCart(item, op));
+  const handleItemUpdate = (item, op) => dispatch(updateItemCart(item, op))
 
   useEffect(() => {
-    dispatch(totalCartItems(items));
-    dispatch(getCartTotal(items));
+    dispatch(totalCartItems(items))
+    dispatch(getCartTotal(items))
     return () => {
-      return [dispatch, items];
-    };
-  }, [dispatch, items]);
+      return [dispatch, items]
+    }
+  }, [dispatch, items])
 
-  const handleClose = (item) => dispatch(delItemCart(item));
+  const handleClose = (item) => dispatch(delItemCart(item))
 
   const cartIsEmpty = () => (
     <div className="px-2 my-5 bg-light py-4 rounded-3">
@@ -40,13 +40,13 @@ const Cart = () => {
         </svg>
       </div>
     </div>
-  );
+  )
 
   const showQtyWarning = (itm) => (
     <p className="text-danger">
       Cart Empty. Please update item quantity to continue
     </p>
-  );
+  )
 
   const showCartItems = (itm) => (
     <div className="cart-product px-4 my-5 rounded-3" key={itm.id}>
@@ -87,13 +87,15 @@ const Cart = () => {
             <section className="d-flex justify-content-center my-2">
               <button
                 onClick={() => handleItemUpdate(itm, -1)}
-                className="cart-qty btn btn-sm btn-outline-dark me-2">
+                className="cart-qty btn btn-sm btn-outline-dark me-2"
+              >
                 <i className="fa fa-minus" />
               </button>
 
               <button
                 onClick={() => handleItemUpdate(itm, +1)}
-                className="cart-qty btn btn-sm btn-outline-dark me-2">
+                className="cart-qty btn btn-sm btn-outline-dark me-2"
+              >
                 <i className="fa fa-plus" />
               </button>
             </section>
@@ -102,7 +104,7 @@ const Cart = () => {
         {items.length === 1 && itm.qty === 0 ? showQtyWarning(itm) : false}
       </div>
     </div>
-  );
+  )
 
   return (
     <FadeInDiv>
@@ -120,7 +122,7 @@ const Cart = () => {
         </div>
       </div>
     </FadeInDiv>
-  );
-};
+  )
+}
 
-export default Cart;
+export default Cart

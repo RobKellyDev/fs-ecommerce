@@ -1,6 +1,6 @@
-import React from 'react';
+import React from 'react'
 // styles
-import { FadeInDiv } from '../components/animations/FadeInDiv';
+import { FadeInDiv } from '../components/animations/FadeInDiv'
 
 const Signin = () => {
   return (
@@ -20,7 +20,7 @@ const Signin = () => {
         </div>
       </div>
     </FadeInDiv>
-  );
-};
+  )
+}
 
-export default Signin;
+export default Signin
