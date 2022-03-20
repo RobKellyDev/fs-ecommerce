@@ -24,6 +24,7 @@ jobs:
         with:
           fetch-depth: 0
           only_changed: True
+          persist-credentials: false
           prettier_options: --write **/*.{js,md}    
       
         env:
