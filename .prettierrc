@@ -1,6 +1,6 @@
 {
   "semi": false,
-  "brahttp://localhost:3000cketSpacing": true,
+  "bracketSpacing": true,
   "singleQuote": true,
   "printWidth": 80,
   "tabWidth": 2,
