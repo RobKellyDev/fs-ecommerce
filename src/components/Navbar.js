@@ -1,16 +1,15 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import { useSelector } from 'react-redux';
-// images
-import shopHouse from '../assets/images/shophouse22.png';
-import bag from '../assets/images/bag-color29.png';
-import shop from '../assets/images/shopnav.png';
-// styles
-import '../styles/components/Navbar.scss';
+import React from 'react'
+import { Link } from 'react-router-dom'
+import { useSelector } from 'react-redux'
+import shopHouse from '../assets/images/shophouse22.png'
+import bag from '../assets/images/bag-color29.png'
+import shop from '../assets/images/shopnav.png'
+import '../styles/components/Navbar.scss'
 
 const Navbar = () => {
-  const state = useSelector((state) => state.cartReducer);
-  let totalCartItems = state.cartTotalItems;
+  const state = useSelector((state) => state.cartReducer)
+  console.log(state)
+  let totalCartItems = state.cartTotalItems
 
   return (
     <nav className="d-flex justify-content-between navbar navbar-expand-lg navbar-light bg-white py-1 shadow-sm">
@@ -21,7 +20,7 @@ const Navbar = () => {
             style={{
               maxWidth: '50px',
               width: '100%',
-              height: 'auto'
+              height: 'auto',
             }}
             alt="shopHouse"
           />
@@ -33,7 +32,8 @@ const Navbar = () => {
           data-bs-target="#navbarSupportedContent"
           aria-controls="navbarSupportedContent"
           aria-expanded="false"
-          aria-label="Toggle navigation">
+          aria-label="Toggle navigation"
+        >
           <span className="navbar-toggler-icon"></span>
         </button>
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
@@ -49,36 +49,39 @@ const Navbar = () => {
             <Link
               aria-selected="false"
               to="/signin"
-              className="btn btn-outline-dark">
+              className="btn btn-outline-dark"
+            >
               <i className="fa fa-sign-in me-1"></i> Signin
             </Link>
             <Link
               aria-selected="false"
               to="/register"
               style={{ border: 'none', display: 'none' }}
-              className="btn btn-outline-dark ms-2">
+              className="btn btn-outline-dark ms-2"
+            >
               <i className="fa fa-user-plus me-1"></i> Register
             </Link>
             <Link
               aria-selected="false"
               to="/cart"
-              className="btn btn-outline-dark ms-2">
+              className="btn btn-outline-dark ms-2"
+            >
               <img
                 src={bag}
                 alt="cart"
                 style={{
                   width: '100%',
                   height: 'auto',
-                  maxWidth: '21px'
+                  maxWidth: '21px',
                 }}
               />{' '}
-              Cart ({totalCartItems})
+              Cart ({totalCartItems === 0 ? 'empty' : totalCartItems})
             </Link>
           </div>
         </div>
       </div>
     </nav>
-  );
-};
+  )
+}
 
-export default Navbar;
+export default Navbar

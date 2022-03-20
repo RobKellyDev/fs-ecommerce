@@ -1,54 +1,54 @@
-import React, { useState, useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { addItemCart, delItemCart, totalCartItems } from '../../redux/actions';
-import { Link, useParams } from 'react-router-dom';
+import React, { useState, useEffect } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
+import { addItemCart, delItemCart, totalCartItems } from '../../redux/actions'
+import { Link, useParams } from 'react-router-dom'
 // styles
-import '../../styles/components/Product.scss';
-import { FadeInDiv } from '../../components/animations/FadeInDiv';
-import { SlideInUpDiv } from '../../components/animations/SlideInUpDiv';
+import '../../styles/components/Product.scss'
+import { FadeInDiv } from '../../components/animations/FadeInDiv'
+import { SlideInUpDiv } from '../../components/animations/SlideInUpDiv'
 // skeleton
-import Skeleton from 'react-loading-skeleton';
-import 'react-loading-skeleton/dist/skeleton.css';
+import Skeleton from 'react-loading-skeleton'
+import 'react-loading-skeleton/dist/skeleton.css'
 
 const Product = () => {
-  const { id } = useParams();
-  const [product, setProduct] = useState([]);
-  const [loading, setLoading] = useState(true);
-  const [cartBtn, setCartBtn] = useState('Add to Cart');
+  const { id } = useParams()
+  const [product, setProduct] = useState([])
+  const [loading, setLoading] = useState(true)
+  const [cartBtn, setCartBtn] = useState('Add to Cart')
 
-  const state = useSelector((state) => state.cartReducer);
-  let cartItems = state.cartItems;
+  const state = useSelector((state) => state.cartReducer)
+  let cartItems = state.cartItems
 
-  const dispatch = useDispatch();
+  const dispatch = useDispatch()
 
   const addProduct = (product) => {
     if (cartBtn === 'Add to Cart') {
-      dispatch(addItemCart(product));
-      setCartBtn('Remove from Cart');
+      dispatch(addItemCart(product))
+      setCartBtn('Remove from Cart')
     } else {
-      dispatch(delItemCart(product));
-      setCartBtn('Add to Cart');
+      dispatch(delItemCart(product))
+      setCartBtn('Add to Cart')
     }
-  };
+  }
 
   useEffect(() => {
-    dispatch(totalCartItems(cartItems));
+    dispatch(totalCartItems(cartItems))
     return () => {
-      return [dispatch, cartItems];
-    };
-  }, [dispatch, cartItems]);
+      return [dispatch, cartItems]
+    }
+  }, [dispatch, cartItems])
 
   useEffect(() => {
     const getProduct = async () => {
-      const response = await fetch(`https://fakestoreapi.com/products/${id}`);
-      setProduct(await response.json());
-      setLoading(false);
-    };
+      const response = await fetch(`https://fakestoreapi.com/products/${id}`)
+      setProduct(await response.json())
+      setLoading(false)
+    }
 
-    let responseProduct = getProduct();
+    let responseProduct = getProduct()
 
-    return () => responseProduct;
-  }, [id]);
+    return () => responseProduct
+  }, [id])
 
   // Loading comp
   const Loading = () => (
@@ -68,8 +68,9 @@ const Product = () => {
             style={{
               display: 'flex',
               paddingBottom: '1rem',
-              marginBottom: '2rem'
-            }}></div>
+              marginBottom: '2rem',
+            }}
+          ></div>
 
           <Skeleton height={150} />
 
@@ -80,14 +81,15 @@ const Product = () => {
           <div
             style={{
               display: 'flex',
-              marginTop: '1rem'
-            }}></div>
+              marginTop: '1rem',
+            }}
+          ></div>
 
           <Skeleton height={42} />
         </div>
       </div>
     </div>
-  );
+  )
 
   return (
     <FadeInDiv>
@@ -127,22 +129,25 @@ const Product = () => {
                   <div className="button-wrapper">
                     <button
                       onClick={() => addProduct(product)}
-                      className="add-product btn btn-outline-dark p-0 mb-4">
+                      className="add-product btn btn-outline-dark p-0 mb-4"
+                    >
                       <SlideInUpDiv>{cartBtn}</SlideInUpDiv>
                     </button>
 
                     <button
                       className={`goto btn btn btn-dark py-2'
                     ${cartItems.length === 0 ? 'disabled' : ''}
-                  `}>
+                  `}
+                    >
                       <Link
                         style={{
                           display: 'flex',
                           justifyContent: 'center',
                           color: 'white',
-                          textDecoration: 'none'
+                          textDecoration: 'none',
                         }}
-                        to="/cart">
+                        to="/cart"
+                      >
                         Go to Cart
                       </Link>
                     </button>
@@ -154,7 +159,7 @@ const Product = () => {
         )}
       </div>
     </FadeInDiv>
-  );
-};
+  )
+}
 
-export default Product;
+export default Product
