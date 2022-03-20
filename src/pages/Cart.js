@@ -49,7 +49,7 @@ const Cart = () => {
   )
 
   const showCartItems = (itm) => (
-    <div className="cart-product px-4 rounded-3" key={itm.id}>
+    <div className="cart-product px-3 px-md-5 rounded-3" key={itm.id}>
       <div className="container p-0">
         <button
           onClick={() => handleClose(itm)}
@@ -57,7 +57,7 @@ const Cart = () => {
         />
 
         <div className="row">
-          <div className="col-12 col-md-4 col-lg-3 bg-light p-3">
+          <div className="col-12 col-md-4 col-lg-3 p-2">
             <Link className="image-link" to={`/products/${itm.id}`}>
               <img
                 className="cart-image"
@@ -68,37 +68,40 @@ const Cart = () => {
               />
             </Link>
           </div>
-          <div className="cart-title col-6 col-md-5 col-lg-5 h-100 py-3">
-            <h3 className="mt-3 mb-5">{itm.title}</h3>
-            <p className="item-information lead fw-light">
-              Qty:
-              {itm.qty}
-            </p>
-
-            <p className="item-information lead fw-light">
-              Price: £<label>{itm.price}</label>
-            </p>
+          <div className="col-12 col-md-5 col-lg-5 p-2">
+            <div className="cart-title">
+              <h5 className="mt-3 mb-3">{itm.title}</h5>
+              <p className="item-information lead fw-light mt-1 mb-1">
+                Qty:
+                {itm.qty}
+              </p>
+              <p className="item-information lead fw-light mt-1 mb-1">
+                Price: £<label>{itm.price}</label>
+              </p>
+            </div>
           </div>
 
-          <div className="cart-total col-6 col-md-3 col-lg-3 offset-lg-1">
-            <p className="item-total lead fw-normal">
-              Total: £{itm.qty * itm.price}
-            </p>
-            <section className="d-flex justify-content-center">
-              <button
-                onClick={() => handleItemUpdate(itm, -1)}
-                className="cart-qty btn btn-sm btn-outline-dark me-2"
-              >
-                <i className="fa fa-minus" />
-              </button>
+          <div className="col-12 col-md-3 col-lg-3 col-offset-lg-1 p-2">
+            <div className="cart-total">
+              <h5 className="item-total mt-3 mb-3">
+                Total: £{itm.qty * itm.price}
+              </h5>
+              <section className="d-flex justify-content-center mt-0 mb-0">
+                <button
+                  onClick={() => handleItemUpdate(itm, -1)}
+                  className="cart-qty btn btn-sm btn-outline-dark me-2"
+                >
+                  <i className="fa fa-minus" />
+                </button>
 
-              <button
-                onClick={() => handleItemUpdate(itm, +1)}
-                className="cart-qty btn btn-sm btn-outline-dark me-2"
-              >
-                <i className="fa fa-plus" />
-              </button>
-            </section>
+                <button
+                  onClick={() => handleItemUpdate(itm, +1)}
+                  className="cart-qty btn btn-sm btn-outline-dark me-2"
+                >
+                  <i className="fa fa-plus" />
+                </button>
+              </section>
+            </div>
           </div>
         </div>
         {items.length === 1 && itm.qty === 0 ? showQtyWarning(itm) : false}
@@ -121,7 +124,7 @@ const Cart = () => {
             <div className="col-12">
               <div className="checkout-btn">
                 <Link to="/checkout">
-                  <button className="btn btn-outline-dark fs-5 py-2 px-5">
+                  <button className="btn btn-lg btn-outline-dark fs-5 px-5">
                     Proceed to Checkout
                   </button>
                 </Link>

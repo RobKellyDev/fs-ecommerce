@@ -99,30 +99,30 @@ const Product = () => {
         ) : (
           <div className="row justify-content-center">
             <div className="product-details">
-              <div className="col-12 col-xl-6 d-flex flex-column my-5 align-items-center justify-content-center show-product">
+              <div className="col-12 col-xl-6 d-flex flex-column my-3 align-items-center justify-content-center show-product">
                 <img
                   className={'img-fluid text-center'}
                   height={'auto'}
-                  width={300}
+                  width={250}
                   src={product.image}
                   alt={product.title}
                 />
               </div>
 
-              <div className="col-12 col-offset-xl-1 col-xl-5 my-5 show-product-description">
+              <div className="col-12 col-offset-xl-1 col-xl-5 my-4 show-product-description">
                 <div className="d-sm-flex h-100 flex-column justify-content-between p-4">
-                  <h4 className="text-uppercase text-black-50">
+                  <h5 className="text-uppercase text-black-50">
                     {product.category}
-                  </h4>
-                  <h1 className="text-center text-xl-start mb-4">
+                  </h5>
+                  <h2 className="text-center text-xl-start mb-3">
                     {product.title}
-                  </h1>
-                  <p className="lead text-danger py-2 m-0">
+                  </h2>
+                  <p className="lead text-danger py-0 mb-2">
                     Rating {product.rating && product.rating.rate} &nbsp;
                     <i className="fa fa-star"></i>
                   </p>
-                  <h3 className="my-4">£{product.price}</h3>
-                  <p className="lead text-center text-wrap mb-5 text-sm-start">
+                  <h4 className="mb-4">£{product.price}</h4>
+                  <p className="fs-5 text fw-light text-center text-wrap mb-5 text-sm-start">
                     {product.description}
                   </p>
 

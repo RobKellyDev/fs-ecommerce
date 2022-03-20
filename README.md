@@ -70,5 +70,12 @@ API end points.  (users, products, auth, cart)
 
 ```
 
+```
 
+$ npm uninstall node-sass
+$ npm install sass
+# or
+$ yarn remove node-sass
+$ yarn add sass
 
+```
