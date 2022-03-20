@@ -49,16 +49,16 @@ const Cart = () => {
   )
 
   const showCartItems = (itm) => (
-    <div className="cart-product px-4 my-5 rounded-3" key={itm.id}>
-      <div className="container p-0 py-md-5">
+    <div className="cart-product px-4 rounded-3" key={itm.id}>
+      <div className="container p-0">
         <button
           onClick={() => handleClose(itm)}
           className="cart-close btn-close float-end"
         />
 
         <div className="row">
-          <div className="col-12 col-md-4 bg-light p-3">
-            <Link to={`/products/${itm.id}`}>
+          <div className="col-12 col-md-4 col-lg-3 bg-light p-3">
+            <Link className="image-link" to={`/products/${itm.id}`}>
               <img
                 className="cart-image"
                 src={itm.image}
@@ -68,7 +68,7 @@ const Cart = () => {
               />
             </Link>
           </div>
-          <div className="cart-title col-6 col-md-5 h-100 d-flex flex-column justify-content-space-between py-3">
+          <div className="cart-title col-6 col-md-5 col-lg-5 h-100 py-3">
             <h3 className="mt-3 mb-5">{itm.title}</h3>
             <p className="item-information lead fw-light">
               Qty:
@@ -80,11 +80,11 @@ const Cart = () => {
             </p>
           </div>
 
-          <div className="cart-total col-6 col-md-3 d-flex h-100 flex-column justify-content-center">
+          <div className="cart-total col-6 col-md-3 col-lg-3 offset-lg-1">
             <p className="item-total lead fw-normal">
               Total: £{itm.qty * itm.price}
             </p>
-            <section className="d-flex justify-content-center my-2">
+            <section className="d-flex justify-content-center">
               <button
                 onClick={() => handleItemUpdate(itm, -1)}
                 className="cart-qty btn btn-sm btn-outline-dark me-2"
@@ -110,13 +110,22 @@ const Cart = () => {
     <FadeInDiv>
       <div className="container">
         <div className="row">
-          <div className="cart my-5">
+          <div className="cart d-flex h-100 w-100 flex-column my-5">
             <div className="col-12">
               <h1 className="text-center">Cart</h1>
             </div>
             <div className="col-12">
               {items.length === 0 && cartIsEmpty()}
               {items.length !== 0 && items.map(showCartItems)}
+            </div>
+            <div className="col-12">
+              <div className="checkout-btn">
+                <Link to="/checkout">
+                  <button className="btn btn-outline-dark fs-5 py-2 px-5">
+                    Proceed to Checkout
+                  </button>
+                </Link>
+              </div>
             </div>
           </div>
         </div>

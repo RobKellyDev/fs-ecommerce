@@ -119,7 +119,7 @@ const Products = () => {
             return (
               <div
                 key={product.id}
-                className="col-12 col-sm-12 col-lg-6 col-xl-4 mb-4 px-4"
+                className="col-12 col-sm-12 col-lg-6 col-xl-4 mb-5 px-4"
               >
                 <FadeInDiv>
                   <div className="d-flex flex-column card w-100 text-center">
