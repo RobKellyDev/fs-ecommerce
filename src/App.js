@@ -1,14 +1,15 @@
-import Navbar from './components/Navbar';
-import Home from './pages/Home';
-import Shop from './pages/shop/';
-import Product from './pages/shop/Product';
-import Cart from './pages/Cart';
-import Signin from './pages/Signin';
+import React from 'react'
+import Home from './pages/Home'
+import Shop from './pages/shop/'
+import Product from './pages/shop/Product'
+import Cart from './pages/Cart'
+import Signin from './pages/Signin'
 // router
-import { Routes, Route, BrowserRouter } from 'react-router-dom';
+import { Routes, Route } from 'react-router-dom'
+import Navbar from './components/Navbar'
 
 const App = () => (
-  <BrowserRouter>
+  <div>
     <Navbar />
     <Routes>
       <Route exact path="/" element={<Home />} />
@@ -17,7 +18,7 @@ const App = () => (
       <Route exact path="/cart" element={<Cart />} />
       <Route exact path="/signin" element={<Signin />} />
     </Routes>
-  </BrowserRouter>
-);
+  </div>
+)
 
-export default App;
+export default App
