@@ -8,7 +8,7 @@
 
 <kbd>ON•GOING</kbd>
 
-Fake json api no good. 😧  - need my own node rest api
+
 
 <br />
 <h2>Live link [feature branch]:</h2> 
@@ -61,7 +61,7 @@ API end points.  (users, products, auth, cart)
 
 <br /><br />
 
-
+![](src/assets/superlinter.png)
 
 
 
