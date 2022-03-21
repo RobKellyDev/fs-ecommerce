@@ -1,17 +1,17 @@
-[![Netlify Status](https://api.netlify.com/api/v1/badges/181aa001-5db0-4310-9eaf-65513218cf6b/deploy-status)](https://app.netlify.com/sites/friendly-wescoff-0a9a79/deploys) &nbsp; [![DeepScan grade](https://deepscan.io/api/teams/16862/projects/20457/branches/557556/badge/grade.svg)](https://deepscan.io/dashboard#view=project&tid=16862&pid=20457&bid=557556)
+[![Netlify Status](https://api.netlify.com/api/v1/badges/181aa001-5db0-4310-9eaf-65513218cf6b/deploy-status)](https://app.netlify.com/sites/friendly-wescoff-0a9a79/deploys)
+&nbsp;
+[![DeepScan grade](https://deepscan.io/api/teams/16862/projects/20457/branches/557556/badge/grade.svg)](https://deepscan.io/dashboard#view=project&tid=16862&pid=20457&bid=557556)
 
 <br />
 
-# FS-Ecomm 
+# FS-Ecomm
 
 <p>React, Redux, Bootstrap</p>
 
 <kbd>ON•GOING</kbd>
 
-
-
 <br />
-<h2>Live link [feature branch]:</h2> 
+<h2>Live link [feature branch]:</h2>
 
 [Live link - feature branch](https://friendly-wescoff-0a9a79.netlify.app)
 
@@ -27,21 +27,15 @@
 
 <br />
 
-
 <img src="src/assets/details.png" alt='page details' />
 
 <br />
-
-
-
 
 <h2 align="center">Server</h2>
 
 <br />
 
-
-API end points.  (users, products, auth, cart)
-
+API end points. (users, products, auth, cart)
 
 ```text
 ╭─────────────────────┬──────────────────────────────────────────────────────╮
@@ -55,7 +49,7 @@ API end points.  (users, products, auth, cart)
 ├╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌┤
 │ DELETE              ┆ /products/:id (deletes a product)                    │
 ├╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌┤
-│ PATH                ┆ /products:id (updates a product)                     │          
+│ PATH                ┆ /products:id (updates a product)                     │
 ╰─────────────────────┴──────────────────────────────────────────────────────╯
 ```
 
@@ -63,19 +57,7 @@ API end points.  (users, products, auth, cart)
 
 ![](src/assets/superlinter.png)
 
-
-
-
 ```data
 
 ```
 
-```
-
-$ npm uninstall node-sass
-$ npm install sass
-# or
-$ yarn remove node-sass
-$ yarn add sass
-
-```
