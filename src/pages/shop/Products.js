@@ -14,7 +14,7 @@ import 'lazysizes'
 import Skeleton from 'react-loading-skeleton'
 import 'react-loading-skeleton/dist/skeleton.css'
 
-const BASE_URL = process.env.REACT_APP_BASE_URL
+const BASE_URL = 'https://fakestoreapi.com'
 
 const Products = () => {
   const [data, setData] = useState([])
