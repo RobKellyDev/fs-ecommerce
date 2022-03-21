@@ -80,8 +80,8 @@ const Products = () => {
 
   const ShowProducts = () => {
     return (
-      <div className="row">
-        <div className="col-12 d-flex flex-column flex-sm-row justify-content-between btn-group buttons mb-5 px-4 products-filters">
+      <>
+        <div className="col-12 d-flex flex-column flex-sm-row justify-content-between btn-group buttons mb-5 products-filters">
           <button
             className="btn btn-outline-dark mb-3 mb-sm-0 px-2"
             onClick={() => setFilter(data)}
@@ -114,55 +114,57 @@ const Products = () => {
           </button>
         </div>
 
-        {data &&
-          filter.map((product) => {
-            return (
-              <div
-                key={product.id}
-                className="col-12 col-sm-12 col-lg-6 col-xl-4 mb-5 px-4"
-              >
-                <FadeInDiv>
-                  <div className="d-flex flex-column card w-100 text-center">
-                    <img
-                      style={{
-                        aspectRatio: 'auto',
-                        objectFit: 'scale-down',
-                        width: '100%',
-                        height: '300px',
-                        padding: '1.25rem 0.5rem',
-                      }}
-                      data-src={product.image}
-                      data-sizes={'auto'}
-                      data-srcset={product.image}
-                      className={'card-img-top lazyload'}
-                      alt={product.title}
-                      height="340"
-                      width="600"
-                    />
-
-                    <div className="card-body mt-4 px-4">
-                      <h4 className="card-title mb-0">
-                        {product.title.substring(0, 12)}...
-                      </h4>
-                      <p className="card-text p-3 fs-3 text-danger lead fw-bold">
-                        £{product.price}
-                      </p>
-
-                      <div className="d-grid col-12 mx-auto products-buy-now">
-                        <Link
-                          to={`/products/${product.id}`}
-                          className="btn btn-outline-dark"
-                        >
-                          Buy Now
-                        </Link>
+        <div className="row row-cols-1 row-cols-md-3 row-cols-lg-4 g-4 latest-products mb-5">
+          {data &&
+            filter.map((product) => {
+              return (
+                <FadeInDiv key={product.id}>
+                  <div className="col latest-single">
+                    <div className="card h-100">
+                      <img
+                        style={{
+                          aspectRatio: 'auto',
+                          objectFit: 'scale-down',
+                          width: '100%',
+                          height: '250px',
+                          padding: '3rem',
+                        }}
+                        data-src={product.image}
+                        data-sizes={'auto'}
+                        data-srcset={product.image}
+                        className={'card-img-top lazyload'}
+                        alt={product.title}
+                      />
+                      <div className="card-body">
+                        <h5 className="card-title">
+                          {product.title.substring(0, 12)}...
+                        </h5>
+                        <p className="card-text fs-5 text-danger">
+                          {' '}
+                          £{product.price}
+                        </p>
+                        <p className="latest-buy-now">
+                          <Link
+                            to={`/products/${product.id}`}
+                            className="btn btn-outline-dark w-100"
+                          >
+                            Buy Now
+                          </Link>
+                        </p>
                       </div>
                     </div>
                   </div>
                 </FadeInDiv>
-              </div>
-            )
-          })}
-      </div>
+              )
+            })}
+        </div>
+
+        <div className="row row-cols-1 row-cols-md-4 g-4 latest-products mb-5">
+          <section className="d-flex flex-column my-5">
+            <h3 className="mt-5">Section to be....</h3>
+          </section>
+        </div>
+      </>
     )
   }
 
@@ -202,13 +204,7 @@ const Products = () => {
           </div>
         </div>
 
-        {loading ? (
-          <Loading />
-        ) : (
-          <div className="show-all-products">
-            <ShowProducts />
-          </div>
-        )}
+        {loading ? <Loading /> : <ShowProducts />}
       </div>
     </div>
   )

@@ -98,63 +98,65 @@ const Product = () => {
           <Loading />
         ) : (
           <div className="row justify-content-center">
-            <div className="product-details">
-              <div className="col-12 col-xl-6 d-flex flex-column my-3 align-items-center justify-content-center show-product">
-                <img
-                  className={'img-fluid text-center'}
-                  height={'auto'}
-                  width={250}
-                  src={product.image}
-                  alt={product.title}
-                />
-              </div>
+            <FadeInDiv>
+              <div className="product-details">
+                <div className="col-12 col-xl-6 d-flex flex-column my-3 align-items-center justify-content-center show-product">
+                  <img
+                    className={'img-fluid text-center'}
+                    height={'auto'}
+                    width={250}
+                    src={product.image}
+                    alt={product.title}
+                  />
+                </div>
 
-              <div className="col-12 col-offset-xl-1 col-xl-5 my-4 show-product-description">
-                <div className="d-sm-flex h-100 flex-column justify-content-between p-4">
-                  <h5 className="text-uppercase text-black-50">
-                    {product.category}
-                  </h5>
-                  <h2 className="text-center text-xl-start mb-3">
-                    {product.title}
-                  </h2>
-                  <p className="lead text-danger py-0 mb-2">
-                    Rating {product.rating && product.rating.rate} &nbsp;
-                    <i className="fa fa-star"></i>
-                  </p>
-                  <h4 className="mb-4">£{product.price}</h4>
-                  <p className="fs-5 text fw-light text-center text-wrap mb-5 text-sm-start">
-                    {product.description}
-                  </p>
+                <div className="col-12 col-offset-xl-1 col-xl-5 my-4 show-product-description">
+                  <div className="d-sm-flex h-100 flex-column justify-content-between p-4">
+                    <h5 className="text-uppercase text-black-50">
+                      {product.category}
+                    </h5>
+                    <h2 className="text-center text-xl-start mb-3">
+                      {product.title}
+                    </h2>
+                    <p className="lead text-danger py-0 mb-2">
+                      Rating {product.rating && product.rating.rate} &nbsp;
+                      <i className="fa fa-star"></i>
+                    </p>
+                    <h4 className="mb-4">£{product.price}</h4>
+                    <p className="fs-5 text fw-light text-center text-wrap mb-5 text-sm-start">
+                      {product.description}
+                    </p>
 
-                  <div className="button-wrapper">
-                    <button
-                      onClick={() => addProduct(product)}
-                      className="add-product btn btn-outline-dark p-0 mb-4"
-                    >
-                      <SlideInUpDiv>{cartBtn}</SlideInUpDiv>
-                    </button>
+                    <div className="button-wrapper">
+                      <button
+                        onClick={() => addProduct(product)}
+                        className="add-product btn btn-outline-dark p-0 mb-4"
+                      >
+                        <SlideInUpDiv>{cartBtn}</SlideInUpDiv>
+                      </button>
 
-                    <button
-                      className={`goto btn btn btn-dark py-2'
+                      <button
+                        className={`goto btn btn btn-dark py-2'
                     ${cartItems.length === 0 ? 'disabled' : ''}
                   `}
-                    >
-                      <Link
-                        style={{
-                          display: 'flex',
-                          justifyContent: 'center',
-                          color: 'white',
-                          textDecoration: 'none',
-                        }}
-                        to="/cart"
                       >
-                        Go to Cart
-                      </Link>
-                    </button>
+                        <Link
+                          style={{
+                            display: 'flex',
+                            justifyContent: 'center',
+                            color: 'white',
+                            textDecoration: 'none',
+                          }}
+                          to="/cart"
+                        >
+                          Go to Cart
+                        </Link>
+                      </button>
+                    </div>
                   </div>
                 </div>
               </div>
-            </div>
+            </FadeInDiv>
           </div>
         )}
       </div>

@@ -15,36 +15,43 @@ header > nav {
   justify-content: center;
 }
 
-.breadcrumb {
-  line-height: 22px;
+ol.breadcrumb {
+  height: 22px;
   font-variant: all-small-caps;
-  font-size: 0.95rem;
-  vertical-align: baseline;
-  height: 26px;
-}
-
-.breadcrumb-item a.active {
-  background-color: var(--breadcrumb-bg);
-  display: inline-block;
-  color: var(--breadcrumb-active-color);
-  border: 1px solid var(--breadcrumb-border-color);
-  padding: var(--breadcrumb-padding);
-  cursor: default;
-  border-radius: 2px;
-  margin-left: 5px;
-  text-decoration: none;
+  li.breadcrumb-item:first-child {
+    line-height: 19px;
+  }
+  li.breadcrumb-item:last-child a {
+    line-height: 19px;
+  }
+  @media only screen and (max-width: 767px) {
+    font-size: 0.73rem;
+    line-height: 21px;
+    a {
+      line-height: 16px !important;
+    }
+  }
 }
 
 .breadcrumb-item a {
+  display: inline-block;
   color: var(--breadcrumb-reg-color);
-  cursor: pointer;
+  cursor: default;
+  border-radius: 2px;
+  margin-left: 5px;
+  padding: var(--breadcrumb-padding);
   vertical-align: middle;
-  line-height: 22px;
+  &.active {
+    background-color: var(--breadcrumb-bg);
+    color: var(--breadcrumb-active-color);
+    cursor: pointer;
+    border: 1px solid var(--breadcrumb-border-color);
+    text-decoration: none;
+  }
 }
 
 .breadcrumb-item + .breadcrumb-item::before {
   content: '>' !important;
   padding: 0;
-  line-height: 22px;
-  vertical-align: baseline;
+  line-height: 20px;
 }
