@@ -23,7 +23,10 @@ yarn-debug.log*
 yarn-error.log*
 
 .idea
-
+cypress/reference/
+cypress/support/
+cypress/pulgins/
+cypress/fixtures/
 
 
 readme.md

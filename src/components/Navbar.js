@@ -14,7 +14,7 @@ const Navbar = () => {
   return (
     <nav className="d-flex justify-content-between navbar navbar-expand-lg navbar-light bg-white py-1 shadow-sm">
       <div className="container px-3">
-        <Link className="navbar-brand fw-bold fs-6" to="/">
+        <Link title="Home page" className="navbar-brand fw-bold fs-6" to="/">
           <img
             src={shopHouse}
             style={{
@@ -22,7 +22,7 @@ const Navbar = () => {
               width: '100%',
               height: 'auto',
             }}
-            alt="shopHouse"
+            alt="Shopping home page"
           />
         </Link>
         <button
@@ -39,8 +39,17 @@ const Navbar = () => {
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
           <ul className="navbar-nav mx-auto mb-0">
             <li id="home-shop" className="nav-item">
-              <Link className="home-shop nav-link" to="/products">
-                <img width={45} height={'auto'} src={shop} alt="arrivals" />
+              <Link
+                title="Products page"
+                className="home-shop nav-link"
+                to="/products"
+              >
+                <img
+                  width={45}
+                  height={'auto'}
+                  src={shop}
+                  alt="Shop products"
+                />
               </Link>
             </li>
           </ul>
