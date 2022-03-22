@@ -2,4 +2,4 @@ build/*
 /src/styles/index.css
 node-firebase-api
 
-cypress
+cypress/

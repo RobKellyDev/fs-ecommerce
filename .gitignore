@@ -31,6 +31,8 @@ cypress/fixtures/
 
 readme.md
 
+/components/product-details/
+
 
 .vscode
 .env
