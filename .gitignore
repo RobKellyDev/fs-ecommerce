@@ -25,8 +25,9 @@ yarn-error.log*
 .idea
 cypress/reference/
 cypress/support/
-cypress/pulgins/
+cypress/plugins/
 cypress/fixtures/
+cypress/videos
 
 
 readme.md
@@ -35,4 +36,6 @@ readme.md
 
 
 .vscode
-.env
+.env.local
+.env.production
+

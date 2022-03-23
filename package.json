@@ -30,7 +30,9 @@
     "eject": "react-scripts eject",
     "style:lint": "prettier --check '**/*.{js,jsx}'",
     "style:lint-fix": "prettier --write '**/*.{js,jsx}'",
-    "cypress": "npx cypress run"
+    "cypress:run": "DEBUG=cypress: * cypress run",
+    "cypress:open": "cypress open",
+    "cypress:open:debugger": "DEBUG=cypress:* cypress open"
   },
   "eslintConfig": {
     "extends": [
