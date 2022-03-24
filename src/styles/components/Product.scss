@@ -10,40 +10,46 @@
 
 .product-details {
   display: flex;
-  flex-wrap: wrap;
-  height: 100%;
   width: 100%;
-  justify-content: center;
+  justify-content: space-between;
+  flex-direction: column;
   align-items: center;
-  margin-bottom: 3rem;
-  padding: 0 !important;
+  margin-top: 3rem;
 
-  button.add-product {
+  .inner-product {
     display: flex;
-    overflow: hidden;
-    div {
-      visibility: visible;
-      transition: all 0.4s linear 0ms;
-      text-align: center;
-      width: 100%;
-      line-height: 42px;
-      animation-duration: 0.5s;
-      animation-delay: 0ms;
-      &::before {
-        visibility: hidden;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    margin: 3rem 0;
+    justify-content: center;
+    button.add-product {
+      display: flex;
+      overflow: hidden;
+      div {
+        visibility: visible;
+        transition: all 0.4s linear 0ms;
+        text-align: center;
+        width: 100%;
+        line-height: 32px;
+        animation-duration: 0.5s;
+        animation-delay: 0ms;
+        &::before {
+          visibility: hidden;
+        }
       }
     }
-  }
 
-  .btn-check:focus + .btn-dark,
-  .btn-dark:focus {
-    box-shadow: none !important;
-  }
+    .btn-check:focus + .btn-dark,
+    .btn-dark:focus {
+      box-shadow: none !important;
+    }
 
-  button.goto.btn.btn-dark.disabled {
-    background-color: #9e9e9e;
-    border: 1px solid #9e9e9e;
-    cursor: pointer;
+    button.goto.btn.btn-dark.disabled {
+      background-color: #9e9e9e;
+      border: 1px solid #9e9e9e;
+      cursor: pointer;
+    }
   }
 }
 
@@ -54,13 +60,27 @@
     box-sizing: border-box;
     max-width: 200px;
   }
+  @media only screen and (max-width: 736px) {
+    img {
+      padding: 2.5rem;
+    }
+  }
 }
 
 .show-product-description {
+  p {
+    font-size: 1.15rem;
+  }
   @media only screen and (max-width: 1199px) {
     text-align: center;
-    h1 {
+    h3 {
       margin: 1rem 0 1rem;
+      line-height: 1.5;
+    }
+  }
+  @media only screen and (max-width: 992px) {
+    > div {
+      justify-content: flex-start !important;
     }
   }
 }
@@ -71,8 +91,7 @@
   flex-direction: column;
   margin: 2rem 0 0;
   button {
-    padding: 0;
-    height: 42px;
+    height: 34px;
     font-size: 1.1rem;
     letter-spacing: 0.5px;
   }

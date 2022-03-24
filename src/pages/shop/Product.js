@@ -53,16 +53,17 @@ const Product = () => {
   // Loading comp
   const Loading = () => (
     <div className={'col-md-12'}>
-      <div style={{ marginTop: '8rem', display: 'flex' }}>
-        <div className="col-md-5">
+      <div style={{ marginTop: '24vh', display: 'flex' }}>
+        <div className="col-md-4 offset-md-1">
           <Skeleton height={400} />
         </div>
+
         <div className="col-md-5 offset-md-1">
           <Skeleton height={24} width={200} />
           <div style={{ display: 'flex', paddingTop: '1rem' }}></div>
           <Skeleton height={40} />
           <div style={{ display: 'flex', paddingTop: '1rem' }}></div>
-          <Skeleton height={30} width={200} />
+          <Skeleton height={27} width={200} />
 
           <div
             style={{
@@ -72,11 +73,11 @@ const Product = () => {
             }}
           ></div>
 
-          <Skeleton height={150} />
+          <Skeleton height={120} />
 
           <div style={{ display: 'flex', marginTop: '3rem' }}></div>
 
-          <Skeleton height={42} />
+          <Skeleton height={32} />
 
           <div
             style={{
@@ -85,7 +86,7 @@ const Product = () => {
             }}
           ></div>
 
-          <Skeleton height={42} />
+          <Skeleton height={40} />
         </div>
       </div>
     </div>
@@ -100,58 +101,65 @@ const Product = () => {
           <div className="row justify-content-center">
             <FadeInDiv>
               <div className="product-details">
-                <div className="col-12 col-xl-6 d-flex flex-column my-3 align-items-center justify-content-center show-product">
-                  <img
-                    className={'img-fluid text-center'}
-                    height={'auto'}
-                    width={250}
-                    src={product.image}
-                    alt={product.title}
-                  />
-                </div>
+                <h1 className="w-100 text-center my-5">Product Details</h1>
+                <div className="inner-product">
+                  <div className="row align-items-center">
+                    <div className="col-12 col-md-12 col-lg-6 d-flex flex-column my-3 align-items-center justify-content-center show-product">
+                      <img
+                        className={'img-fluid text-center'}
+                        height={'auto'}
+                        width={250}
+                        src={product.image}
+                        alt={product.title}
+                      />
+                    </div>
 
-                <div className="col-12 col-offset-xl-1 col-xl-5 my-4 show-product-description">
-                  <div className="d-sm-flex h-100 flex-column justify-content-between p-4">
-                    <h5 className="text-uppercase text-black-50">
-                      {product.category}
-                    </h5>
-                    <h2 className="text-center text-xl-start mb-3">
-                      {product.title}
-                    </h2>
-                    <p className="lead text-danger py-0 mb-2">
-                      Rating {product.rating && product.rating.rate} &nbsp;
-                      <i className="fa fa-star"></i>
-                    </p>
-                    <h4 className="mb-4">£{product.price}</h4>
-                    <p className="fs-5 text fw-light text-center text-wrap mb-5 text-sm-start">
-                      {product.description}
-                    </p>
+                    <div className="col-12 col-md-12 col-offset-lg-1 col-lg-5 my-4 show-product-description">
+                      <div className="d-md-flex flex-column justify-content-between px-3">
+                        <h5 className="text-uppercase text-black-50 text-lg-start">
+                          {product.category}
+                        </h5>
+                        <h3 className="text-center text-lg-start mb-3">
+                          {product.title}
+                        </h3>
+                        <p className="lead py-2 my-2 text-lg-start">
+                          Rating {product.rating && product.rating.rate} &nbsp;
+                          <i className="fa fa-star"></i>
+                        </p>
+                        <h4 className="mb-4 text-lg-start text-danger">
+                          £{product.price}
+                        </h4>
+                        <p className="text fw-light text-center text-wrap mb-5 text-lg-start">
+                          {product.description}
+                        </p>
 
-                    <div className="button-wrapper">
-                      <button
-                        onClick={() => addProduct(product)}
-                        className="add-product btn btn-outline-dark p-0 mb-4"
-                      >
-                        <SlideInUpDiv>{cartBtn}</SlideInUpDiv>
-                      </button>
+                        <div className="button-wrapper">
+                          <button
+                            onClick={() => addProduct(product)}
+                            className="add-product btn btn-outline-dark p-0 mb-4"
+                          >
+                            <SlideInUpDiv>{cartBtn}</SlideInUpDiv>
+                          </button>
 
-                      <button
-                        className={`goto btn btn btn-dark py-2'
+                          <button
+                            className={`goto btn btn btn-dark py-2'
                     ${cartItems.length === 0 ? 'disabled' : ''}
                   `}
-                      >
-                        <Link
-                          style={{
-                            display: 'flex',
-                            justifyContent: 'center',
-                            color: 'white',
-                            textDecoration: 'none',
-                          }}
-                          to="/cart"
-                        >
-                          Go to Cart
-                        </Link>
-                      </button>
+                          >
+                            <Link
+                              style={{
+                                display: 'flex',
+                                justifyContent: 'center',
+                                color: 'white',
+                                textDecoration: 'none',
+                              }}
+                              to="/cart"
+                            >
+                              Go to Cart
+                            </Link>
+                          </button>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>
