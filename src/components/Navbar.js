@@ -13,12 +13,12 @@ const Navbar = () => {
 
   return (
     <nav className="d-flex justify-content-between navbar navbar-expand-lg navbar-light bg-white py-1 shadow-sm">
-      <div className="container px-3">
+      <div className="container px-3 px-sm-0">
         <Link title="Home page" className="navbar-brand fw-bold fs-6" to="/">
           <img
             src={shopHouse}
             style={{
-              maxWidth: '50px',
+              maxWidth: '45px',
               width: '100%',
               height: 'auto',
             }}

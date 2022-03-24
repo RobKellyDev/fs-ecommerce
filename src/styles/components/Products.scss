@@ -1,16 +1,31 @@
 /* products filters */
 .all-products {
   min-height: 100vh;
-  .products-filters button {
-    transition: all 0.4s linear 50ms;
-    box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.14),
-      0 1px 0 -1px rgba(0, 0, 0, 0.12), 0 0 2px 0 rgba(0, 0, 0, 0.2);
-    font-size: 1.1rem;
-    border: 1px solid rgba(0, 0, 0, 0.47);
-    @media only screen and (max-width: 767px) {
-      font-size: 1.2rem;
-      box-shadow: none;
-      border-color: rgba(0, 0, 0, 0.22);
+  .products-filters {
+    display: flex;
+    margin: 0;
+    flex-wrap: wrap;
+    @media screen and (max-width: 590px) {
+      flex-direction: column;
+      height: fit-content;
+    }
+    button {
+      transition: all 0.4s linear 50ms;
+      box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.14),
+        0 1px 0 -1px rgba(0, 0, 0, 0.12), 0 0 2px 0 rgba(0, 0, 0, 0.2);
+      font-size: 1.1rem;
+      border: 1px solid rgba(0, 0, 0, 0.47);
+      @media only screen and (max-width: 767px) {
+        font-size: 1.2rem;
+        box-shadow: none;
+        border-color: rgba(0, 0, 0, 0.22);
+      }
+      @media screen and (max-width: 590px) {
+        display: flex;
+        justify-content: center;
+        width: 100%;
+        margin-bottom: 1rem;
+      }
     }
   }
   .products-filters > button:active,
@@ -22,17 +37,21 @@
 
 /* latest products */
 .latest-products {
-  margin-bottom: 5rem;
+  min-height: 50vh;
   .latest-single {
     .card-body {
       .latest-buy-now {
         margin: 0;
+
         a {
           transition: all 0.4s linear 50ms;
           padding: 0;
-          line-height: 34px;
+          line-height: 30px;
           font-size: 1.15rem;
           letter-spacing: 0.5px;
+          @media screen and (max-width: 590px) {
+            line-height: 32px;
+          }
         }
       }
     }

@@ -5,7 +5,7 @@ import { FadeInDiv } from './animations/FadeInDiv'
 const ProductSingle = ({ product: { id, image, price, title } }) => {
   let singleProduct = (
     <FadeInDiv>
-      <div className="col latest-single">
+      <div className="col latest-single mb-5 mb-sm-0">
         {title && (
           <div className="card h-100">
             <img

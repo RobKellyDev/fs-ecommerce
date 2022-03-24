@@ -14,28 +14,105 @@
 }
 
 #home-shop {
+  display: flex;
+  justify-content: flex-end;
+  margin-right: 20px;
+  margin-left: 20px;
+  width: 200px;
+
+  .nav-item img {
+    max-width: 45px;
+    width: 100%;
+    height: auto;
+  }
+}
+
+.buttons {
+  display: flex;
+  height: 40px;
+  align-items: center;
+  justify-content: flex-end;
+  margin: 3px 5px 0;
+  width: 260px;
+}
+
+.buttons a {
+  color: var(--color-gray);
+  border: 1px solid var(--color-grey);
+  padding: 4px 10px;
+  line-height: 25px;
+  display: inline-block;
+  margin: 0 0 0 15px;
+  width: 120px;
+  transition: all 0.3s linear 50ms;
+  .fa {
+    color: var(--color-black);
+    font-size: 1.5rem;
+    vertical-align: middle;
+  }
+}
+
+.btn.btn-outline-dark:hover i.fa {
+  color: var(--color-white);
+}
+
+.navbar-collapse {
+  margin: 1px 0;
+}
+
+#home-shop {
   margin-left: 107px;
+  display: flex;
+  justify-content: flex-end;
+  margin-right: 20px;
+  margin-left: 20px;
+  width: 200px;
+
+  .nav-item img {
+    max-width: 45px;
+    width: 100%;
+    height: auto;
+  }
 }
 
 .navbar-nav .nav-item img {
   max-width: 45px;
   width: 100%;
   height: auto;
-}
-
-.buttons a {
-  color: var(--color-gray);
-  border: 1px solid var(--color-grey);
-  padding: 5px 10px;
-  line-height: 23px;
-  vertical-align: middle;
-  margin: 5px 8px 3px;
-  transition: all 0.3s linear 50ms;
-  .fa {
-    color: var(--color-black);
+  .buttons {
+    display: flex;
+    height: 40px;
+    align-items: center;
+    justify-content: flex-end;
+    margin: 3px 5px 0;
+    width: 260px;
   }
-}
 
-.btn.btn-outline-dark:hover i.fa {
-  color: var(--color-white);
+  .buttons a {
+    color: var(--color-gray);
+    border: 1px solid var(--color-grey);
+    padding: 5px 10px;
+    line-height: 23px;
+    vertical-align: middle;
+    margin: 5px 8px 3px;
+    padding: 4px 10px;
+    line-height: 25px;
+    display: inline-block;
+    margin: 0 0 0 15px;
+    width: 120px;
+    transition: all 0.3s linear 50ms;
+    .fa {
+      color: var(--color-black);
+      font-size: 1.5rem;
+      vertical-align: middle;
+    }
+  }
+
+  .btn.btn-outline-dark:hover i.fa {
+    color: var(--color-white);
+  }
+
+  .navbar-collapse {
+    margin: 1px 0;
+  }
 }
