@@ -5,18 +5,26 @@ publish = "build"
 command = "npm run build"
 
 
+# hmmm
+[context.production]
+  command = "npm run build:production"
+
+
+[build.environment]
+  BASE_URL = REACT_APP_BASE_URL
 
 [[plugins]]
 package = "@netlify/plugin-lighthouse" # Installs Lighthouse Build plugin
 
 
 [plugins.inputs.thresholds]
-    performance = 0.5
-    accessibility = 0.5
-    best-practices = 0.5
-    seo = 0.3
-    pwa = 0.3   # avoid failed report
+    performance = process.env.REACT_APP_PERFORMANCE
+    accessibility = process.env.REACT_APP_ACCESSIBILITY
+    best-practices = process.env.REACT_APP_BEST_PRACTICES
+    seo = process.env.REACT_APP_SEO
+    pwa = process.env.REACT_APP_PWA
+
 
   # optional, deploy the lighthouse report to a path under your site
   [plugins.inputs]
-    output_path = "reports/lighthouse.html"
+    output_path = REACT_APP_OUTPUT_PATH
