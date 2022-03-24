@@ -42,7 +42,7 @@ const Cart = () => {
     </div>
   )
 
-  const showQtyWarning = (itm) => (
+  const showQtyWarning = () => (
     <p className="text-danger">
       Cart Empty. Please update item quantity to continue
     </p>

@@ -1,0 +1,53 @@
+{
+  "env": {
+    "browser": true,
+    "es2021": true,
+    "node": true
+  },
+  "globals": {
+    "Atomics": "readonly",
+    "SharedArrayBuffer": "readonly"
+  },
+  "parserOptions": {
+    "ecmaFeatures": {
+      "jsx": true
+    },
+    "ecmaVersion": "latest",
+    "sourceType": "module"
+  },
+
+  "settings": {
+    "react": {
+      "pragma": "React", // Pragma to use, default to "React"
+      "version": "detect"
+    }
+  },
+
+  "extends": [
+    "eslint:recommended",
+    "plugin:react/recommended",
+    "plugin:react-hooks/recommended"
+  ],
+
+  "plugins": ["react", "react-hooks"],
+  "rules": {
+    "no-case-declarations": 0,
+    "react/prop-types": 0,
+    "react/jsx-uses-react": "error",
+    "react/jsx-uses-vars": "error",
+    "no-unused-vars": "error",
+    "jsx-a11y/anchor-is-valid": 0,
+    "react/no-unescaped-entities": 0,
+    "react/jsx-no-target-blank": 0,
+    "no-mixed-spaces-and-tabs": 0,
+    "no-cond-assign": 0,
+    "react/jsx-key": 0,
+    "react/display-name": 0,
+    "no-lone-blocks": 1,
+    "jsx-a11y/accessible-emoji": 0,
+    "no-unexpected-multiline": 0,
+    "no-prototype-builtins": 0,
+    "react-hooks/rules-of-hooks": "error",
+    "react-hooks/exhaustive-deps": "warn"
+  }
+}
