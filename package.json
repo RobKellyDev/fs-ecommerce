@@ -29,12 +29,12 @@
     "build:production": "env-cmd -f ./.env.production npm run build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "style:lint": "prettier --check '**/*.{js,jsx}'",
-    "style:lint-fix": "prettier --write '**/*.{js,jsx}'",
+    "prettier:lint": "prettier --check '**/*.{js,jsx}'",
+    "prettier:fix": "prettier --write '**/*.{js,jsx}'",
     "cypress:run": "DEBUG=cypress: * cypress run",
     "cypress:open": "cypress open",
     "cypress:open:debugger": "DEBUG=cypress:* cypress open",
-    "eslint": "eslint ."
+    "lint": "eslint ."
   },
   "eslintConfig": {
     "extends": [
@@ -58,6 +58,9 @@
     "cypress": "^9.5.2",
     "env-cmd": "^10.1.0",
     "eslint": "^8.11.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-jsx-a11y": "^6.5.1",
+    "eslint-plugin-prettier": "^4.0.0",
     "eslint-plugin-react": "^7.29.4",
     "eslint-plugin-react-hooks": "^4.3.0",
     "node-sass": "^7.0.1",
