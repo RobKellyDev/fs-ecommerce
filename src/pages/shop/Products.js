@@ -1,14 +1,13 @@
 import React, { useEffect, useState, useCallback } from 'react'
-import SmallHero from '../../components/SmallHero'
-import ProductSingle from '../../components/ProductSingle'
+import { ProductSingle } from '../../components/product-single'
 import Breadcrumbs from '../../components/Breadcrumbs'
-import { handleProductsAPI, isLocalStorageEmpty } from '../../helpers'
-import { Loading } from '../../helpers'
+import { handleProductsAPI } from '../../helpers'
+import { SmallHero } from '../../components/small-hero'
+import { Loading, loadJSON, saveJSON } from '../../helpers'
 // styles
 import '../../styles/components/Products.scss'
-import '../../styles/components/Header.scss'
 // images
-import heroCycling from '../../assets/images/hero-cycling.png'
+import heroCycling from '../../assets/images/webp/hero-cycling.webp'
 //lazysizes
 import 'lazysizes'
 
@@ -17,28 +16,30 @@ const Products = () => {
   const [filter, setFilter] = useState(data)
   let [loading, setLoading] = useState(true)
 
+  const [storage, setStorage] = useState(loadJSON('products'))
+
   const getProducts = useCallback(async () => {
-    let items = await JSON.parse(localStorage.getItem('products'))
-
     const handleProducts = async () => handleProductsAPI()
-
-    if (isLocalStorageEmpty('products')) {
+    if (!storage) {
       let response = await handleProducts()
       let items = await response.json()
       setData(items)
       setFilter(items)
-      localStorage.setItem('products', JSON.stringify(items))
+      setStorage(saveJSON('products', items))
       return setLoading(false)
     }
-    setData(items)
-    setFilter(items)
-    return setLoading(false)
-  }, [])
+  }, [storage])
 
   useEffect(() => {
+    loadJSON()
+    if (storage) {
+      setData(storage)
+      setFilter(storage)
+      return setLoading(false)
+    }
     getProducts()
     return () => getProducts
-  }, [getProducts])
+  }, [getProducts, storage])
 
   const filterProduct = (cat) =>
     setFilter(data.filter((itm) => itm.category === cat))
@@ -80,9 +81,12 @@ const Products = () => {
 
       <div className="row row-cols-1 row-cols-md-3 row-cols-lg-4 g-4 latest-products mb-5">
         {data.length > 0 &&
-          filter.map((product) => (
-            <ProductSingle key={product.id} product={product} />
-          ))}
+          filter.map(
+            (product) =>
+              console.log('B list') || (
+                <ProductSingle key={product.id} product={product} />
+              )
+          )}
       </div>
 
       <div className="row row-cols-1 row-cols-md-4 g-4 latest-products">
@@ -98,7 +102,8 @@ const Products = () => {
       <SmallHero
         banner={heroCycling}
         height={268}
-        className={'small-hero'}
+        width={2048}
+        className={'smallHero'}
         alt={'Products'}
       />
       <div className="container">

@@ -34,7 +34,8 @@
     "cypress:run": "DEBUG=cypress: * cypress run",
     "cypress:open": "cypress open",
     "cypress:open:debugger": "DEBUG=cypress:* cypress open",
-    "lint": "eslint ."
+    "lint": "eslint .",
+    "lighthouse:audit": "lighthouse http://localhost:3000 --view"
   },
   "eslintConfig": {
     "extends": [

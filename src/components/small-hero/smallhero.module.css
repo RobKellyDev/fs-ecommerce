@@ -1,0 +1,8 @@
+.smallHero {
+  display: flex;
+  width: 100%;
+  max-width: 2048px;
+  height: 268px;
+  flex-wrap: wrap;
+  object-fit: cover;
+}

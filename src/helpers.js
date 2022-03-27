@@ -7,11 +7,8 @@ const BASE_URL = process.env.REACT_APP_BASE_URL
 
 const options = {
   method: 'GET',
-  mode: 'cors',
   headers: {
-    'Accept-Charset': 'utf-8',
     Accept: 'application/json',
-    'Content-Type': 'application/json',
   },
 }
 
@@ -44,3 +41,8 @@ export const Loading = () => (
     </div>
   </div>
 )
+
+export const loadJSON = (key) => key && JSON.parse(localStorage.getItem(key))
+
+export const saveJSON = (key, data) =>
+  localStorage.setItem(key, JSON.stringify(data))

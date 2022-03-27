@@ -1,5 +1,5 @@
 import React from 'react'
-import coverGirl from '../../assets/images/videos/covergirl.png'
+import coverGirl from '../../assets/images/webp/covergirl.webp'
 import walkingGirl from '../../assets/images/videos/walking-girl.mp4'
 import styles from './video.module.css'
 

@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import { useSelector } from 'react-redux'
-import shopHouse from '../../assets/images/shophouse22.png'
+import shopHouse from '../../assets/images/webp/shophouse22.webp'
 import bag from '../../assets/images/bag-color29.png'
 import shop from '../../assets/images/shopnav.png'
 import '../../styles/components/Navbar.scss'
