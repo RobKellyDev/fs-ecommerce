@@ -1,10 +1,11 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import { useSelector } from 'react-redux'
-import shopHouse from '../assets/images/shophouse22.png'
-import bag from '../assets/images/bag-color29.png'
-import shop from '../assets/images/shopnav.png'
-import '../styles/components/Navbar.scss'
+import shopHouse from '../../assets/images/shophouse22.png'
+import bag from '../../assets/images/bag-color29.png'
+import shop from '../../assets/images/shopnav.png'
+import '../../styles/components/Navbar.scss'
+//import styles from './navbar.module.css'
 
 const Navbar = () => {
   const state = useSelector((state) => state.cartReducer)
