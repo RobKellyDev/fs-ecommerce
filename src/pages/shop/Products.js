@@ -20,7 +20,7 @@ const Products = () => {
   const getProducts = useCallback(async () => {
     let items = await JSON.parse(localStorage.getItem('products'))
 
-    const handleProducts = async () => await handleProductsAPI()
+    const handleProducts = async () => handleProductsAPI()
 
     if (isLocalStorageEmpty('products')) {
       let response = await handleProducts()

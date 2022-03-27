@@ -106,7 +106,7 @@ const Cart = () => {
           </div>
         </div>
       </div>
-      {items.length === 1 && itm.qty === 0 ? showQtyWarning(itm) : false}
+      {items.length === 1 && itm.qty === 0 ? showQtyWarning() : false}
     </div>
   )
 

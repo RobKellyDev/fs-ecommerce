@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { addItemCart, delItemCart, totalCartItems } from '../../redux/actions'
+import { handleProductAPI } from '../../helpers'
 import { Link, useParams } from 'react-router-dom'
 // styles
 import '../../styles/components/Product.scss'
@@ -39,15 +40,17 @@ const Product = () => {
   }, [dispatch, cartItems])
 
   useEffect(() => {
-    const getProduct = async () => {
-      const response = await fetch(`https://fakestoreapi.com/products/${id}`)
-      setProduct(await response.json())
-      setLoading(false)
+    try {
+      const getProduct = async () => {
+        const response = await handleProductAPI(id)
+        setProduct(await response.json())
+        setLoading(false)
+      }
+      getProduct()
+      return () => getProduct
+    } catch (err) {
+      console.log(err)
     }
-
-    let responseProduct = getProduct()
-
-    return () => responseProduct
   }, [id])
 
   // Loading comp

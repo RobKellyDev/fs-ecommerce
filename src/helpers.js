@@ -15,8 +15,15 @@ const options = {
   },
 }
 
-export const handleProductsAPI = async () =>
-  await fetch(`${BASE_URL}/products`, options).catch((err) => console.log(err))
+export const handleProductsAPI = async () => {
+  let res = await fetch(`${BASE_URL}/products`, options)
+  if (res.ok) return res
+}
+
+export const handleProductAPI = async (id) => {
+  let res = await fetch(`${BASE_URL}/products/${id}`, options)
+  if (res.ok) return res
+}
 
 export const isLocalStorageEmpty = (name) =>
   JSON.parse(localStorage.getItem(name)) == null ? true : false
