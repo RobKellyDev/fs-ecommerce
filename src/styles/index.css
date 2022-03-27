@@ -47,6 +47,10 @@ body {
   font-size: 0.8rem;
 }
 
+.page-wrap {
+  min-height: calc(100vh - 54px);
+}
+
 .btn-outline-dark:focus {
   outline: none !important;
   box-shadow: none !important;
@@ -124,5 +128,5 @@ body {
 }
 
 nav + small {
-  transition: all .4s linear 250ms;
+  transition: all 0.4s linear 250ms;
 }
