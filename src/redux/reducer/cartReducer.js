@@ -32,7 +32,8 @@ const cartReducer = (state = initialState, { type, payload }) => {
 
       let updatedCartItems = state.cartItems.map((itm) => {
         if (itm.qty === 0 && qty < 0) return itm
-        if (itm.qty === 0 && qty > 0) return { ...itm, qty: (itm.qty += qty) }
+        if (itm.qty === 0 && qty > 0)
+          return { ...itm, qty: (itm.qty += qty) }
 
         return itm.id === id && itm.qty > 0
           ? { ...itm, qty: (itm.qty += qty) }
@@ -77,7 +78,7 @@ const cartReducer = (state = initialState, { type, payload }) => {
 
     case actionTypes.CART_TOTAL_PRICE:
       let total = Math.round(payload).toFixed(2)
-      console.log('total is ', total)
+
       return {
         ...state,
         cartTotalPrice: total,

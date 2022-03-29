@@ -1,9 +1,9 @@
-import React, { useEffect, useState, useCallback } from 'react'
+import React, { useEffect, useState } from 'react'
 import { ProductSingle } from '../../components/product-single'
 import Breadcrumbs from '../../components/Breadcrumbs'
 import { handleProductsAPI } from '../../helpers'
 import { SmallHero } from '../../components/small-hero'
-import { Loading, loadJSON, saveJSON } from '../../helpers'
+import { Loading } from '../../helpers'
 // styles
 import '../../styles/components/Products.scss'
 // images
@@ -16,30 +16,25 @@ const Products = () => {
   const [filter, setFilter] = useState(data)
   let [loading, setLoading] = useState(true)
 
-  const [storage, setStorage] = useState(loadJSON('products'))
-
-  const getProducts = useCallback(async () => {
-    const handleProducts = async () => handleProductsAPI()
-    if (!storage) {
-      let response = await handleProducts()
-      let items = await response.json()
-      setData(items)
-      setFilter(items)
-      setStorage(saveJSON('products', items))
-      return setLoading(false)
-    }
-  }, [storage])
 
   useEffect(() => {
-    loadJSON()
-    if (storage) {
-      setData(storage)
-      setFilter(storage)
-      return setLoading(false)
+    async function fetchData() {
+      try {
+        let response = await handleProductsAPI()
+        let products = await response.json()
+        setData(products)
+        setFilter(products)
+        return setLoading(false)
+      } catch (error) {
+        // eslint-disable-next-line no-console
+        console.log(error)
+      }
     }
-    getProducts()
-    return () => getProducts
-  }, [getProducts, storage])
+    fetchData()
+    return () => {
+      return fetchData
+    }
+  }, [])
 
   const filterProduct = (cat) =>
     setFilter(data.filter((itm) => itm.category === cat))
@@ -80,9 +75,10 @@ const Products = () => {
       </div>
 
       <div className="row row-cols-1 row-cols-md-3 row-cols-lg-4 g-4 latest-products mb-5">
-        {data.length > 0 &&
+        {data &&
           filter.map(
             (product) =>
+              // eslint-disable-next-line
               console.log('B list') || (
                 <ProductSingle key={product.id} product={product} />
               )

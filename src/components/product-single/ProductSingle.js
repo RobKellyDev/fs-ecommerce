@@ -27,7 +27,9 @@ const ProductSingle = ({ product: { id, image, price, title } }) => {
               alt={title}
             />
             <div className="card-body">
-              <h5 className="card-title">{title.substring(0, 12)}...</h5>
+              <h5 className="card-title">
+                {title.substring(0, 12)}...
+              </h5>
               <p className="card-text fs-5 text-danger"> £{price}</p>
               <p className="latest-buy-now">
                 <Link

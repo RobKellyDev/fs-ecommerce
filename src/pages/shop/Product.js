@@ -1,7 +1,13 @@
 import React, { useState, useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { addItemCart, delItemCart, totalCartItems } from '../../redux/actions'
-import { handleProductAPI } from '../../helpers'
+import {
+  addItemCart,
+  delItemCart,
+  totalCartItems,
+} from '../../redux/actions'
+import {
+  handleProductAPI,
+} from '../../helpers'
 import { Link, useParams } from 'react-router-dom'
 // styles
 import '../../styles/components/Product.scss'
@@ -39,18 +45,21 @@ const Product = () => {
     }
   }, [dispatch, cartItems])
 
-  useEffect(() => {
+  async function getProduct(id) {
     try {
-      const getProduct = async () => {
-        const response = await handleProductAPI(id)
-        setProduct(await response.json())
-        setLoading(false)
-      }
-      getProduct()
-      return () => getProduct
-    } catch (err) {
-      console.log(err)
+      let response = await handleProductAPI(id)
+      let product = await response.json()
+      setProduct(product)
+      return setLoading(false)
+    } catch (error) {
+      // eslint-disable-next-line no-console
+      console.log(error)
     }
+  }
+
+  useEffect(() => {
+    getProduct(id)
+    return () => getProduct
   }, [id])
 
   // Loading comp
@@ -104,7 +113,9 @@ const Product = () => {
           <div className="row justify-content-center">
             <FadeInDiv>
               <div className="product-details">
-                <h1 className="w-100 text-center my-5">Product Details</h1>
+                <h1 className="w-100 text-center my-5">
+                  Product Details
+                </h1>
                 <div className="inner-product">
                   <div className="row align-items-center">
                     <div className="col-12 col-md-12 col-lg-6 d-flex flex-column my-3 align-items-center justify-content-center show-product">
@@ -126,7 +137,9 @@ const Product = () => {
                           {product.title}
                         </h3>
                         <p className="lead py-2 my-2 text-lg-start">
-                          Rating {product.rating && product.rating.rate} &nbsp;
+                          Rating{' '}
+                          {product.rating && product.rating.rate}{' '}
+                          &nbsp;
                           <i className="fa fa-star"></i>
                         </p>
                         <h4 className="mb-4 text-lg-start text-danger">

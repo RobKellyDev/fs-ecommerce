@@ -52,7 +52,9 @@ export const totalCartItems = (items) => {
   let count = 0
   items &&
     items.map((itm) =>
-      Number(itm.qty) > 1 ? (count += Number(itm.qty)) : Number((count += 1))
+      Number(itm.qty) > 1
+        ? (count += Number(itm.qty))
+        : Number((count += 1))
     )
 
   return {

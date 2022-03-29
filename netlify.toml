@@ -2,7 +2,7 @@
 base = "./"
 publish = "build"
 
-command = "npm run build:production"
+command = "npm run build"
 
 
 [[plugins]]

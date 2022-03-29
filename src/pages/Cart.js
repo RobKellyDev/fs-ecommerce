@@ -16,7 +16,8 @@ const Cart = () => {
   const dispatch = useDispatch()
   let items = state.cartItems
 
-  const handleItemUpdate = (item, op) => dispatch(updateItemCart(item, op))
+  const handleItemUpdate = (item, op) =>
+    dispatch(updateItemCart(item, op))
 
   useEffect(() => {
     dispatch(totalCartItems(items))
@@ -78,7 +79,8 @@ const Cart = () => {
               {itm.qty}
             </p>
             <p className="item-information lead fw-light mb-1">
-              Price: &nbsp; <label className="text-danger">£{itm.price}</label>
+              Price: &nbsp;{' '}
+              <label className="text-danger">£{itm.price}</label>
             </p>
           </div>
         </div>
@@ -86,7 +88,8 @@ const Cart = () => {
         <div className="col-12 col-md-3 col-lg-3 col-offset-lg-1">
           <div className="cart-total">
             <h5 className="item-total mt-3 mb-3">
-              Total: <label> £{(itm.qty * itm.price).toFixed(2)}</label>
+              Total:{' '}
+              <label> £{(itm.qty * itm.price).toFixed(2)}</label>
             </h5>
             <section className="d-flex justify-content-center mt-0 mb-0">
               <button

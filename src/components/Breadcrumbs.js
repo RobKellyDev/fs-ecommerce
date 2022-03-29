@@ -14,7 +14,11 @@ const Breadcrumbs = () => (
               </NavLink>
             </li>
             <li className="breadcrumb-item text-uppercase">
-              <NavLink aria-current="page" className="" to="/products">
+              <NavLink
+                aria-current="page"
+                className=""
+                to="/products"
+              >
                 Products
               </NavLink>
             </li>

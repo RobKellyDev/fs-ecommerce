@@ -11,8 +11,10 @@ const NotFound = () => {
             <span className="display-1 d-block text-danger">404</span>
             <div className="mb-4 lead">
               The page you are looking for at: <br />
-              <span className="fw-bolder">{location.pathname}</span> was not
-              found.
+              <span className="fw-bolder">
+                {location.pathname}
+              </span>{' '}
+              was not found.
             </div>
             <p className="fs-5">
               <Link className="btn btn-outline-dark" to="/">

@@ -36,7 +36,9 @@ const CheckoutMainForm = () => {
               value=""
               required=""
             />
-            <div className="invalid-feedback">Valid last name is required.</div>
+            <div className="invalid-feedback">
+              Valid last name is required.
+            </div>
           </div>
 
           <div className="col-12">
@@ -52,7 +54,9 @@ const CheckoutMainForm = () => {
                 placeholder="Username"
                 required=""
               />
-              <div className="invalid-feedback">Your username is required.</div>
+              <div className="invalid-feedback">
+                Your username is required.
+              </div>
             </div>
           </div>
 
@@ -154,7 +158,11 @@ const CheckoutMainForm = () => {
         </div>
 
         <div className="form-check">
-          <input type="checkbox" className="form-check-input" id="save-info" />
+          <input
+            type="checkbox"
+            className="form-check-input"
+            id="save-info"
+          />
           <label className="form-check-label" htmlFor="save-info">
             Save this information for next time
           </label>
@@ -216,8 +224,12 @@ const CheckoutMainForm = () => {
               placeholder=""
               required=""
             />
-            <small className="text-muted">Full name as displayed on card</small>
-            <div className="invalid-feedback">Name on card is required</div>
+            <small className="text-muted">
+              Full name as displayed on card
+            </small>
+            <div className="invalid-feedback">
+              Name on card is required
+            </div>
           </div>
 
           <div className="col-md-6">
@@ -247,7 +259,9 @@ const CheckoutMainForm = () => {
               placeholder=""
               required=""
             />
-            <div className="invalid-feedback">Expiration date required</div>
+            <div className="invalid-feedback">
+              Expiration date required
+            </div>
           </div>
 
           <div className="col-md-3">
@@ -261,13 +275,18 @@ const CheckoutMainForm = () => {
               placeholder=""
               required=""
             />
-            <div className="invalid-feedback">Security code required</div>
+            <div className="invalid-feedback">
+              Security code required
+            </div>
           </div>
         </div>
 
         <hr className="my-4" />
 
-        <button className="w-100 btn btn-primary btn-lg" type="submit">
+        <button
+          className="w-100 btn btn-primary btn-lg"
+          type="submit"
+        >
           Continue to checkout
         </button>
       </form>

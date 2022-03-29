@@ -9,13 +9,17 @@ import '../../styles/components/Navbar.scss'
 
 const Navbar = () => {
   const state = useSelector((state) => state.cartReducer)
-  console.log(state)
+
   let totalCartItems = state.cartTotalItems
 
   return (
     <nav className="d-flex justify-content-between navbar navbar-expand-lg navbar-light bg-white py-1 shadow-sm">
       <div className="container px-3 px-sm-0">
-        <Link title="Home page" className="navbar-brand fw-bold fs-6" to="/">
+        <Link
+          title="Home page"
+          className="navbar-brand fw-bold fs-6"
+          to="/"
+        >
           <img
             src={shopHouse}
             style={{
@@ -37,7 +41,10 @@ const Navbar = () => {
         >
           <span className="navbar-toggler-icon"></span>
         </button>
-        <div className="collapse navbar-collapse" id="navbarSupportedContent">
+        <div
+          className="collapse navbar-collapse"
+          id="navbarSupportedContent"
+        >
           <ul className="navbar-nav mx-auto mb-0">
             <li id="home-shop" className="nav-item">
               <Link

@@ -9,21 +9,17 @@ const options = {
   method: 'GET',
   headers: {
     Accept: 'application/json',
+    mode: 'no-cors',
   },
 }
 
-export const handleProductsAPI = async () => {
-  let res = await fetch(`${BASE_URL}/products`, options)
-  if (res.ok) return res
-}
+export const handleProductsAPI = async () => 
+  await fetch(`${BASE_URL}/products`, options)
 
-export const handleProductAPI = async (id) => {
-  let res = await fetch(`${BASE_URL}/products/${id}`, options)
-  if (res.ok) return res
-}
 
-export const isLocalStorageEmpty = (name) =>
-  JSON.parse(localStorage.getItem(name)) == null ? true : false
+export const handleProductAPI = async (id) => 
+  await fetch(`${BASE_URL}/products/${id}`, options)
+
 
 export const Loading = () => (
   <div className="row mt-5">
@@ -42,7 +38,8 @@ export const Loading = () => (
   </div>
 )
 
-export const loadJSON = (key) => key && JSON.parse(localStorage.getItem(key))
+export const loadJSON = (key) =>
+  key && JSON.parse(localStorage.getItem(key))
 
 export const saveJSON = (key, data) =>
   localStorage.setItem(key, JSON.stringify(data))
