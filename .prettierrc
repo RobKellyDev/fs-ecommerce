@@ -2,7 +2,7 @@
   "semi": false,
   "bracketSpacing": true,
   "singleQuote": true,
-  "printWidth": 80,
+  "printWidth": 70,
   "tabWidth": 2,
   "useTabs": false,
   "trailingComma": "es5",
@@ -11,5 +11,6 @@
   "proseWrap": "always",
   "htmlWhitespaceSensitivity": "strict",
   "endOfLine": "lf",
+  "multi-line": "always",
   "jsxSingleQuote": false
 }
