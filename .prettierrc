@@ -11,6 +11,5 @@
   "proseWrap": "always",
   "htmlWhitespaceSensitivity": "strict",
   "endOfLine": "lf",
-  "multi-line": "always",
   "jsxSingleQuote": false
 }

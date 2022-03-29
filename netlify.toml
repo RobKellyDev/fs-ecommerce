@@ -1,9 +1,8 @@
 [build]
-base = ""
+base = "./"
 publish = "build"
 
-command = "npm run build"
-
+command = "npm run build:production"
 
 
 [[plugins]]
