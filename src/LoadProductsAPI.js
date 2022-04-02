@@ -35,7 +35,7 @@ const LoadProductsAPI = async () => {
     .then((res) => res.json())
       .then((result) => {
         let isToken = result.idToken
-        saveJSON('token',isToken)
+        isToken ? saveJSON('token', isToken) : false;
         return isToken
       })
       // eslint-disable-next-line no-console
@@ -44,7 +44,7 @@ const LoadProductsAPI = async () => {
 
   const getProductsWithToken = async (token) => {
     const headers = new Headers()
-    headers.append('Authorization', `Bearer ${token.toString()}`)
+    headers.append('Authorization', `Bearer ${token}`)
     headers.append('Content-Type', 'application/json')
     let reqOptions = {
       method: 'GET',
@@ -53,7 +53,7 @@ const LoadProductsAPI = async () => {
     return fetch(process.env.REACT_APP_PRODUCTS_TOKEN_URL, reqOptions)
         .then((res) => res.json())
         .then(results => {//save products local storage
-          saveJSON('products', results);
+          results ? saveJSON('products', results) : false;
           return results
         })
         // eslint-disable-next-line no-console
@@ -61,14 +61,12 @@ const LoadProductsAPI = async () => {
   }
 
   try {
-
-    if(loadJSON('token')) {
-      const token = loadJSON('token');
-      return getProductsWithToken(token);
+   
+    if(loadJSON('token' !== null)) {//token
+      const token = loadJSON('token')
+      return getProductsWithToken(token)
     }
-    //Signin to get token and get products
-    return getProductsWithToken(await getToken());
-      
+    return getProductsWithToken(await getToken())
 
   } catch(error) {
 

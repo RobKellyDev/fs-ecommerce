@@ -21,7 +21,7 @@ const Products = () => {
 
   useEffect(() => {
     async function fetchData() {
-      if (loadJSON('products')) {
+      if (loadJSON('products')) {//products
         const storage = loadJSON('products')
         setData(storage);
         setFilter(storage);
