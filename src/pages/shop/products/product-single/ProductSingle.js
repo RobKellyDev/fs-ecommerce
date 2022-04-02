@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import styles from './single.module.css'
-import { FadeInDiv } from '../animations/FadeInDiv'
+import { FadeInDiv } from '../../../../components/animations/FadeInDiv'
 
 const ProductSingle = ({ product: { id, image, price, title } }) => {
   let singleProduct = (

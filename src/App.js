@@ -1,10 +1,11 @@
 import React from 'react'
 import Home from './pages/Home'
-import Shop from './pages/shop/'
+import Shop from './pages/shop/products'
 import Product from './pages/shop/Product'
 import Cart from './pages/Cart'
 import Checkout from './pages/Checkout'
-import Signin from './pages/Signin'
+import {Signin} from './pages/signin/'
+import * as ROUTE from './constants'
 import NotFound from './pages/NotFound'
 // router
 import { Routes, Route } from 'react-router-dom'
@@ -14,13 +15,13 @@ const App = () => (
   <div>
     <Navbar />
     <Routes>
-      <Route exact path="/" element={<Home />} />
-      <Route exact path="products" element={<Shop />} />
-      <Route exact path="products/:id" element={<Product />} />
-      <Route exact path="cart" element={<Cart />} />
-      <Route exact path="checkout" element={<Checkout />} />
-      <Route exact path="signin" element={<Signin />} />
-      <Route path="*" element={<NotFound />} />
+      <Route exact path={ROUTE.HOME} element={<Home />} />
+      <Route exact path={ROUTE.CART} element={<Cart />} />
+      <Route exact path={ROUTE.CHECKOUT} element={<Checkout />} />
+      <Route exact path={ROUTE.SIGNIN} element={<Signin />} />
+      <Route exact path={ROUTE.PRODUCTS} element={<Shop />} />
+      <Route exact path={ROUTE.PRODUCT} element={<Product />} />
+      <Route path={ROUTE.NOT_FOUND} element={<NotFound />} />
     </Routes>
   </div>
 )

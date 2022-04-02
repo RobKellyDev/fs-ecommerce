@@ -1,0 +1,163 @@
+.signin {
+  width: 100%;
+  margin: 0 auto;
+  max-width: 610px;
+
+}
+
+.signinForm {
+  padding: 2rem;
+}
+
+.signinForm label {
+  font-size: 0.8rem;
+}
+
+.signinForm a {
+  color: var(--color-purple);
+}
+
+.signin h2 {
+  margin: 0 0 15px;
+}
+
+.form-control,
+.login-btn {
+  border-radius: 2px;
+}
+
+.signinForm input:focus {
+  outline: none !important;
+  box-shadow: none !important
+}
+
+.input-group-prepend .fa {
+  font-size: 18px;
+}
+
+.inputGroupText {
+  display: flex;
+  vertical-align: middle;
+  align-items: center;
+  padding: 0.4rem 1rem;
+  height: 38px;
+  font-size: 1.83rem;
+  font-weight: 400;
+  line-height: 40px;
+  color: #ffffff;
+  text-align: center;
+  white-space: nowrap;
+  background-color: #4d4c4c;
+  border-radius: 0.25rem;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+
+}
+
+.inputGroupText .fa {
+  font: normal normal normal 16px/1 FontAwesome;
+}
+
+.login-btn {
+  font-size: 15px;
+  font-weight: bold;
+  min-height: 40px;
+}
+
+
+.formCheck {
+  display: block;
+  min-height: 1.5rem;
+  margin: 0.45rem 0.35rem;
+}
+
+.formCheck input {
+  margin: 0 0.35rem 0 0;
+  line-height: 20px;
+  width: 12px !important;
+  height: 12px !important;
+}
+
+
+
+.formCheck label {
+  vertical-align: top;
+  font-size: .8rem;
+  height: 48px;
+  color: var(--color-black2);
+
+}
+
+
+#formFooter {
+  background-color: #4d4c4c;
+}
+
+
+.noAccount {
+  width: 100%;
+  line-height: 23px;
+  text-align: center;
+  font-size: 1rem;
+  color: var(--color-white);
+}
+
+.noAccount a {
+  color: var(--color-white) !important;
+}
+
+.existingAccount {
+  width: 100%;
+  margin: 0 0 1.5rem 0;
+  text-align: center;
+  font-size: 1rem;
+  color: #515457;
+}
+
+
+#signinFooter {
+  justify-content: flex-end !important;
+  height: 18vh;
+}
+
+#signinBtn {
+  padding: 0;
+  transition: all 0.4s linear 50ms;
+  line-height: 32px;
+  letter-spacing: 0.35px;
+  color: var(--color-black);
+  width: 150px;
+  font-weight: 400;
+  border-color: var(--color-black);
+  font-size: 1.2rem;
+}
+
+#signinBtn:hover {
+  color: var(--color-white);
+}
+
+
+.signinFooter {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  height: 140px;
+}
+
+.socialBtn {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: 1rem 0;
+}
+
+.socialBtn a {
+  padding-left: 2rem;
+  padding-right: 2rem;
+  margin: 0 1rem 0 1rem;
+}
+
+
+p>a {
+  color: var(--color-purple);
+}

@@ -5,11 +5,13 @@
 :root {
   /* colors */
   --color-blue: #2196f3;
+  --color-purple: #673ab7;
   --color-white: #fff;
   --color-red: #dc3545;
   --color-redish: #7a7573;
-  --color-black: #111111;
-  --color-gray: #343434;
+  --color-black: #515457;
+  --color-black2: #60666c;
+
   --color-gray-lg: #ebebeb;
   --color-grey: #00000080;
   --breadcrumb-active-color: var(--color-white);

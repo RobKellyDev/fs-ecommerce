@@ -3,23 +3,6 @@ import React from 'react'
 import Skeleton from 'react-loading-skeleton'
 import 'react-loading-skeleton/dist/skeleton.css'
 
-const BASE_URL = process.env.REACT_APP_BASE_URL
-
-const options = {
-  method: 'GET',
-  headers: {
-    Accept: 'application/json',
-    mode: 'no-cors',
-  },
-}
-
-export const handleProductsAPI = async () => 
-  await fetch(`${BASE_URL}/products`, options)
-
-
-export const handleProductAPI = async (id) => 
-  await fetch(`${BASE_URL}/products/${id}`, options)
-
 
 export const Loading = () => (
   <div className="row mt-5">
