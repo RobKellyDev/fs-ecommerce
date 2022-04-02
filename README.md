@@ -1,4 +1,4 @@
-[![Netlify Status](https://api.netlify.com/api/v1/badges/59b552fd-0590-470a-93b4-c19da849765e/deploy-status)](https://app.netlify.com/sites/endearing-kelpie-38898e/deploys)
+[![Netlify Status](https://api.netlify.com/api/v1/badges/52d2f9fd-3536-4f15-807d-36a1cad7666c/deploy-status)](https://app.netlify.com/sites/stupendous-cendol-168f3f/deploys)
 &nbsp;
 [![DeepScan grade](https://deepscan.io/api/teams/16862/projects/20457/branches/557556/badge/grade.svg)](https://deepscan.io/dashboard#view=project&tid=16862&pid=20457&bid=557556)
 
@@ -13,7 +13,7 @@
 <br />
 <h2>Live link [feature branch]:</h2>
 
-[Live link - feature branch](https://endearing-kelpie-38898e.netlify.app/)
+[Live link - feature branch](https://stupendous-cendol-168f3f.netlify.app/)
 
 <br />
 
