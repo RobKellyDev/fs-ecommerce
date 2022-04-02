@@ -38,4 +38,5 @@ readme.md
 .vscode
 .env.local
 .env.production
+.env
 

@@ -5,9 +5,7 @@ import {
   delItemCart,
   totalCartItems,
 } from '../../redux/actions'
-import {
-  handleProductAPI,
-} from '../../helpers'
+import { loadJSON } from '../../helpers'
 import { Link, useParams } from 'react-router-dom'
 // styles
 import '../../styles/components/Product.scss'
@@ -16,6 +14,7 @@ import { SlideInUpDiv } from '../../components/animations/SlideInUpDiv'
 // skeleton
 import Skeleton from 'react-loading-skeleton'
 import 'react-loading-skeleton/dist/skeleton.css'
+
 
 const Product = () => {
   const { id } = useParams()
@@ -45,16 +44,11 @@ const Product = () => {
     }
   }, [dispatch, cartItems])
 
-  async function getProduct(id) {
-    try {
-      let response = await handleProductAPI(id)
-      let product = await response.json()
+  function getProduct(id) {
+      const products = loadJSON('products');
+      let product = products.find(itm => itm.id === id);
       setProduct(product)
       return setLoading(false)
-    } catch (error) {
-      // eslint-disable-next-line no-console
-      console.log(error)
-    }
   }
 
   useEffect(() => {
