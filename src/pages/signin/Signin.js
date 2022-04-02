@@ -36,6 +36,8 @@ const Signin = () => {
                               type="text"
                               className="form-control"
                               name="username"
+                              autoComplete="username"
+
                               placeholder="Username"
                               required="required"
                             />
@@ -70,6 +72,7 @@ const Signin = () => {
                             <input
                               id="password"
                               type="password"
+                              autoComplete="current-password"
                               className="form-control"
                               name="password"
                               placeholder="Password"
