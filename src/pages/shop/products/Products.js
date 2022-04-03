@@ -4,7 +4,7 @@ import Breadcrumbs from './Breadcrumbs'
 import { SmallHero } from './small-hero'
 import ProductFilters from './ProductFilters'
 import LoadProductsAPI from '../../../LoadProductsAPI'
-import { Loading, loadJSON } from '../../../helpers'
+import { Loading, loadJSON, saveJSON } from '../../../helpers'
 // styles
 import '../../../styles/components/Products.scss'
 //lazysizes
@@ -21,20 +21,22 @@ const Products = () => {
 
   useEffect(() => {
     async function fetchData() {
-      if (loadJSON('products')) {//products
-        const storage = loadJSON('products')
-        setData(storage);
-        setFilter(storage);
-        return setLoading(false)
+      if(loadJSON('products')) {
+        let response = loadJSON('products');
+        setData(response);
+        setFilter(response)
+        return setLoading(false);
       }
+      //products
       let response = await LoadProductsAPI()
-      setData(response);
-      setFilter(response);
-      return setLoading(false)
+      let data = await response.json();
+        setData(data);
+        setFilter(data);
+        saveJSON('products',data);
+        return setLoading(false);
     }
-    fetchData()
+    return fetchData()
   }, [])
-
 
   const ShowProducts = () => (
     <>
@@ -64,6 +66,7 @@ const Products = () => {
         <div className="row row-cols-1 row-cols-md-4 g-4 latest-products">
           <section className="d-flex flex-column my-5">
             <h3 className="mt-5">Section to be....</h3>
+
           </section>
         </div>
       </div>

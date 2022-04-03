@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
+import LoadProductsAPI from '../../LoadProductsAPI'
 import {
   addItemCart,
   delItemCart,
@@ -14,7 +15,6 @@ import { SlideInUpDiv } from '../../components/animations/SlideInUpDiv'
 // skeleton
 import Skeleton from 'react-loading-skeleton'
 import 'react-loading-skeleton/dist/skeleton.css'
-
 
 const Product = () => {
   const { id } = useParams()
@@ -45,10 +45,10 @@ const Product = () => {
   }, [dispatch, cartItems])
 
   function getProduct(id) {
-      const products = loadJSON('products');
-      let product = products.find(itm => itm.id === id);
-      setProduct(product)
-      return setLoading(false)
+    const products = loadJSON('products')
+    let product = products.find((itm) => itm.id === Number(id))
+    setProduct(product)
+    return setLoading(false)
   }
 
   useEffect(() => {

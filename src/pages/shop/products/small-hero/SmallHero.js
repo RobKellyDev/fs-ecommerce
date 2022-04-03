@@ -8,7 +8,7 @@ const SmallHero = () => (
     src={heroCycling}
     width={2048}
     height={268}
-    alt={"Sale banner"}
+    alt={'Sale banner'}
     className={`${styles.smallHero}`}
   />
 )

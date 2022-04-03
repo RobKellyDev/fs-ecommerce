@@ -37,7 +37,6 @@ const Signin = () => {
                               className="form-control"
                               name="username"
                               autoComplete="username"
-
                               placeholder="Username"
                               required="required"
                             />
