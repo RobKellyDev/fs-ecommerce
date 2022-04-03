@@ -9,8 +9,8 @@
 ####  &nbsp;   <kbd><h3>:fire: Firebase Cloud function</h3></kbd>
 
 
-- Passes email/password (user pre-config in Firebase/Firestore DB) then 
-- Bearer token to access products at at [auth]/products endpoint
+- Fn passes admin user email/password and
+- Exchange Bearer token to access products at [auth]/products endpoint
 
 
 <br />
