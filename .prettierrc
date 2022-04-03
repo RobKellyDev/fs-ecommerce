@@ -11,5 +11,6 @@
   "proseWrap": "always",
   "htmlWhitespaceSensitivity": "strict",
   "endOfLine": "lf",
-  "jsxSingleQuote": false
+  "jsxSingleQuote": false,
+  "requirePragma": true
 }

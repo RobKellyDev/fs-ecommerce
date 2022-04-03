@@ -37,6 +37,9 @@ readme.md
 
 .vscode
 .env.local
-.env.production
+.env-cmdrc
+.env-cmdrc
 .env
+.env.development
+.env.production
 
