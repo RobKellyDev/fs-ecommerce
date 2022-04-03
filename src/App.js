@@ -4,7 +4,7 @@ import Shop from './pages/shop/products'
 import Product from './pages/shop/Product'
 import Cart from './pages/Cart'
 import Checkout from './pages/Checkout'
-import {Signin} from './pages/signin/'
+import { Signin } from './pages/signin/'
 import * as ROUTE from './constants'
 import NotFound from './pages/NotFound'
 // router

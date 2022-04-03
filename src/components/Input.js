@@ -1,12 +1,7 @@
-import React from "react";
+import React from 'react'
 
-
-function Input({  ...props }) {
- 
-
-  return <input className={'input'} {...props} />;
+function Input({ ...props }) {
+  return <input className={'input'} {...props} />
 }
 
-
-
-export default Input;
+export default Input
