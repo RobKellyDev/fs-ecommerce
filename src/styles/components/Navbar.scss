@@ -37,23 +37,16 @@
 }
 
 .buttons a {
-  color: var(--color-gray);
-  border: 1px solid var(--color-grey);
+  border: 1px solid var(--color-btwo);
   padding: 4px 10px;
   line-height: 25px;
   display: inline-block;
   margin: 0 0 0 15px;
-  width: 120px;
   transition: all 0.3s linear 50ms;
-  .fa {
-    color: var(--color-black);
-    font-size: 1.5rem;
-    vertical-align: middle;
+  svg {
+    vertical-align: sub;
   }
-}
 
-.btn.btn-outline-dark:hover i.fa {
-  color: var(--color-white);
 }
 
 .navbar-collapse {
@@ -73,27 +66,8 @@
     width: 260px;
   }
 
-  .buttons a {
-    color: var(--color-gray);
-    border: 1px solid var(--color-grey);
-    padding: 5px 10px;
-    line-height: 23px;
-    vertical-align: middle;
-    margin: 5px 8px 3px;
-    padding: 4px 10px;
-    line-height: 25px;
-    display: inline-block;
-    margin: 0 0 0 15px;
-    width: 120px;
-    transition: all 0.3s linear 50ms;
-    .fa {
-      color: var(--color-black);
-      font-size: 1.5rem;
-      vertical-align: middle;
-    }
-  }
 
-  .btn.btn-outline-dark:hover i.fa {
+  .btn.btn-outline-dark:hover svg {
     color: var(--color-white);
   }
 

@@ -36,8 +36,6 @@ readme.md
 
 
 .vscode
-.env.local
-.env-cmdrc
 .env-cmdrc
 .env
 .env.development

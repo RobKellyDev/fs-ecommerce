@@ -18,12 +18,8 @@
 
 
 
-- While it all works fine , for this git project, I"ve gone back to  using a fake store
-JSON data API.
+- While this works too. For a GIT project like this one; I'm better off using a free fake store JSON data API.
 
-- While these are technically free services by Google (50k requests per/day); nowadays, in order to use them, you have to first signup, and enter your credit card information. You didn't have to do that in the past. But I bring it up because there isn't a very safe way to protect your API keys with React in GitHub.
-
-- Anything that you've stored in your `.env` files; regardless of whether the file has been pushed to Github or not, it is publicly accessible, if you know where to look.
 
 
 
@@ -34,7 +30,7 @@ JSON data API.
 
 <p>
 
-That was fun. 😨
+😨
 
   </p>
 

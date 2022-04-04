@@ -1,23 +1,27 @@
 @import '../../node_modules/bootstrap/dist/css/bootstrap.min.css';
 @import '../../node_modules/font-awesome/css/font-awesome.min.css';
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400&display=swap");
 
 :root {
   /* colors */
-  --color-blue: #2196f3;
   --color-purple: #673ab7;
   --color-white: #fff;
   --color-red: #dc3545;
-  --color-redish: #7a7573;
-  --color-black: #515457;
-  --color-black2: #60666c;
 
-  --color-gray-lg: #ebebeb;
-  --color-grey: #00000080;
-  --breadcrumb-active-color: var(--color-white);
-  --breadcrumb-reg-color: var(--bs-gray-600);
-  --breadcrumb-bg: var(--color-black);
-  --breadcrumb-border-color: var(--color-gray);
+  --color-bone: #f1f1f1;
+  --color-btwo: #9e9e9e;
+  --color-bthree: #616161;
+  --color-bfour: #000000;
+
+  --color-tone: #fffcf2;
+  --color-ttwo: #ccc5b9;
+  --color-tthree: #403d39;
+  --color-tfour: #252422;
+  --color-tfive: #eb5e28;
+
+
+  --breadcrumb-bg: var(--color-white);
+  --breadcrumb-border-color: var(--color-ttwo);
 
   /* font */
   --fontone: 'Montserrat', sans-serif;
@@ -43,7 +47,7 @@ body {
   margin: 0 !important;
   padding: 0 !important;
   background-color: transparent !important;
-  color: var(--color-gray);
+  color: var(--color-tthree);
   font-family: var(--fontone);
   line-height: 1.5;
   font-size: 0.8rem;
@@ -132,3 +136,4 @@ body {
 nav + small {
   transition: all 0.4s linear 250ms;
 }
+
