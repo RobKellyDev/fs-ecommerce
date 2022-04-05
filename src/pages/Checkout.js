@@ -8,7 +8,7 @@ const Checkout = () => {
       <div className="container">
         <div className="row">
           <div className="col-12">
-            <h1 className="text-center">Checkout</h1>
+            <h1 className="text-center mt-5">Checkout Not Yet Ready</h1>
             {/* <CheckoutForm /> */}
           </div>
         </div>

@@ -17,10 +17,11 @@ export const delItemCart = (item) => {
 }
 
 // Update Item in cart
-export const updateItemCart = (item, qty = 1) => {
+export const updateItemCart = (item, qty = 1, id) => {
   let itemUpdate = {}
-  itemUpdate.id = item.id
-  itemUpdate.qty = qty
+  itemUpdate.id = id;
+  itemUpdate.qty = qty;
+
   return {
     type: actionTypes.CART_UPDATE,
     payload: itemUpdate,

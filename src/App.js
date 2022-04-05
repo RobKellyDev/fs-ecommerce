@@ -12,7 +12,7 @@ import { Routes, Route } from 'react-router-dom'
 import { Navbar } from './components/navbar'
 
 const App = () => (
-  <div>
+  <>
     <Navbar />
     <Routes>
       <Route exact path={ROUTE.HOME} element={<Home />} />
@@ -23,7 +23,7 @@ const App = () => (
       <Route exact path={ROUTE.PRODUCT} element={<Product />} />
       <Route path={ROUTE.NOT_FOUND} element={<NotFound />} />
     </Routes>
-  </div>
+  </>
 )
 
 export default App

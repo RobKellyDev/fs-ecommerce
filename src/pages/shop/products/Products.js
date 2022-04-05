@@ -5,6 +5,7 @@ import { SmallHero } from './small-hero'
 import ProductFilters from './ProductFilters'
 import LoadProductsAPI from '../../../LoadProductsAPI'
 import { Loading, loadJSON, saveJSON } from '../../../helpers'
+
 // styles
 import '../../../styles/components/Products.scss'
 //lazysizes
@@ -68,6 +69,8 @@ const Products = () => {
             <h3 className="mt-5">Section to be....</h3>
 
           </section>
+
+
         </div>
       </div>
     </div>
