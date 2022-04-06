@@ -6,12 +6,12 @@ import {
   totalCartItems,
   getCartTotal,
   updateItemCart,
-} from '../redux/actions'
-import CartItems from "./cart/CartItems";
+} from '../../redux/actions'
+import CartItems from "./CartItems";
 // styles
-import { FadeInDiv } from '../components/animations/FadeInDiv'
-import '../styles/components/Cart.scss'
-import styles from "./cart/cart.module.css";
+import { FadeInDiv } from '../../components/animations/FadeInDiv'
+import '../../styles/components/Cart.scss'
+import styles from "./cart.module.css";
 
 const Cart = () => {
   const state = useSelector((state) => state.cartReducer)

@@ -16,9 +16,10 @@ import { SlideInUpDiv } from '../../components/animations/SlideInUpDiv'
 import Skeleton from 'react-loading-skeleton'
 import 'react-loading-skeleton/dist/skeleton.css'
 
+
 const Product = () => {
   const { id } = useParams()
-  const [product, setProduct] = useState([])
+  let [product, setProduct] = useState([])
   const [loading, setLoading] = useState(true)
   const [cartBtn, setCartBtn] = useState('Add to Cart')
 
@@ -30,31 +31,34 @@ const Product = () => {
   const addProduct = (product) => {
     if (cartBtn === 'Add to Cart') {
       dispatch(addItemCart(product))
-      setCartBtn('Remove from Cart')
-    } else {
-      dispatch(delItemCart(product))
-      setCartBtn('Add to Cart')
+      return setCartBtn('Remove from Cart')
     }
+    dispatch(delItemCart(product))
+    setCartBtn('Add to Cart')
+
   }
 
   useEffect(() => {
     dispatch(totalCartItems(cartItems))
-    return () => {
-      return [dispatch, cartItems]
-    }
+    return () => cartItems
+
   }, [dispatch, cartItems])
 
-  function getProduct(id) {
-    const products = loadJSON('products')
-    let product = products.find((itm) => itm.id === Number(id))
-    setProduct(product)
-    return setLoading(false)
-  }
+
+
+  const getProduct = (id) =>
+    loadJSON('products').find((itm) => itm.id === Number(id)
+      ? setProduct(itm)
+      : setLoading(false))
+
 
   useEffect(() => {
     getProduct(id)
     return () => getProduct
   }, [id])
+
+
+
 
   // Loading comp
   const Loading = () => (
