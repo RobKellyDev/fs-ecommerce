@@ -2,7 +2,7 @@ import { loadJSON } from './helpers'
 
 const BASE_URL = process.env.REACT_APP_BASE_URL
 
-const LoadProductsAPI = async () => {
+const LoadProductsAPI = () => {
   const headers = new Headers()
   headers.append('Access-Control-Request-Method', 'GET')
 

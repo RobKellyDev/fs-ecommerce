@@ -75,3 +75,25 @@
     margin: 1px 0;
   }
 }
+
+
+/* Navbar */
+.navbar-nav a {
+  font-size: 1.125rem;
+}
+
+
+.navbar {
+  display: flex;
+  flex-direction: column;
+  width: 100vw;
+}
+
+.navbar-nav .nav-item {
+  display: inline-block;
+  min-width: 90px;
+}
+
+nav + small {
+  transition: all 0.4s linear 250ms;
+}

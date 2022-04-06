@@ -4,30 +4,26 @@
 
 :root {
   /* colors */
-  --color-purple: #673ab7;
-  --color-white: #fff;
-  --color-red: #dc3545;
-
-  --color-bone: #f1f1f1;
-  --color-btwo: #9e9e9e;
-  --color-bthree: #616161;
-  --color-bfour: #000000;
-
-  --color-tone: #fffcf2;
-  --color-ttwo: #ccc5b9;
-  --color-tthree: #403d39;
-  --color-tfour: #252422;
-  --color-tfive: #eb5e28;
+  --color-black: #000000;
+  --color-bone: #444444;
+  --color-btwo: #5e5d23;
+  --color-bthree: #cccccc;
+  --color-bfour: #dddddd;
+  --color-ored: #ed5858;
+  --color-oyel: #ebe856;
+  --color-white: #ffffff;
 
 
+  /* breadcrumb */
   --breadcrumb-bg: var(--color-white);
+  --breadcrumb-padding: 1px 3px;
   --breadcrumb-border-color: var(--color-ttwo);
 
   /* font */
   --fontone: 'Montserrat', sans-serif;
 
-  /*breadcrumb */
-  --breadcrumb-padding: 1px 3px;
+
+
 }
 
 /* global */
@@ -62,78 +58,12 @@ body {
   box-shadow: none !important;
 }
 
-.hero > img {
-  display: none !important;
-}
-
-/* Navbar */
-.navbar-nav a {
-  font-size: 1.125rem;
-}
-
-.products {
-  padding: 0;
-  position: relative;
-  width: 100%;
-  display: flex;
-  flex-wrap: wrap;
-  height: auto;
-}
-
-.show-all-products .card,
-.show-all-products .card-title {
-  opacity: 1;
-  transform: rotate(-360deg) translate3d(0px, 0px, 0px);
-  backface-visibility: hidden;
-  perspective: 1000px;
-  transform-style: preserve-3d;
-  transition: all 0.75s ease-in 50ms;
-}
-
-.show-all-products .card::before {
-  opacity: 0;
-  position: relative;
-}
-
-.navbar {
-  display: flex;
-  flex-direction: column;
-  width: 100vw;
-}
-
-.navbar-nav .nav-item {
-  display: inline-block;
-  min-width: 90px;
-}
-
-.hero-big-dietro {
-  background: #000 url(../assets/images/fall.jpg) no-repeat fixed 50% 50%;
-  background-size: 1200px;
-  z-index: 2;
-  color: white;
-  height: 100vh;
-  width: 100%;
-  margin: 0 auto;
-  padding-top: 0;
-  overflow: hidden;
-  transition: all 0.35s linear 50ms;
-}
-
-.hero-card {
-  display: flex;
-  align-items: center;
-  width: 100%;
-  flex-wrap: wrap;
-  height: 100vh;
-  transition: all 0.35s linear 50ms;
-  justify-content: center;
-}
 
 * {
   outline: none !important;
 }
 
-nav + small {
-  transition: all 0.4s linear 250ms;
-}
+
+
+
 

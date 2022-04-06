@@ -21,7 +21,7 @@
       @media only screen and (max-width: 767px) {
         font-size: 1.2rem;
         box-shadow: none;
-        border-color: rgba(0, 0, 0, 0.22);
+        border-color: var(--color-bthree);
       }
       @media screen and (max-width: 590px) {
         display: flex;
@@ -33,7 +33,7 @@
   }
   .products-filters > button:active,
   .products-filters > button:focus {
-    background-color: white;
+    background-color: var(--color-white);
     color: var(--color-black);
   }
 }
@@ -42,3 +42,14 @@
 .latest-products {
   min-height: 50vh;
 }
+
+
+.products {
+  padding: 0;
+  position: relative;
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  height: auto;
+}
+
