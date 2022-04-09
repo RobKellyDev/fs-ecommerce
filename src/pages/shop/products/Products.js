@@ -3,7 +3,7 @@ import { ProductSingle } from './product-single'
 import Breadcrumbs from './Breadcrumbs'
 import { SmallHero } from './small-hero'
 import ProductFilters from './ProductFilters'
-import LoadProductsAPI from '../../../LoadProductsAPI'
+import axios from 'axios'
 import { Loading, loadJSON, saveJSON } from '../../../helpers'
 
 // styles
@@ -11,33 +11,46 @@ import '../../../styles/components/Products.scss'
 //lazysizes
 import 'lazysizes'
 
+const BASE_URL = process.env.REACT_APP_BASE_URL
+
 const Products = () => {
   const [data, setData] = useState([])
   const [filter, setFilter] = useState(data)
   const [loading, setLoading] = useState(true)
+
   const filterProduct = useCallback(
     (cat) => setFilter(data.filter((itm) => itm.category === cat)),
     [data]
   )
 
+
   useEffect(() => {
-    async function fetchData() {
-      if(loadJSON('products')) {
-        let response = loadJSON('products');
-        setData(response);
-        setFilter(response)
-        return setLoading(false);
-      }
-      //products
-      let response = await LoadProductsAPI()
-      let data = await response.json();
-        setData(data);
-        setFilter(data);
-        saveJSON('products',data);
-        return setLoading(false);
+
+    if(loadJSON('products')) {
+      let response = loadJSON('products');
+      setData(response);
+      setFilter(response)
+      return setLoading(false);
     }
-    return fetchData()
-  }, [])
+
+    const fetchData = () => {
+      axios
+        .get(`${BASE_URL}/products`)
+        .then((response) => {
+         let data = response.data;
+          setData(data);
+          setFilter(data);
+          saveJSON('products', data);
+          return setLoading(false);
+        })
+    }
+    fetchData();
+
+    return () => fetchData
+  },[])
+
+
+
 
   const ShowProducts = () => (
     <>
