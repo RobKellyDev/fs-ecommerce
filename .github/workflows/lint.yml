@@ -1,0 +1,23 @@
+name: Prettier linting
+
+on:
+  push:
+    branches: [main, "/bran/0-9/"] # main plus dev branches
+
+jobs:
+  prettier:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+        with:
+          ref: ${{ github.head_ref }}
+          # needed for fetching prev commits
+          fetch-depth: 0
+          
+      - name: Prettify code
+        uses: creyD/prettier_action@v4.2
+        with:
+          prettier_options: --write **/*.{js,jsx,ts,tsx}
+          only_changed: True
